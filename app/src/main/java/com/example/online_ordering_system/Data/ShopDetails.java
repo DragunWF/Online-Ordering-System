@@ -14,6 +14,10 @@ public class ShopDetails extends Details{
         this.dateOfEstablishment = dateOfEstablishment;
     }
 
+    public ShopDetails() {
+        super();
+    }
+
     @Override
     public String toString() {
         return "ShopDetails{" +

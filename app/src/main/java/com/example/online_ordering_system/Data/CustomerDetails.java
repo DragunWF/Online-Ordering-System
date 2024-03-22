@@ -5,6 +5,10 @@ public class CustomerDetails extends Details {
         super(name, age, email, mobileNumber, address, accountType);
     }
 
+    public CustomerDetails() {
+        super();
+    }
+
     @Override
     public String toString() {
         return "CustomerDetails{" +

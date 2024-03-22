@@ -17,6 +17,10 @@ public class Details {
         this.accountType = accountType;
     }
 
+    public Details() {
+
+    }
+
     @Override
     public String toString() {
         return "Details{" +
