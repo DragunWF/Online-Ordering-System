@@ -1,4 +1,4 @@
-package com.example.online_ordering_system.Data;
+package com.example.online_ordering_system.data;
 
 public class CustomerDetails extends Details {
     public CustomerDetails(String name, int age, String email, int mobileNumber, String address, boolean accountType) {
