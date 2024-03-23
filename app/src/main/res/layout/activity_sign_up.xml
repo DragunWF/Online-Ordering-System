@@ -122,11 +122,37 @@
         <EditText
             android:id="@+id/address"
             android:layout_width="match_parent"
-            android:layout_height="129dp"
+            android:layout_height="100dp"
             android:ems="10"
             android:gravity="start|top"
             android:hint="Enter your full address"
             android:inputType="textMultiLine" />
+
+        <TextView
+            android:id="@+id/account_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Type of Account:" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/buyer_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="Buyer" />
+
+            <RadioButton
+                android:id="@+id/seller_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="Seller" />
+        </LinearLayout>
 
     </LinearLayout>
 
