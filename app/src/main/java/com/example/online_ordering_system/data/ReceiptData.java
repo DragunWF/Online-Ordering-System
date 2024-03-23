@@ -1,4 +1,4 @@
-package com.example.online_ordering_system.Data;
+package com.example.online_ordering_system.data;
 
 public class ReceiptData {
     private int transactionID;
