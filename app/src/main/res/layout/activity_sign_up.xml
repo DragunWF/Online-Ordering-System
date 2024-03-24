@@ -157,7 +157,7 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/backBtnSignUp"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:background="#FDF6FE"
