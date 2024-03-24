@@ -1,15 +1,17 @@
 package com.example.online_ordering_system.data;
 
 public class Details {
-    protected String name;
+    protected String username;
+    protected String fullName;
     protected int age;
     protected String email;
     protected int mobileNumber;
     protected String address;
     protected boolean accountType;
 
-    public Details(String name, int age, String email, int mobileNumber, String address, boolean accountType) {
-        this.name = name;
+    public Details(String username, String fullName, int age, String email, int mobileNumber, String address, boolean accountType) {
+        this.username = username;
+        this.fullName = fullName;
         this.age = age;
         this.email = email;
         this.mobileNumber = mobileNumber;
@@ -24,7 +26,7 @@ public class Details {
     @Override
     public String toString() {
         return "Details{" +
-                "name='" + name + '\'' +
+                "name='" + username + '\'' +
                 ", age=" + age +
                 ", email='" + email + '\'' +
                 ", mobileNumber=" + mobileNumber +
@@ -33,12 +35,20 @@ public class Details {
                 '}';
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public int getAge() {

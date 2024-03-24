@@ -1,8 +1,8 @@
 package com.example.online_ordering_system.data;
 
 public class CustomerDetails extends Details {
-    public CustomerDetails(String name, int age, String email, int mobileNumber, String address, boolean accountType) {
-        super(name, age, email, mobileNumber, address, accountType);
+    public CustomerDetails(String username, String fullName, int age, String email, int mobileNumber, String address, boolean accountType) {
+        super(username, fullName, age, email, mobileNumber, address, accountType);
     }
 
     public CustomerDetails() {
@@ -12,7 +12,7 @@ public class CustomerDetails extends Details {
     @Override
     public String toString() {
         return "CustomerDetails{" +
-                "name='" + name + '\'' +
+                "name='" + username + '\'' +
                 ", age=" + age +
                 ", email='" + email + '\'' +
                 ", mobileNumber=" + mobileNumber +

@@ -24,7 +24,7 @@ public class ShopDetails extends Details{
                 "shopName='" + shopName + '\'' +
                 ", shopAddress='" + shopAddress + '\'' +
                 ", dateOfEstablishment=" + dateOfEstablishment +
-                ", name='" + name + '\'' +
+                ", name='" + username + '\'' +
                 ", age=" + age +
                 ", email='" + email + '\'' +
                 ", mobileNumber=" + mobileNumber +
