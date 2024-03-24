@@ -7,8 +7,8 @@ public class ShopDetails extends Details{
     protected String shopAddress;
     protected Date dateOfEstablishment; // new Date(int year, int month, int day)
 
-    public ShopDetails(String name, int age, String email, int mobileNumber, String address, boolean accountType, String shopName, String shopAddress, Date dateOfEstablishment) {
-        super(name, age, email, mobileNumber, address, accountType);
+    public ShopDetails(String name, String fullName, int age, String email, int mobileNumber, String address, boolean accountType, String shopName, String shopAddress, Date dateOfEstablishment) {
+        super(name, fullName, age, email, mobileNumber, address, accountType);
         this.shopName = shopName;
         this.shopAddress = shopAddress;
         this.dateOfEstablishment = dateOfEstablishment;

@@ -1,8 +1,11 @@
 package com.example.online_ordering_system.data;
 
 public class CustomerDetails extends Details {
-    public CustomerDetails(String username, String fullName, int age, String email, int mobileNumber, String address, boolean accountType) {
+    private String password;
+
+    public CustomerDetails(String username, String password, String fullName, int age, String email, int mobileNumber, String address, boolean accountType) {
         super(username, fullName, age, email, mobileNumber, address, accountType);
+        this.password = password;
     }
 
     public CustomerDetails() {
@@ -19,5 +22,13 @@ public class CustomerDetails extends Details {
                 ", address='" + address + '\'' +
                 ", accountType=" + accountType +
                 '}';
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
