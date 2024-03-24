@@ -32,13 +32,13 @@
         app:layout_constraintVertical_bias="0.41">
 
         <TextView
-            android:id="@+id/logInUsernameText"
+            android:id="@+id/loginUsernameText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Username:" />
 
         <EditText
-            android:id="@+id/logInUsername"
+            android:id="@+id/loginUsername"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:ems="10"
@@ -46,13 +46,13 @@
             android:inputType="text" />
 
         <TextView
-            android:id="@+id/logInPasswordText"
+            android:id="@+id/loginPasswordText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Password:" />
 
         <EditText
-            android:id="@+id/logInPassword"
+            android:id="@+id/loginPassword"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:ems="10"
@@ -61,7 +61,7 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/backBtn"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:background="#FDF6FE"
@@ -74,7 +74,7 @@
         app:layout_constraintVertical_bias="0.055" />
 
     <Button
-        android:id="@+id/logInFormsBtn"
+        android:id="@+id/signInBtn"
         android:layout_width="333dp"
         android:layout_height="49dp"
         android:text="SIGN IN"
