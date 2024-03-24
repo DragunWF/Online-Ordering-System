@@ -1,10 +1,12 @@
-package com.example.online_ordering_system;
+package com.example.online_ordering_system.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+
+import com.example.online_ordering_system.R;
 
 public class LandingPageActivity extends AppCompatActivity {
     private Button loginBtn;

@@ -13,7 +13,7 @@
         android:theme="@style/Theme.OnlineOrderingSystem"
         tools:targetApi="31" >
         <activity
-            android:name=".LandingPageActivity"
+            android:name=".activities.LandingPageActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,12 +22,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
             android:exported="false"
             android:label="@string/title_activity_log_in_forms"
             android:theme="@style/Theme.OnlineOrderingSystem" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".activities.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

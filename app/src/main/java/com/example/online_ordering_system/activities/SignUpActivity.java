@@ -1,8 +1,10 @@
-package com.example.online_ordering_system;
+package com.example.online_ordering_system.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.online_ordering_system.R;
 
 public class SignUpActivity extends AppCompatActivity {
 
