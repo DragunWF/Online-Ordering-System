@@ -5,8 +5,11 @@
 - PUT 1 IN PARENTHESIS IF DONE 0 IF NOT
 
 ## Front-End
-
-- `Add stuff here`
+//Main Activity
+- [`1`] - View Profile 
+- [`0`] - Cart Activity
+- [`0`] - Category Dropdown navigation
+- [`0`] - Items Activity
 
 ## Back-End
 
