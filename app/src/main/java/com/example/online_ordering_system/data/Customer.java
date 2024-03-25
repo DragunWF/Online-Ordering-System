@@ -11,9 +11,8 @@ public class Customer {
     private String address;
     private String accountType;
 
-    public Customer(int id, String username, String password, String fullName, String email, String mobileNumber,
+    public Customer(String username, String password, String fullName, String email, String mobileNumber,
                     String address, String accountType) {
-        this.id = id;
         this.username = username;
         this.password = password;
         this.fullName = fullName;
