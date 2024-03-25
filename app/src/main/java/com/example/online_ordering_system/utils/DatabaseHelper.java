@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import com.example.online_ordering_system.data.Customer;
+import com.example.online_ordering_system.data.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private final String PRODUCTS_ID_PK = "products_id"; //PRIMARY KEY
     private final String SHOP_ID_FK = "shop_id"; //FOREIGN KEY FROM SHOP TABLE
     private final String CATEGORY_ID_FK = "category_id"; //FOREIGN KEY FROM CATEGORY TABLE
+    private final String PRODUCT_NAME = "product_name";
     private final String PRICE = "price";
     private final String IMAGE_URL = "image_url";
     //---------------PRODUCTS FIELDS-----------------\\
@@ -85,6 +87,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                              " (" + PRODUCTS_ID_PK + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
                              + SHOP_ID_FK + " INTEGER NOT NULL, "
                              + CATEGORY_ID_FK + " INTEGER NOT NULL, "
+                             + PRODUCT_NAME + " TEXT NOT NULL,"
                              + PRICE + " REAL NOT NULL, "
                              + IMAGE_URL + " TEXT, "
                              + "FOREIGN KEY(" + SHOP_ID_FK + ") REFERENCES " + SHOP_TBL
@@ -125,7 +128,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public List<Customer> getAccounts() {
-        // TODO: Implement select query
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + ACCOUNT_TBL, null);
         List<Customer> accounts = new ArrayList<>();
@@ -147,5 +149,46 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         cursor.close();
         return accounts;
+    }
+
+    public void addProduct(Product product) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(SHOP_ID_FK, product.getShopID());
+        cv.put(CATEGORY_ID_FK, product.getCategoryID());
+        cv.put(PRODUCT_NAME, product.getName());
+        cv.put(PRICE, product.getPrice());
+        cv.put(IMAGE_URL, product.getImageURL());
+
+        db.insert(PRODUCT_TBL, null, cv);
+    }
+
+    public List<Product> getProducts() {
+        return getProducts(null);
+    }
+
+    public List<Product> getProducts(String category) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = category == null ? "SELECT * FROM " + ACCOUNT_TBL :
+                String.format("SELECT * FROM %s WHERE category_id = %s", ACCOUNT_TBL, category);
+        Cursor cursor = db.rawQuery(query, null);
+        List<Product> products = new ArrayList<>();
+
+        if (cursor.moveToFirst()) {
+            do {
+                products.add(new Product(
+                        cursor.getInt(0),
+                        cursor.getInt(1),
+                        cursor.getInt(2),
+                        cursor.getString(3),
+                        cursor.getDouble(4),
+                        cursor.getString(5)
+                ));
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return products;
     }
 }
