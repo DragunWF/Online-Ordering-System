@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.example.online_ordering_system.MainActivity;
 import com.example.online_ordering_system.R;
@@ -40,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
             String username = Utils.getString(usernameText), password = Utils.getString(passwordText);
             CustomerDetails account = AccountAuthentication.loginAccount(username, password);
             if (account == null) {
-                Utils.displayToast(this, "Username and password does not match!");
+                Utils.toast(this, "Username and password does not match!");
             } else {
                 startActivity(new Intent(this, MainActivity.class));
             }
