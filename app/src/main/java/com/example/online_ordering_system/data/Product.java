@@ -4,13 +4,15 @@ public class Product {
     private int id;
     private int shopID;
     private int categoryID;
+    private String name;
     private double price;
     private String imageURL;
 
-    public Product(int id, int shopID, int categoryID, double price, String imageURL) {
+    public Product(int id, int shopID, int categoryID, String name, double price, String imageURL) {
         this.id = id;
         this.shopID = shopID;
         this.categoryID = categoryID;
+        this.name = name;
         this.price = price;
         this.imageURL = imageURL;
     }
@@ -38,6 +40,14 @@ public class Product {
 
     public void setCategoryID(int categoryID) {
         this.categoryID = categoryID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getPrice() {
