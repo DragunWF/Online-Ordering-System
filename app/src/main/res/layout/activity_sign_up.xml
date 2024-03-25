@@ -10,14 +10,14 @@
         android:id="@+id/signupText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SIGN UP"
-        android:textSize="25sp"
+        android:text="Create New Account"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.035" />
+        app:layout_constraintVertical_bias="0.037" />
 
     <Button
         android:id="@+id/signUpSubmitBtn"
@@ -29,12 +29,12 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.932" />
+        app:layout_constraintVertical_bias="0.958" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="348dp"
-        android:layout_height="521dp"
+        android:layout_width="368dp"
+        android:layout_height="547dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -139,33 +139,41 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/buyerRadioBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="Buyer" />
+            <RadioGroup
+                android:id="@+id/typeOfAccountRadioBtnGroup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
-            <RadioButton
-                android:id="@+id/sellerRadioBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="Seller" />
+                <RadioButton
+                    android:id="@+id/buyerRadioBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="Buyer" />
+
+                <RadioButton
+                    android:id="@+id/sellerRadioBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="Seller" />
+            </RadioGroup>
+
         </LinearLayout>
 
     </LinearLayout>
 
     <ImageButton
         android:id="@+id/backBtnSignUp"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="47dp"
+        android:layout_height="41dp"
         android:background="#FDF6FE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.036"
+        app:layout_constraintVertical_bias="0.033"
         app:srcCompat="?attr/actionModeCloseDrawable" />
 </androidx.constraintlayout.widget.ConstraintLayout>
