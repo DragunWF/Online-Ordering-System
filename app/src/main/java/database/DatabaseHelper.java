@@ -9,6 +9,8 @@ import androidx.annotation.Nullable;
 
 import com.example.online_ordering_system.data.CustomerDetails;
 
+import java.util.List;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
     //---------------DATABASE TABLES-----------------\\
     private final String ACCOUNT_TBL = "account_tbl";
@@ -123,5 +125,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(ACCOUNT_TYPE, account.getAccountType());
 
         db.insert(ACCOUNT_TBL, null, cv);
+    }
+
+    public List<CustomerDetails> getAccounts() {
+        // TODO: Implement select query
+        return null;
     }
 }
