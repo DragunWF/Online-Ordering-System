@@ -22,6 +22,11 @@ public class Customer {
         this.accountType = accountType;
     }
 
+    public Customer(int id, String username, String password, String fullName, String email, String mobileNumber, String address, String accountType) {
+        this(username, password, fullName, email, mobileNumber, address, accountType);
+        this.id = id;
+    }
+
     public Customer() {
         super();
     }

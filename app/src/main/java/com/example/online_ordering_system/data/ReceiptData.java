@@ -6,8 +6,8 @@ public class ReceiptData {
     private String shopName;
     private String address;
 
-    public ReceiptData(int transactionID, int shippingFee, ShopDetails shop, Customer customer) {
-        this.shopName = shop.shopName;
+    public ReceiptData(int transactionID, int shippingFee, Shop shop, Customer customer) {
+        this.shopName = shop.getShopName();
         this.address = customer.getAddress();
         this.transactionID = transactionID;
         this.shippingFee = shippingFee;
