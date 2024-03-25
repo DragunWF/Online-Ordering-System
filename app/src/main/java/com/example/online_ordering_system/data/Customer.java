@@ -1,7 +1,6 @@
 package com.example.online_ordering_system.data;
 
 public class Customer {
-
     private int id;
     private String username;
     private String password;
