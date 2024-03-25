@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-public class AccountDatabase extends SQLiteOpenHelper {
+public class DatabaseHelper extends SQLiteOpenHelper {
     //---------------DATABASE TABLES-----------------\\
     private final String ACCOUNT_TBL = "account_tbl";
     private final String SHOP_TBL = "shop_tbl";
@@ -47,7 +47,7 @@ public class AccountDatabase extends SQLiteOpenHelper {
     //---------------CATEGORY FIELDS-----------------\\
 
 
-    public AccountDatabase(@Nullable Context context) {
+    public DatabaseHelper(@Nullable Context context) {
         super(context, "accounts.db", null, 1);
     }
 
