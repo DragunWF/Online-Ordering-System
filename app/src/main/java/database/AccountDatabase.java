@@ -21,6 +21,7 @@ public class AccountDatabase extends SQLiteOpenHelper {
     private final String FULL_NAME = "full_name";
     private final String AGE = "age";
     private final String MOBILE_NUMBER = "mobile_number";
+    private final String ADDRESS = "address";
     private final String ACCOUNT_TYPE = "account_type";
     //---------------ACCOUNT FIELDS-----------------\\
 
@@ -28,7 +29,7 @@ public class AccountDatabase extends SQLiteOpenHelper {
     private final String SHOP_ID_PK = "shop_id"; //PRIMARY KEY
     private final String OWNER_ID_FK = "owner_id"; //FOREIGN KEY FROM ACCOUNT_TBL
     private final String SHOP_NAME = "shop_name";
-    private final String ADDRESS = "shop_address";
+    private final String SHOP_ADDRESS = "shop_address";
     private final String DATE_ESTABLISH = "establishment_date";
     //---------------SHOP FIELDS-----------------\\
 
@@ -60,7 +61,24 @@ public class AccountDatabase extends SQLiteOpenHelper {
                             + MOBILE_NUMBER + " VARCHAR(15) NOT NULL, "
                             + ADDRESS + " TEXT NOT NULL, "
                             + ACCOUNT_TYPE + " VARCHAR(10) NOT NULL)";
+
+        String shopsTbl = "CREATE TABLE " + SHOP_TBL +
+                          " (" + SHOP_ID_PK + " INT PRIMARY KEY AUTOINCREMENT NOT NULL, "
+                          + OWNER_ID_FK + " INT NOT NULL, "
+                          + "FOREIGN KEY(" + OWNER_ID_FK + ") REFERENCES " + ACCOUNT_TBL
+                          + "(" + USER_ID_PK + "), "
+                          + SHOP_NAME + " VARCHAR(30) NOT NULL, "
+                          + SHOP_ADDRESS + " TEXT NOT NULL, "
+                          + DATE_ESTABLISH + " DATE NOT NULL)";
+
         db.execSQL(accountTbl);
+        db.execSQL(shopsTbl);
+    }
+
+    @Override
+    public void onConfigure(SQLiteDatabase db) {
+        super.onConfigure(db);
+        db.execSQL("PRAGMA foreign_keys = ON;");
     }
 
     @Override
