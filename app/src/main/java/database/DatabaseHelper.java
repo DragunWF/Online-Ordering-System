@@ -1,10 +1,13 @@
 package database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import com.example.online_ordering_system.data.CustomerDetails;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     //---------------DATABASE TABLES-----------------\\
@@ -20,6 +23,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private final String PASSWORD = "password";
     private final String FULL_NAME = "full_name";
     private final String AGE = "age";
+    private final String EMAIL = "email";
     private final String MOBILE_NUMBER = "mobile_number";
     private final String ADDRESS = "address";
     private final String ACCOUNT_TYPE = "account_type";
@@ -48,7 +52,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     public DatabaseHelper(@Nullable Context context) {
-        super(context, "accounts.db", null, 1);
+        super(context, "oos.db", null, 1);
     }
 
     @Override
@@ -59,6 +63,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                             + PASSWORD + " VARCHAR(100) NOT NULL, "
                             + FULL_NAME + " VARCHAR(50) NOT NULL, "
                             + AGE + " INT NOT NULL, "
+                            + EMAIL + " VARCHAR(100) NOT NULL, "
                             + MOBILE_NUMBER + " VARCHAR(15) NOT NULL, "
                             + ADDRESS + " TEXT NOT NULL, "
                             + ACCOUNT_TYPE + " VARCHAR(10) NOT NULL)";
@@ -102,5 +107,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+    }
+
+    public void addAccount(CustomerDetails account) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(USERNAME, account.getUsername());
+        cv.put(PASSWORD, account.getPassword());
+        cv.put(FULL_NAME, account.getFullName());
+        cv.put(AGE, account.getAge());
+        cv.put(EMAIL, account.getEmail());
+        cv.put(MOBILE_NUMBER, account.getMobileNumber());
+        cv.put(ADDRESS, account.getAddress());
+        cv.put(ACCOUNT_TYPE, account.getAccountType());
+
+        db.insert(ACCOUNT_TBL, null, cv);
     }
 }
