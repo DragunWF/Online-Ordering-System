@@ -68,7 +68,7 @@ public class SignUpActivity extends AppCompatActivity {
                 try {
                     DatabaseHelper db = new DatabaseHelper(SignUpActivity.this);
                     db.addAccount(new Customer());
-                    startActivity(new Intent(SignUpActivity.this, MainActivity.this));
+                    startActivity(new Intent(SignUpActivity.this, MainActivity.class));
                 } catch (Exception err) {
                     Utils.toast(this, "An unexpected error has occurred!");
                 }
