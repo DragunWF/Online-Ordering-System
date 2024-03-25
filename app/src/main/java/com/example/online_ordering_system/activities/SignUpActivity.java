@@ -2,13 +2,17 @@ package com.example.online_ordering_system.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.example.online_ordering_system.MainActivity;
 import com.example.online_ordering_system.R;
+import com.example.online_ordering_system.data.Customer;
 import com.example.online_ordering_system.utils.AccountAuthentication;
+import com.example.online_ordering_system.utils.DatabaseHelper;
 import com.example.online_ordering_system.utils.Utils;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -61,6 +65,13 @@ public class SignUpActivity extends AppCompatActivity {
                 errorMessage("Address is empty!");
             } else {
                 // TODO: Create Account
+                try {
+                    DatabaseHelper db = new DatabaseHelper(SignUpActivity.this);
+                    db.addAccount(new Customer());
+                    startActivity(new Intent(SignUpActivity.this, MainActivity.this));
+                } catch (Exception err) {
+                    Utils.toast(this, "An unexpected error has occurred!");
+                }
             }
         });
     }
