@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 
 import com.example.online_ordering_system.MainActivity;
 import com.example.online_ordering_system.R;
-import com.example.online_ordering_system.data.CustomerDetails;
+import com.example.online_ordering_system.data.Customer;
 import com.example.online_ordering_system.utils.AccountAuthentication;
 import com.example.online_ordering_system.utils.Utils;
 
@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         signInBtn.setOnClickListener(v -> {
             // TODO: Login Authentication
             String username = Utils.getString(usernameText), password = Utils.getString(passwordText);
-            CustomerDetails account = AccountAuthentication.loginAccount(username, password);
+            Customer account = AccountAuthentication.loginAccount(username, password);
             if (account == null) {
                 Utils.toast(this, "Username and password does not match!");
             } else {

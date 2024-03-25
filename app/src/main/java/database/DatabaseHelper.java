@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import com.example.online_ordering_system.data.CustomerDetails;
+import com.example.online_ordering_system.data.Customer;
 
 import java.util.List;
 
@@ -111,7 +111,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void addAccount(CustomerDetails account) {
+    public void addAccount(Customer account) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -127,7 +127,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.insert(ACCOUNT_TBL, null, cv);
     }
 
-    public List<CustomerDetails> getAccounts() {
+    public List<Customer> getAccounts() {
         // TODO: Implement select query
         return null;
     }
