@@ -46,6 +46,7 @@ public class AccountDatabase extends SQLiteOpenHelper {
     private final String CATEGORY_NAME = "category_name";
     //---------------CATEGORY FIELDS-----------------\\
 
+
     public AccountDatabase(@Nullable Context context) {
         super(context, "accounts.db", null, 1);
     }
@@ -63,16 +64,20 @@ public class AccountDatabase extends SQLiteOpenHelper {
                             + ACCOUNT_TYPE + " VARCHAR(10) NOT NULL)";
 
         String shopsTbl = "CREATE TABLE " + SHOP_TBL +
-                          " (" + SHOP_ID_PK + " INT PRIMARY KEY AUTOINCREMENT NOT NULL, "
+                          " (" + SHOP_ID_PK + " INT PRIMARY KEY AUTOINCREMENT, "
                           + OWNER_ID_FK + " INT NOT NULL, "
-                          + "FOREIGN KEY(" + OWNER_ID_FK + ") REFERENCES " + ACCOUNT_TBL
-                          + "(" + USER_ID_PK + "), "
                           + SHOP_NAME + " VARCHAR(30) NOT NULL, "
                           + SHOP_ADDRESS + " TEXT NOT NULL, "
-                          + DATE_ESTABLISH + " DATE NOT NULL)";
+                          + DATE_ESTABLISH + " DATE NOT NULL, "
+                          + " FOREIGN KEY(" + OWNER_ID_FK + ") REFERENCES " + ACCOUNT_TBL
+                          + "(" + USER_ID_PK + "))";
+
+        String productsTbl = "CREATE TABLE " + PRODUCT_TBL +
+                             " (" + PRODUCTS_ID_PK + " INT NOT NULL";
 
         db.execSQL(accountTbl);
         db.execSQL(shopsTbl);
+        db.execSQL(productsTbl);
     }
 
     @Override
