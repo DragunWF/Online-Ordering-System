@@ -54,7 +54,7 @@ public class AccountDatabase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String accountTbl = "CREATE TABLE " + ACCOUNT_TBL +
-                            " (" + USER_ID_PK + " INT PRIMARY KEY AUTOINCREMENT NOT NULL, "
+                            "(" + USER_ID_PK + " INT PRIMARY KEY AUTOINCREMENT NOT NULL, "
                             + USERNAME + " VARCHAR(16) NOT NULL, "
                             + PASSWORD + " VARCHAR(100) NOT NULL, "
                             + FULL_NAME + " VARCHAR(50) NOT NULL, "
@@ -63,21 +63,34 @@ public class AccountDatabase extends SQLiteOpenHelper {
                             + ADDRESS + " TEXT NOT NULL, "
                             + ACCOUNT_TYPE + " VARCHAR(10) NOT NULL)";
 
-        String shopsTbl = "CREATE TABLE " + SHOP_TBL +
-                          " (" + SHOP_ID_PK + " INT PRIMARY KEY AUTOINCREMENT, "
+        String shopTbl = "CREATE TABLE " + SHOP_TBL +
+                          "(" + SHOP_ID_PK + " INT PRIMARY KEY AUTOINCREMENT NOT NULL, "
                           + OWNER_ID_FK + " INT NOT NULL, "
                           + SHOP_NAME + " VARCHAR(30) NOT NULL, "
                           + SHOP_ADDRESS + " TEXT NOT NULL, "
                           + DATE_ESTABLISH + " DATE NOT NULL, "
-                          + " FOREIGN KEY(" + OWNER_ID_FK + ") REFERENCES " + ACCOUNT_TBL
+                          + "FOREIGN KEY(" + OWNER_ID_FK + ") REFERENCES " + ACCOUNT_TBL
                           + "(" + USER_ID_PK + "))";
 
-        String productsTbl = "CREATE TABLE " + PRODUCT_TBL +
-                             " (" + PRODUCTS_ID_PK + " INT NOT NULL";
+        String categoryTbl = "CREATE TABLE " + CATEGORY_TBL +
+                             "(" + CATEGORY_ID_PK + " INT PRIMARY KEY AUTOINCREMENT NOT NULL, "
+                             + CATEGORY_NAME + " VARCHAR(30) NOT NULL)";
+
+        String productTbl = "CREATE TABLE " + PRODUCT_TBL +
+                             " (" + PRODUCTS_ID_PK + " INT PRIMARY KEY AUTOINCREMENT NOT NULL, "
+                             + SHOP_ID_FK + " INT NOT NULL, "
+                             + CATEGORY_ID_FK + " INT NOT NULL, "
+                             + PRICE + " REAL NOT NULL, "
+                             + IMAGE_URL + " TEXT, "
+                             + "FOREIGN KEY(" + SHOP_ID_FK + ") REFERENCES " + SHOP_TBL
+                             + "(" + SHOP_ID_PK +"), "
+                             + "FOREIGN KEY(" + CATEGORY_ID_FK + ") REFERENCES " + CATEGORY_TBL
+                             + "(" + CATEGORY_ID_PK + "))";
 
         db.execSQL(accountTbl);
-        db.execSQL(shopsTbl);
-        db.execSQL(productsTbl);
+        db.execSQL(shopTbl);
+        db.execSQL(categoryTbl);
+        db.execSQL(productTbl);
     }
 
     @Override
