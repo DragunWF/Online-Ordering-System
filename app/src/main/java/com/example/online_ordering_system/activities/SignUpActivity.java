@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.example.online_ordering_system.R;
 import com.example.online_ordering_system.utils.AccountAuthentication;
@@ -67,6 +66,6 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void errorMessage(String message) {
-        Utils.displayToast(this, message);
+        Utils.toast(this, message);
     }
 }

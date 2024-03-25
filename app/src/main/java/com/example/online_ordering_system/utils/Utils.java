@@ -9,7 +9,7 @@ public class Utils {
         return String.valueOf(text.getText());
     }
 
-    public static void displayToast(Context context, String message) {
+    public static void toast(Context context, String message) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 }
