@@ -31,4 +31,12 @@ public class CustomerDetails extends Details {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getAccountType() {
+        return accountType ? "buyer" : "seller";
+    }
+
+    public void setAccountType(boolean isBuyer) {
+        accountType = isBuyer;
+    }
 }
