@@ -72,7 +72,7 @@ public class SignUpActivity extends AppCompatActivity {
                 errorMessage("Mobile number is invalid!");
             } else if (address.isEmpty()) {
                 errorMessage("Address is empty!");
-            } else if (!buyerBtn.isActivated() && !sellerBtn.isActivated()) {
+            } else if (!buyerBtn.isChecked() && !sellerBtn.isChecked()) {
                 errorMessage("Please select an account type!");
             } else {
                 // TODO: Create Account
@@ -85,13 +85,6 @@ public class SignUpActivity extends AppCompatActivity {
                     Utils.toast(this, "An unexpected error has occurred!");
                 }
             }
-        });
-
-        buyerBtn.setOnClickListener(v -> {
-            sellerBtn.setChecked(false);
-        });
-        sellerBtn.setOnClickListener(v -> {
-            buyerBtn.setChecked(false);
         });
     }
 

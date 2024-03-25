@@ -37,7 +37,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private final String OWNER_ID_FK = "owner_id"; //FOREIGN KEY FROM ACCOUNT_TBL
     private final String SHOP_NAME = "shop_name";
     private final String SHOP_ADDRESS = "shop_address";
-    private final String DATE_ESTABLISH = "establishment_date";
     //---------------SHOP FIELDS-----------------\\
 
     //---------------PRODUCTS FIELDS-----------------\\
@@ -61,32 +60,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String accountTbl = "CREATE TABLE " + ACCOUNT_TBL +
-                            "(" + USER_ID_PK + " INT PRIMARY KEY AUTOINCREMENT NOT NULL, "
-                            + USERNAME + " VARCHAR(16) NOT NULL, "
-                            + PASSWORD + " VARCHAR(100) NOT NULL, "
-                            + FULL_NAME + " VARCHAR(50) NOT NULL, "
-                            + EMAIL + " VARCHAR(100) NOT NULL, "
-                            + MOBILE_NUMBER + " VARCHAR(15) NOT NULL, "
+                            "(" + USER_ID_PK + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
+                            + USERNAME + " TEXT NOT NULL, "
+                            + PASSWORD + " TEXT NOT NULL, "
+                            + FULL_NAME + " TEXT NOT NULL, "
+                            + EMAIL + " TEXT NOT NULL, "
+                            + MOBILE_NUMBER + " TEXT NOT NULL, "
                             + ADDRESS + " TEXT NOT NULL, "
-                            + ACCOUNT_TYPE + " VARCHAR(10) NOT NULL)";
+                            + ACCOUNT_TYPE + " TEXT NOT NULL)";
 
         String shopTbl = "CREATE TABLE " + SHOP_TBL +
-                          "(" + SHOP_ID_PK + " INT PRIMARY KEY AUTOINCREMENT NOT NULL, "
-                          + OWNER_ID_FK + " INT NOT NULL, "
-                          + SHOP_NAME + " VARCHAR(30) NOT NULL, "
+                          "(" + SHOP_ID_PK + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
+                          + OWNER_ID_FK + " INTEGER NOT NULL, "
+                          + SHOP_NAME + " TEXT NOT NULL, "
                           + SHOP_ADDRESS + " TEXT NOT NULL, "
-                          + DATE_ESTABLISH + " DATE NOT NULL, "
                           + "FOREIGN KEY(" + OWNER_ID_FK + ") REFERENCES " + ACCOUNT_TBL
                           + "(" + USER_ID_PK + "))";
 
         String categoryTbl = "CREATE TABLE " + CATEGORY_TBL +
-                             "(" + CATEGORY_ID_PK + " INT PRIMARY KEY AUTOINCREMENT NOT NULL, "
-                             + CATEGORY_NAME + " VARCHAR(30) NOT NULL)";
+                             "(" + CATEGORY_ID_PK + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
+                             + CATEGORY_NAME + " TEXT NOT NULL)";
 
         String productTbl = "CREATE TABLE " + PRODUCT_TBL +
-                             " (" + PRODUCTS_ID_PK + " INT PRIMARY KEY AUTOINCREMENT NOT NULL, "
-                             + SHOP_ID_FK + " INT NOT NULL, "
-                             + CATEGORY_ID_FK + " INT NOT NULL, "
+                             " (" + PRODUCTS_ID_PK + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
+                             + SHOP_ID_FK + " INTEGER NOT NULL, "
+                             + CATEGORY_ID_FK + " INTEGER NOT NULL, "
                              + PRICE + " REAL NOT NULL, "
                              + IMAGE_URL + " TEXT, "
                              + "FOREIGN KEY(" + SHOP_ID_FK + ") REFERENCES " + SHOP_TBL
