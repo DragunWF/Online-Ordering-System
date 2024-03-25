@@ -1,21 +1,22 @@
 package com.example.online_ordering_system.data;
 
 public class Customer {
+
+    private int id;
     private String username;
     private String password;
     private String fullName;
-    private int age;
     private String email;
-    private int mobileNumber;
+    private String mobileNumber;
     private String address;
-    private boolean accountType;
+    private String accountType;
 
-    public Customer(String username, String password, String fullName, int age, String email, int mobileNumber,
-            String address, boolean accountType) {
+    public Customer(int id, String username, String password, String fullName, String email, String mobileNumber,
+                    String address, String accountType) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.fullName = fullName;
-        this.age = age;
         this.email = email;
         this.mobileNumber = mobileNumber;
         this.address = address;
@@ -32,7 +33,6 @@ public class Customer {
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", fullName='" + fullName + '\'' +
-                ", age=" + age +
                 ", email='" + email + '\'' +
                 ", mobileNumber=" + mobileNumber +
                 ", address='" + address + '\'' +
@@ -41,6 +41,14 @@ public class Customer {
     }
 
     // ---------------> GETTERS AND SETTERS <---------------
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -65,14 +73,6 @@ public class Customer {
         this.fullName = fullName;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -81,11 +81,11 @@ public class Customer {
         this.email = email;
     }
 
-    public int getMobileNumber() {
+    public String getMobileNumber() {
         return mobileNumber;
     }
 
-    public void setMobileNumber(int mobileNumber) {
+    public void setMobileNumber(String mobileNumber) {
         this.mobileNumber = mobileNumber;
     }
 
@@ -98,10 +98,10 @@ public class Customer {
     }
 
     public String getAccountType() {
-        return accountType ? "buyer" : "seller";
+        return accountType;
     }
 
-    public void setAccountType(boolean isBuyer) {
-        accountType = isBuyer;
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
     }
 }
