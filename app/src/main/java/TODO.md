@@ -7,7 +7,7 @@
 ## Front-End
 //Main Activity
 - [`1`] - View Profile 
-- [`0`] - Cart Activity
+- [`1`] - Cart Activity
 - [`0`] - Category Dropdown navigation
 - [`0`] - Items Activity
 
