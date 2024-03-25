@@ -6,9 +6,9 @@ public class ReceiptData {
     private String shopName;
     private String address;
 
-    public ReceiptData(int transactionID, int shippingFee, ShopDetails shop, CustomerDetails customer) {
+    public ReceiptData(int transactionID, int shippingFee, ShopDetails shop, Customer customer) {
         this.shopName = shop.shopName;
-        this.address = customer.address;
+        this.address = customer.getAddress();
         this.transactionID = transactionID;
         this.shippingFee = shippingFee;
     }
