@@ -140,14 +140,14 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/buyer_radio"
+                android:id="@+id/buyerRadioBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:layout_weight="1"
                 android:text="Buyer" />
 
             <RadioButton
-                android:id="@+id/seller_radio"
+                android:id="@+id/sellerRadioBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:layout_weight="1"

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 
 import com.example.online_ordering_system.MainActivity;
 import com.example.online_ordering_system.R;
@@ -26,6 +27,9 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText mobileNumberText;
     private EditText addressText;
 
+    private RadioButton buyerBtn;
+    private RadioButton sellerBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,14 +45,19 @@ public class SignUpActivity extends AppCompatActivity {
         backBtn = findViewById(R.id.backBtnSignUp);
         signUpSubmitBtn = findViewById(R.id.signUpSubmitBtn);
 
+        buyerBtn = findViewById(R.id.buyerRadioBtn);
+        sellerBtn = findViewById(R.id.sellerRadioBtn);
+
         backBtn.setOnClickListener(v -> {
             finish();
         });
+
         signUpSubmitBtn.setOnClickListener(v -> {
             // TODO: Set up Account Registration
             String username = Utils.getString(usernameText), password = Utils.getString(passwordText),
                     fullName = Utils.getString(fullNameText), email = Utils.getString(emailText),
                     mobileNumber = Utils.getString(mobileNumberText), address = Utils.getString(addressText);
+            String accountType;
             if (username.isEmpty()) {
                 errorMessage("Username is empty!");
             } else if (AccountAuthentication.isAccountExists(username)) {
@@ -63,16 +72,26 @@ public class SignUpActivity extends AppCompatActivity {
                 errorMessage("Mobile number is invalid!");
             } else if (address.isEmpty()) {
                 errorMessage("Address is empty!");
+            } else if (!buyerBtn.isActivated() && !sellerBtn.isActivated()) {
+                errorMessage("Please select an account type!");
             } else {
                 // TODO: Create Account
                 try {
                     DatabaseHelper db = new DatabaseHelper(SignUpActivity.this);
-                    db.addAccount(new Customer());
+                    accountType = buyerBtn.isActivated() ? "buyer" : "seller";
+                    db.addAccount(new Customer(username, password, fullName, email, mobileNumber, address, accountType));
                     startActivity(new Intent(SignUpActivity.this, MainActivity.class));
                 } catch (Exception err) {
                     Utils.toast(this, "An unexpected error has occurred!");
                 }
             }
+        });
+
+        buyerBtn.setOnClickListener(v -> {
+            sellerBtn.setChecked(false);
+        });
+        sellerBtn.setOnClickListener(v -> {
+            buyerBtn.setChecked(false);
         });
     }
 
