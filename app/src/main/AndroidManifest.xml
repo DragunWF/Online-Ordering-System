@@ -13,7 +13,7 @@
         android:theme="@style/Theme.OnlineOrderingSystem"
         tools:targetApi="31">
         <activity
-            android:name=".ReceiptActivity"
+            android:name=".activities.ReceiptActivity"
             android:exported="false" />
         <activity
             android:name=".activities.CheckoutActivity"
