@@ -23,6 +23,16 @@ public class Product {
         this.imageURL = imageURL;
     }
 
+    public Product(int shopID, int categoryID, String name, String description, int stock, double price, String imageURL) {
+        this.shopID = shopID;
+        this.categoryID = categoryID;
+        this.name = name;
+        this.description = description;
+        this.stock = stock;
+        this.price = price;
+        this.imageURL = imageURL;
+    }
+
     // ---------------> GETTERS AND SETTERS <---------------
     public int getId() {
         return id;
