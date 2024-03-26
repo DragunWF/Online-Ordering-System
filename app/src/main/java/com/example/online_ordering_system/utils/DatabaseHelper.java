@@ -133,12 +133,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
 
+        int sellerId = 10;
         db.execSQL(String.format("INSERT INTO %s (category_name) VALUES ('%s'), ('%s'), ('%s'), ('%s'), ('%s')",
                 CATEGORY_TBL, "Clothes", "Accessories", "PC Parts", "Gadgets", "House Furniture"));
         db.execSQL(String.format("INSERT INTO %s (%s, %s, %s, %s, %s, %s, %s, %s) ", ACCOUNT_TBL, USER_ID_PK, USERNAME, PASSWORD, FULL_NAME, EMAIL, MOBILE_NUMBER, ADDRESS, ACCOUNT_TYPE)
-                + String.format("VALUES (10, 'Seller01', 'password', 'Jack Sparrow', 'sparrow@gmail.com', '0960 423 5124', 'Quezon City', 'seller')"));
-        db.execSQL(String.format("INSERT INTO %s (%s, %s, %s, %s) ", SHOP_TBL, OWNER_ID_FK, SHOP_NAME, SHOP_ADDRESS) +
-                String.format("VALUES (%s, '%s', '%s')", 10));
+                + String.format("VALUES (%s, 'Seller01', 'password', 'Jack Sparrow', 'sparrow@gmail.com', '0960 423 5124', 'Quezon City', 'seller')", sellerId));
+        db.execSQL(String.format("INSERT INTO %s (%s, %s, %s) ", SHOP_TBL, OWNER_ID_FK, SHOP_NAME, SHOP_ADDRESS) +
+                String.format("VALUES (%s, '%s', '%s')", sellerId, "Avalon", "Batangas City"));
 
         cursor.close();
         SessionData.setCategories(categories);
