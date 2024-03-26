@@ -10,10 +10,11 @@ import java.util.ArrayList;
 
 public class AccountAuthentication {
     private static final List<Customer> accounts = new ArrayList<>();
-    private static Customer currentUser;
 
     public static void initializeAccounts(Context context) {
-        accounts.addAll(new DatabaseHelper(context).getAccounts());
+        if (accounts.size() == 0) {
+            accounts.addAll(new DatabaseHelper(context).getAccounts());
+        }
     }
 
     public static boolean isAccountExists(String username) {
@@ -28,7 +29,7 @@ public class AccountAuthentication {
     public static Customer loginAccount(String username, String password) {
         for (Customer account : accounts) {
             if (account.getUsername().equals(username) && account.getPassword().equals(password)) {
-                currentUser = account;
+                SessionData.setCurrentUser(account);
                 return account;
             }
         }
