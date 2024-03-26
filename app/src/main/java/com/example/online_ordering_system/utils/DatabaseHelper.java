@@ -108,9 +108,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(productTbl);
 
         // Insert Pre-determined Data
-        db.execSQL(String.format("INSERT INTO %s VALUES (%s, %s, %s, %s, %s)",
-                PRODUCT_TBL, "Clothes", "Accessories", "PC Parts", "Gadgets", "House Furniture"));
-        setPredeterminedData();
+        List<Category> categories = new ArrayList<>();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + CATEGORY_TBL, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                categories.add(new Category(cursor.getInt(0), cursor.getString(1)));
+            } while (cursor.moveToNext());
+        }
+
+        int sellerId = 10;
+        db.execSQL(String.format("INSERT INTO %s (category_name) VALUES ('%s'), ('%s'), ('%s'), ('%s'), ('%s')",
+                CATEGORY_TBL, "Clothes", "Accessories", "PC Parts", "Gadgets", "House Furniture"));
+        db.execSQL(String.format("INSERT INTO %s (%s, %s, %s, %s, %s, %s, %s, %s) ", ACCOUNT_TBL, USER_ID_PK, USERNAME, PASSWORD, FULL_NAME, EMAIL, MOBILE_NUMBER, ADDRESS, ACCOUNT_TYPE)
+                + String.format("VALUES (%s, 'Seller01', 'password', 'Jack Sparrow', 'sparrow@gmail.com', '0960 423 5124', 'Quezon City', 'seller')", sellerId));
+        db.execSQL(String.format("INSERT INTO %s (%s, %s, %s) ", SHOP_TBL, OWNER_ID_FK, SHOP_NAME, SHOP_ADDRESS) +
+                String.format("VALUES (%s, '%s', '%s')", sellerId, "Avalon", "Batangas City"));
+
+        cursor.close();
+        SessionData.setCategories(categories);
     }
 
     @Override
@@ -122,21 +138,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-    }
-
-    private void setPredeterminedData() {
-        List<Category> categories = new ArrayList<>();
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + CATEGORY_TBL, null);
-
-        if (cursor.moveToFirst()) {
-            do {
-                categories.add(new Category(cursor.getInt(0), cursor.getString(1)));
-            } while (cursor.moveToNext());
-        }
-
-        cursor.close();
-        SessionData.setCategories(categories);
     }
 
     public void addAccount(Customer account) {
