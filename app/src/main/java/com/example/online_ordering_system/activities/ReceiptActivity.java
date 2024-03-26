@@ -52,5 +52,11 @@ public class ReceiptActivity extends AppCompatActivity {
         backBtn.setOnClickListener(v -> {
             finish();
         });
+
+        setDetails();
+    }
+
+    private void setDetails() {
+    
     }
 }
