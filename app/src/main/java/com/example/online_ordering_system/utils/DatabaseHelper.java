@@ -119,15 +119,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         int sellerId = 10;
-        db.execSQL(String.format("INSERT INTO %s (category_name) VALUES ('%s'), ('%s'), ('%s'), ('%s'), ('%s')",
-                CATEGORY_TBL, "Clothes", "Accessories", "PC Parts", "Gadgets", "House Furniture"));
+        db.execSQL(String.format("INSERT INTO %s (%s) VALUES ('%s'), ('%s'), ('%s'), ('%s'), ('%s')",
+                CATEGORY_TBL, CATEGORY_NAME, "Clothes", "Accessories", "PC Parts", "Gadgets", "House Furniture"));
         db.execSQL(String.format("INSERT INTO %s (%s, %s, %s, %s, %s, %s, %s, %s) ", ACCOUNT_TBL, USER_ID_PK, USERNAME,
                 PASSWORD, FULL_NAME, EMAIL, MOBILE_NUMBER, ADDRESS, ACCOUNT_TYPE)
                 + String.format("VALUES (%s, 'Seller01', 'password', 'Jack Sparrow', 'sparrow@gmail.com', '0960 423 5124', 'Quezon City', 'seller')",
                         sellerId));
         db.execSQL(String.format("INSERT INTO %s (%s, %s, %s) ", SHOP_TBL, OWNER_ID_FK, SHOP_NAME, SHOP_ADDRESS) +
                 String.format("VALUES (%s, '%s', '%s')", sellerId, "Avalon", "Batangas City"));
-
         db.execSQL(String.format(
                 "INSERT INTO %s (%s) VALUES ('Clothes', 'Accessories', 'PC Parts', 'Gadgets', 'House Furniture')",
                 CATEGORY_TBL, CATEGORY_NAME));
