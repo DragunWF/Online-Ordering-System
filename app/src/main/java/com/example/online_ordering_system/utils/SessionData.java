@@ -1,9 +1,13 @@
 package com.example.online_ordering_system.utils;
 
 import com.example.online_ordering_system.data.Customer;
+import com.example.online_ordering_system.data.Product;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SessionData {
-    // private static List<ProductDetails> itemCart = new ArrayList<>();
+    private static final List<Product> itemCart = new ArrayList<>();
     private static Customer currentUser;
 
     public static Customer getCurrentUser() {
@@ -12,5 +16,9 @@ public class SessionData {
 
     public static void setCurrentUser(Customer currentUser) {
         SessionData.currentUser = currentUser;
+    }
+
+    public static List<Product> getItemCart() {
+        return itemCart;
     }
 }
