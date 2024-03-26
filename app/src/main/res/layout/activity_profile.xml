@@ -82,35 +82,40 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Username" />
+                    android:text="Username"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/profileFullName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="FullName" />
+                    android:text="FullName"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/profileEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Email" />
+                    android:text="Email"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/profileMobileNum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Mobile no." />
+                    android:text="Mobile no."
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/profileAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Address" />
+                    android:text="Address"
+                    android:textSize="20sp" />
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
