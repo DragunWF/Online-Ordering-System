@@ -30,7 +30,7 @@
             app:srcCompat="@drawable/profile" />
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/productSpinner"
             android:layout_width="100dp"
             android:layout_height="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -41,7 +41,7 @@
             app:layout_constraintVertical_bias="0.035" />
 
         <SearchView
-            android:id="@+id/searchview"
+            android:id="@+id/productSearchView"
             android:layout_width="175dp"
             android:layout_height="49dp"
             android:background="@drawable/seachlayout"
