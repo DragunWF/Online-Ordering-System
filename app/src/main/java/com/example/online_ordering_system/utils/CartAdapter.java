@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,46 +26,52 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         private TextView itemQuantity;
         private ImageView plusBtn;
         private ImageView minusBtn;
+        private ImageView removeBtn;
+        private RadioButton selectBtn;
 
         public ViewHolder(View view) {
             super(view);
-            // Define click listener for the ViewHolder's View
+
             itemName = view.findViewById(R.id.itemNameCart);
             itemQuantity = view.findViewById(R.id.numOfItemCart);
+
             plusBtn = view.findViewById(R.id.plusCartBtn);
             minusBtn = view.findViewById(R.id.minusCartBtn);
+            removeBtn = view.findViewById(R.id.removeBtnFromCart);
+            selectBtn = view.findViewById(R.id.selectItemOnCartBtn);
         }
 
         public TextView getItemName() {
             return itemName;
         }
 
-        public void setItemName(TextView itemName) {
-            this.itemName = itemName;
+        public RadioButton getSelectBtn() {
+            return selectBtn;
         }
 
-        public TextView getItemQuantity() {
-            return itemQuantity;
+        public ImageView getRemoveBtn() {
+            return removeBtn;
         }
 
-        public void setItemQuantity(TextView itemQuantity) {
-            this.itemQuantity = itemQuantity;
+        public void modifyItemQuantity(boolean isAdd) {
+            int quantity = Integer.parseInt(String.valueOf(itemQuantity.getText()));
+            if (isAdd) {
+                quantity++;
+            } else {
+                quantity--;
+                if (quantity <= 0) {
+                    quantity = 0;
+                }
+            }
+            itemQuantity.setText(String.valueOf(quantity));
         }
 
         public ImageView getPlusBtn() {
             return plusBtn;
         }
 
-        public void setPlusBtn(ImageView plusBtn) {
-            this.plusBtn = plusBtn;
-        }
-
         public ImageView getMinusBtn() {
             return minusBtn;
-        }
-
-        public void setMinusBtn(ImageView minusBtn) {
-            this.minusBtn = minusBtn;
         }
     }
 
@@ -92,8 +99,18 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        // viewHolder.getTextView().setText(localDataSet[position]);
         Product product = cartItems.get(position);
+        viewHolder.getItemName().setText(product.getName());
+
+        viewHolder.getPlusBtn().setOnClickListener(v -> {
+            viewHolder.modifyItemQuantity(true);
+        });
+        viewHolder.getMinusBtn().setOnClickListener(v -> {
+            viewHolder.modifyItemQuantity(false);
+        });
+        viewHolder.getRemoveBtn().setOnClickListener(v -> {
+            // TODO: Implement remove cart functionality
+        });
     }
 
     // Return the size of your dataset (invoked by the layout manager)
