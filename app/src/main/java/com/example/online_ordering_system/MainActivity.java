@@ -18,6 +18,7 @@ import com.example.online_ordering_system.data.Product;
 import com.example.online_ordering_system.utils.DatabaseHelper;
 import com.example.online_ordering_system.utils.RecyclerViewAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -51,10 +52,13 @@ public class MainActivity extends AppCompatActivity {
         cartBtn.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, CartActivity.class));
         });
+       // productSpinner.get
 
         productSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+                productList = searchProducts(query);
+                productRecyclerView.setAdapter(new RecyclerViewAdapter(productList));
                 return false;
             }
 
@@ -65,6 +69,28 @@ public class MainActivity extends AppCompatActivity {
         });
 
         setUpRecyclerView();
+    }
+
+    private List<Product> searchProducts(String name) {
+        List<Product> result = new ArrayList<>();
+        for (Product product : productList) {
+            String[] words = product.getName().split(" ");
+            for (String word : words) {
+                if (name.equalsIgnoreCase(word)) {
+                    result.add(product);
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+
+    private List<Product> filterProductsByCategory(String name) {
+        List<Product> result = new ArrayList<>();
+        for (Product product : productList) {
+
+        }
+        return result;
     }
 
     private void setUpRecyclerView() {
