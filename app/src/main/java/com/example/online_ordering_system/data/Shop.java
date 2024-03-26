@@ -1,18 +1,16 @@
 package com.example.online_ordering_system.data;
 
-import java.util.Date;
-
 public class Shop {
     private int shopID;
     private int ownerID;
-    private String shopName;
-    private String shopAddress;
+    private String name;
+    private String address;
 
-    public Shop(int shopID, int ownerID, String shopName, String shopAddress) {
+    public Shop(int shopID, int ownerID, String name, String address) {
         this.shopID = shopID;
         this.ownerID = ownerID;
-        this.shopName = shopName;
-        this.shopAddress = shopAddress;
+        this.name = name;
+        this.address = address;
     }
 
     // ---------------> GETTERS AND SETTERS <---------------
@@ -32,19 +30,19 @@ public class Shop {
         this.ownerID = ownerID;
     }
 
-    public String getShopName() {
-        return shopName;
+    public String getName() {
+        return name;
     }
 
-    public void setShopName(String shopName) {
-        this.shopName = shopName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getShopAddress() {
-        return shopAddress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setShopAddress(String shopAddress) {
-        this.shopAddress = shopAddress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
