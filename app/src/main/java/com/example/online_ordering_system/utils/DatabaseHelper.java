@@ -108,23 +108,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(productTbl);
 
         // Insert Pre-determined Data
-        setPredeterminedData();
-    }
-
-    @Override
-    public void onConfigure(SQLiteDatabase db) {
-        super.onConfigure(db);
-        db.execSQL("PRAGMA foreign_keys = ON;");
-    }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-    }
-
-    private void setPredeterminedData() {
         List<Category> categories = new ArrayList<>();
-        SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + CATEGORY_TBL, null);
 
         if (cursor.moveToFirst()) {
@@ -143,6 +127,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         cursor.close();
         SessionData.setCategories(categories);
+    }
+
+    @Override
+    public void onConfigure(SQLiteDatabase db) {
+        super.onConfigure(db);
+        db.execSQL("PRAGMA foreign_keys = ON;");
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
     }
 
     public void addAccount(Customer account) {
