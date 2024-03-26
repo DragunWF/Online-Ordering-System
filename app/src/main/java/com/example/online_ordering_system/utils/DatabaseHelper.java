@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 
 import com.example.online_ordering_system.data.Customer;
 import com.example.online_ordering_system.data.Product;
+import com.example.online_ordering_system.data.Shop;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -190,5 +191,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         cursor.close();
         return products;
+    }
+
+    public void addShop(Shop shop) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(SHOP_NAME, shop.getName());
+        cv.put(OWNER_ID_FK, shop.getOwnerID());
+        cv.put(SHOP_ADDRESS, shop.getAddress());
+
+        db.insert(SHOP_TBL, null, cv);
+    }
+
+    public Shop getSpecificShop(String shopName) {
+        // TODO: Implement specific shop retrieval
+        return null;
     }
 }
