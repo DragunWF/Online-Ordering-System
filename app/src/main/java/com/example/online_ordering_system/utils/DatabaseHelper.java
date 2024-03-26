@@ -58,6 +58,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private final String CATEGORY_NAME = "category_name";
     //---------------CATEGORY FIELDS-----------------\\
 
+    Utils prodQuery = new Utils();
+
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, "oos.db", null, 1);
@@ -119,11 +121,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         int sellerId = 10;
         db.execSQL(String.format("INSERT INTO %s (category_name) VALUES ('%s'), ('%s'), ('%s'), ('%s'), ('%s')",
-                CATEGORY_TBL, "Clothes", "Accessories", "PC Parts", "Gadgets", "House Furniture"));
+                        CATEGORY_TBL, "Clothes", "Accessories", "PC Parts", "Gadgets", "House Furniture"));
         db.execSQL(String.format("INSERT INTO %s (%s, %s, %s, %s, %s, %s, %s, %s) ", ACCOUNT_TBL, USER_ID_PK, USERNAME, PASSWORD, FULL_NAME, EMAIL, MOBILE_NUMBER, ADDRESS, ACCOUNT_TYPE)
-                + String.format("VALUES (%s, 'Seller01', 'password', 'Jack Sparrow', 'sparrow@gmail.com', '0960 423 5124', 'Quezon City', 'seller')", sellerId));
+                        + String.format("VALUES (%s, 'Seller01', 'password', 'Jack Sparrow', 'sparrow@gmail.com', '0960 423 5124', 'Quezon City', 'seller')", sellerId));
         db.execSQL(String.format("INSERT INTO %s (%s, %s, %s) ", SHOP_TBL, OWNER_ID_FK, SHOP_NAME, SHOP_ADDRESS) +
-                String.format("VALUES (%s, '%s', '%s')", sellerId, "Avalon", "Batangas City"));
+                        String.format("VALUES (%s, '%s', '%s')", sellerId, "Avalon", "Batangas City"));
+
+        db.execSQL(String.format("INSERT INTO %s (%s) VALUES ('Clothes', 'Accessories', 'PC Parts', 'Gadgets', 'House Furniture')",
+                CATEGORY_TBL, CATEGORY_NAME));
+
+        db.execSQL(String.format("INSERT INTO %s (%s, %s, %s, %s, %s, %s, %s)" +
+                         prodQuery.productQuery(new Product[] {new Product(1, 1, "Calvin Klein Trench Coat", "A coat big", 5, 170.74, ""),
+                                                               new Product(1, 1, "Bench Hoodie", "A hoodie", 10, 189.29, ""),
+                                                               new Product(1, 1, "Dickies Pants", "Maong pants", 15, 150.23, ""),
+                                                               new Product(1, 1, "American Eagle T-shirt", "A shirt with an eagle", 13, 100.90, ""),
+                                                               new Product(1, 2, "EO Glasses", "A fine eyeglass", 20, 59.99, ""),
+                                                               new Product(1, 2, "Apple Airpods", "Wireless earphones", 7, 399.99, ""),
+                                                               new Product(1, 2, "Casio Calculator fx-95MS", "A scientific calculator", 56, 45.99, ""),
+                                                               new Product(1, 2, "Badminton Racket Yonex", "Yonex Astrox 855-3XD", 18, 199.99, ""),
+                                                               new Product(1, 3, "MSI Motherboard", "An expensive motherboard", 22, 158.99, ""),
+                                                               new Product(1, 3, "Intel i7-4770K", "An 8-core Intel chip processor", 27, 399.99, ""),
+                                                               new Product(1, 3, "Seagate Barracuda 3TB HDD", "A three terabyte hard drive",87, 259.99, ""),
+                                                               new Product(1, 3, "Corsair High-Tower Case", "A black case filled with RGB", 74, 179.99, ""),
+                                                               new Product(1, 4, "Apple iPhone 15", "A newly released iPhone", 58, 499.99, ""),
+                                                               new Product(1, 4, "ASUS Laptop", "An Asus gaming laptop", 50, 899.99, ""),
+                                                               new Product(1, 4, "Anker Power bank", "A 10000 amp power bank", 67, 39.89, ""),
+                                                               new Product(1, 4, "CCTV", "A black and white cctv with night vision", 79, 89.99, ""),
+                                                               new Product(1, 5, "IKEA Couch", "A comfortable couch", 50, 699.99, ""),
+                                                               new Product(1, 5, "Flex Foam Mattress", "A flex foam mattress", 30, 89.99, ""),
+                                                               new Product(1, 5, "Krado Shower Curtain", "A black and white shower curtain", 567, 24.99, ""),
+                                                               new Product(1, 5, "Rectangular Glass Bathroom Shelf", "A shelf for bathing utilities", 30, 39.99, "")})
+                        , PRODUCT_TBL, SHOP_ID_FK, CATEGORY_ID_FK, PRODUCT_NAME, PRODUCT_DESCRIPTION, STOCK, PRICE, IMAGE_URL));
 
         cursor.close();
         SessionData.setCategories(categories);
