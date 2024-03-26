@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.example.online_ordering_system.MainActivity;
 import com.example.online_ordering_system.R;
@@ -15,7 +16,7 @@ import com.example.online_ordering_system.utils.Authentication;
 import com.example.online_ordering_system.utils.Utils;
 
 public class LoginActivity extends AppCompatActivity {
-    private ImageButton backBtn;
+    private ImageView backBtn;
     private Button signInBtn;
 
     private EditText usernameText;
