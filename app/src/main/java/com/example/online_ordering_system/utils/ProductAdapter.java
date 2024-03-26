@@ -1,7 +1,6 @@
 package com.example.online_ordering_system.utils;
 
 import java.util.List;
-import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
@@ -14,8 +13,8 @@ import com.example.online_ordering_system.data.Product;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-    private List<Product> productList;
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
+    private final List<Product> productList;
 
     /**
      * Provide a reference to the type of views that you are using
@@ -47,7 +46,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
      * @param dataSet String[] containing the data to populate views to be used
      * by RecyclerView
      */
-    public RecyclerViewAdapter(List<Product> dataSet) {
+    public ProductAdapter(List<Product> dataSet) {
         productList = dataSet;
     }
 
