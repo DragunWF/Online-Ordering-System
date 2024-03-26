@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.online_ordering_system.data.Category;
 import com.example.online_ordering_system.data.Customer;
 import com.example.online_ordering_system.data.Product;
 import com.example.online_ordering_system.data.Shop;
@@ -100,10 +101,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                              + "FOREIGN KEY(" + CATEGORY_ID_FK + ") REFERENCES " + CATEGORY_TBL
                              + "(" + CATEGORY_ID_PK + "))";
 
+        // Tables
         db.execSQL(accountTbl);
         db.execSQL(shopTbl);
         db.execSQL(categoryTbl);
         db.execSQL(productTbl);
+
+        // Insert Pre-determined Data
+        db.execSQL(String.format("INSERT INTO %s VALUES (%s, %s, %s, %s, %s)",
+                PRODUCT_TBL, "Clothes", "Accessories", "PC Parts", "Gadgets", "House Furniture"));
+        setPredeterminedData();
     }
 
     @Override
@@ -117,8 +124,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    private void fillCategoryData() {
-        
+    private void setPredeterminedData() {
+        List<Category> categories = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + CATEGORY_TBL, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                categories.add(new Category(cursor.getInt(0), cursor.getString(1)));
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        SessionData.setCategories(categories);
     }
 
     public void addAccount(Customer account) {
