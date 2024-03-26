@@ -171,8 +171,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public List<Product> getProducts(String category) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String query = category == null ? "SELECT * FROM " + ACCOUNT_TBL :
-                String.format("SELECT * FROM %s WHERE category_id = %s", ACCOUNT_TBL, category);
+        String query = category == null ? "SELECT * FROM " + PRODUCT_TBL :
+                String.format("SELECT * FROM %s WHERE category_id = %s", PRODUCT_TBL, category);
         Cursor cursor = db.rawQuery(query, null);
         List<Product> products = new ArrayList<>();
 
