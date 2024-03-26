@@ -17,6 +17,7 @@ import com.example.online_ordering_system.activities.ProfileActivity;
 import com.example.online_ordering_system.data.Product;
 import com.example.online_ordering_system.utils.DatabaseHelper;
 import com.example.online_ordering_system.utils.RecyclerViewAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView profileView;
     private SearchView productSearchView;
     private Spinner productSpinner;
-    private ImageView cartBtn;
+    private FloatingActionButton cartBtn;
 
     private RecyclerView productRecyclerView;
     private RecyclerView.Adapter adapter;
