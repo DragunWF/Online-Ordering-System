@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import com.example.online_ordering_system.activities.CartActivity;
 import com.example.online_ordering_system.activities.ProfileActivity;
 import com.example.online_ordering_system.data.Product;
+import com.example.online_ordering_system.utils.DatabaseHelper;
 import com.example.online_ordering_system.utils.RecyclerViewAdapter;
 
 import java.util.List;
@@ -29,12 +30,15 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
+    private DatabaseHelper db;
     private List<Product> productList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        db = new DatabaseHelper(this);
 
         profileView = findViewById(R.id.viewProfile);
         productSearchView = findViewById(R.id.productSearchView);
@@ -48,10 +52,24 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, CartActivity.class));
         });
 
+        productSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
         setUpRecyclerView();
     }
 
     private void setUpRecyclerView() {
+        productList = db.getProducts();
+
         productRecyclerView = findViewById(R.id.productsRecycleView);
         productRecyclerView.setHasFixedSize(true);
 
