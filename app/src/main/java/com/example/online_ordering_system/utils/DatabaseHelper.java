@@ -46,6 +46,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private final String SHOP_ID_FK = "shop_id"; //FOREIGN KEY FROM SHOP TABLE
     private final String CATEGORY_ID_FK = "category_id"; //FOREIGN KEY FROM CATEGORY TABLE
     private final String PRODUCT_NAME = "product_name";
+    private final String PRODUCT_DESCRIPTION = "product_description";
+    private final String STOCK = "stock";
     private final String PRICE = "price";
     private final String IMAGE_URL = "image_url";
     //---------------PRODUCTS FIELDS-----------------\\
@@ -89,6 +91,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                              + SHOP_ID_FK + " INTEGER NOT NULL, "
                              + CATEGORY_ID_FK + " INTEGER NOT NULL, "
                              + PRODUCT_NAME + " TEXT NOT NULL,"
+                             + PRODUCT_DESCRIPTION + " TEXT NOT NULL,"
+                             + STOCK + " INTEGER NOT NULL,"
                              + PRICE + " REAL NOT NULL, "
                              + IMAGE_URL + " TEXT, "
                              + "FOREIGN KEY(" + SHOP_ID_FK + ") REFERENCES " + SHOP_TBL
@@ -159,6 +163,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(SHOP_ID_FK, product.getShopID());
         cv.put(CATEGORY_ID_FK, product.getCategoryID());
         cv.put(PRODUCT_NAME, product.getName());
+        cv.put(PRODUCT_DESCRIPTION, product.getDescription());
+        cv.put(STOCK, product.getStock());
         cv.put(PRICE, product.getPrice());
         cv.put(IMAGE_URL, product.getImageURL());
 
@@ -183,8 +189,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         cursor.getInt(1),
                         cursor.getInt(2),
                         cursor.getString(3),
-                        cursor.getDouble(4),
-                        cursor.getString(5)
+                        cursor.getString(4),
+                        cursor.getInt(5),
+                        cursor.getDouble(6),
+                        cursor.getString(7)
                 ));
             } while (cursor.moveToNext());
         }

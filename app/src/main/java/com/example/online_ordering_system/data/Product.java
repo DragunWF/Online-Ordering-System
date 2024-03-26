@@ -4,15 +4,21 @@ public class Product {
     private int id;
     private int shopID;
     private int categoryID;
+
     private String name;
+    private String description;
+    private int stock;
     private double price;
+
     private String imageURL;
 
-    public Product(int id, int shopID, int categoryID, String name, double price, String imageURL) {
+    public Product(int id, int shopID, int categoryID, String name, String description, int stock, double price, String imageURL) {
         this.id = id;
         this.shopID = shopID;
         this.categoryID = categoryID;
         this.name = name;
+        this.description = description;
+        this.stock = stock;
         this.price = price;
         this.imageURL = imageURL;
     }
@@ -48,6 +54,22 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
     public double getPrice() {
