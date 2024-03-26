@@ -17,7 +17,7 @@
             <ImageView
                 android:id="@+id/cardItemsPic"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="129dp"
                 android:contentDescription="TODO"
                 android:src="@drawable/ic_launcher_background" />
 
@@ -25,21 +25,21 @@
                 android:id="@+id/cardItemsName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="TextView"
                 android:textAlignment="center"
                 android:textAllCaps="true"
-                android:textStyle="bold"
-                android:layout_marginTop="3dp"
-                android:textSize="20dp"/>
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/cardItemsPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
+                android:layout_marginTop="6dp"
                 android:text="TextView"
-                android:layout_marginTop="5dp"
-                android:textSize="18dp"/>
+                android:textAlignment="center"
+                android:textSize="17sp" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
