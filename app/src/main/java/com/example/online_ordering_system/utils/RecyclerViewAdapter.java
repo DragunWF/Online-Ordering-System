@@ -3,6 +3,7 @@ package com.example.online_ordering_system.utils;
 import java.util.List;
 import java.util.ArrayList;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             productName = view.findViewById(R.id.cardItemsName);
             productPrice = view.findViewById(R.id.cardItemsPrice);
         }
+
+        public TextView getProductName() {
+            return productName;
+        }
+
+        public TextView getProductPrice() {
+            return productPrice;
+        }
     }
 
     /**
@@ -52,11 +61,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     // Replace the contents of a view (invoked by the layout manager)
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        // viewHolder.getTextView().setText(localDataSet[position]);
+        Product product = productList.get(position);
+        viewHolder.getProductName().setText(product.getName());
+        viewHolder.getProductPrice().setText(product.getPrice() + " PHP");
     }
 
     // Return the size of your dataset (invoked by the layout manager)
