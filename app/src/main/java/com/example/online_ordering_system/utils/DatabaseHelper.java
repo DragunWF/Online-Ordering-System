@@ -108,7 +108,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(productTbl);
 
         // Insert Pre-determined Data
-        db.execSQL(String.format("INSERT INTO %s VALUES (%s, %s, %s, %s, %s)",
+        db.execSQL(String.format("INSERT INTO %s VALUES ('%s'), ('%s'), ('%s'), ('%s'), ('%s')",
                 PRODUCT_TBL, "Clothes", "Accessories", "PC Parts", "Gadgets", "House Furniture"));
         setPredeterminedData();
     }
