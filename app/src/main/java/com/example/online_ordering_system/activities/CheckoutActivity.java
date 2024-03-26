@@ -2,6 +2,7 @@ package com.example.online_ordering_system.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -29,6 +30,8 @@ public class CheckoutActivity extends AppCompatActivity {
     private TextView shippingFeeText;
     private TextView totalAmountText;
 
+    private TextView confirmOrderBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,5 +52,12 @@ public class CheckoutActivity extends AppCompatActivity {
         totalItemPriceText = findViewById(R.id.totalItemsPriceText);
         shippingFeeText = findViewById(R.id.shippingFeeText);
         totalAmountText = findViewById(R.id.totalAmountText);
+
+        confirmOrderBtn = findViewById(R.id.confirmOrderBtn);
+        confirmOrderBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(CheckoutActivity.this, ReceiptActivity.class);
+            // TODO: Implement intent data passing
+            startActivity(intent);
+        });
     }
 }
