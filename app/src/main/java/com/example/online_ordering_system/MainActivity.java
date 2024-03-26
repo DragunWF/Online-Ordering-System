@@ -1,19 +1,35 @@
 package com.example.online_ordering_system;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.Spinner;
 
+import com.example.online_ordering_system.activities.CartActivity;
 import com.example.online_ordering_system.activities.ProfileActivity;
+import com.example.online_ordering_system.data.Product;
+import com.example.online_ordering_system.utils.RecyclerViewAdapter;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private ImageView profileView;
     private SearchView productSearchView;
     private Spinner productSpinner;
+    private ImageView cartBtn;
+
+    private RecyclerView productRecyclerView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+
+    private List<Product> productList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +39,26 @@ public class MainActivity extends AppCompatActivity {
         profileView = findViewById(R.id.viewProfile);
         productSearchView = findViewById(R.id.productSearchView);
         productSpinner = findViewById(R.id.productSpinner);
+        cartBtn = findViewById(R.id.cartBtn);
 
         profileView.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, ProfileActivity.class));
         });
+        cartBtn.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, CartActivity.class));
+        });
+
+        setUpRecyclerView();
+    }
+
+    private void setUpRecyclerView() {
+        productRecyclerView = findViewById(R.id.productsRecycleView);
+        productRecyclerView.setHasFixedSize(true);
+
+        layoutManager = new LinearLayoutManager(this);
+        productRecyclerView.setLayoutManager(layoutManager);
+
+        adapter = new RecyclerViewAdapter(productList);
+        productRecyclerView.setAdapter(adapter);
     }
 }

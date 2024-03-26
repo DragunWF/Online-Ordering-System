@@ -69,7 +69,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/itemsRecycleView"
+        android:id="@+id/productsRecycleView"
         android:layout_width="409dp"
         android:layout_height="647dp"
         app:layout_constraintBottom_toBottomOf="parent"
