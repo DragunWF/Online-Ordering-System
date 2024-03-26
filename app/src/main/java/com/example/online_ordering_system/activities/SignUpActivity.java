@@ -12,7 +12,7 @@ import android.widget.RadioButton;
 import com.example.online_ordering_system.MainActivity;
 import com.example.online_ordering_system.R;
 import com.example.online_ordering_system.data.Customer;
-import com.example.online_ordering_system.utils.AccountAuthentication;
+import com.example.online_ordering_system.utils.Authentication;
 import com.example.online_ordering_system.utils.DatabaseHelper;
 import com.example.online_ordering_system.utils.Utils;
 
@@ -60,7 +60,7 @@ public class SignUpActivity extends AppCompatActivity {
             String accountType;
             if (username.isEmpty()) {
                 errorMessage("Username is empty!");
-            } else if (AccountAuthentication.isAccountExists(username)) {
+            } else if (Authentication.isAccountExists(username)) {
                 errorMessage("Username is already taken!");
             } else if (password.length() < 8) {
                 errorMessage("Password must at least be equal or greater than 8 characters!");

@@ -2,13 +2,12 @@ package com.example.online_ordering_system.utils;
 
 import android.content.Context;
 
-import com.example.online_ordering_system.activities.LoginActivity;
 import com.example.online_ordering_system.data.Customer;
 
 import java.util.List;
 import java.util.ArrayList;
 
-public class AccountAuthentication {
+public class Authentication {
     private static final List<Customer> accounts = new ArrayList<>();
 
     public static void initializeAccounts(Context context) {
