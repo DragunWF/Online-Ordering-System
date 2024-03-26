@@ -111,7 +111,7 @@
         app:srcCompat="@drawable/plus" />
 
     <ImageView
-        android:id="@+id/minusForItems"
+        android:id="@+id/minusForItem"
         android:layout_width="40dp"
         android:layout_height="34dp"
         app:layout_constraintBottom_toBottomOf="parent"
