@@ -75,7 +75,6 @@ public class SignUpActivity extends AppCompatActivity {
             } else if (!buyerBtn.isChecked() && !sellerBtn.isChecked()) {
                 errorMessage("Please select an account type!");
             } else {
-                // TODO: Create Account
                 try {
                     DatabaseHelper db = new DatabaseHelper(SignUpActivity.this);
                     accountType = buyerBtn.isActivated() ? "buyer" : "seller";
