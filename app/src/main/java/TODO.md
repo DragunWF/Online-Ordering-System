@@ -5,11 +5,8 @@
 - PUT 1 IN PARENTHESIS IF DONE 0 IF NOT
 
 ## Front-End
-//Main Activity
-- [`1`] - View Profile 
-- [`1`] - Cart Activity
-- [`0`] - Category Dropdown navigation
-- [`0`] - Items Activity
+//DONE FOR THE INITIAL DESIGN, JUST FINALIZING THE OVERALL UI.
+
 
 ## Back-End
 
