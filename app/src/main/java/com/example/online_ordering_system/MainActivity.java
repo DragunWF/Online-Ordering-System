@@ -1,13 +1,11 @@
 package com.example.online_ordering_system;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.Spinner;
@@ -16,7 +14,7 @@ import com.example.online_ordering_system.activities.CartActivity;
 import com.example.online_ordering_system.activities.ProfileActivity;
 import com.example.online_ordering_system.data.Product;
 import com.example.online_ordering_system.utils.DatabaseHelper;
-import com.example.online_ordering_system.utils.RecyclerViewAdapter;
+import com.example.online_ordering_system.utils.ProductAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -58,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 productList = searchProducts(query);
-                productRecyclerView.setAdapter(new RecyclerViewAdapter(productList));
+                productRecyclerView.setAdapter(new ProductAdapter(productList));
                 return false;
             }
 
@@ -102,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         productRecyclerView.setLayoutManager(layoutManager);
 
-        adapter = new RecyclerViewAdapter(productList);
+        adapter = new ProductAdapter(productList);
         productRecyclerView.setAdapter(adapter);
     }
 }
