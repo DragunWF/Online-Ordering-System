@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         cartBtn.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, CartActivity.class));
         });
-       // productSpinner.get
 
         productSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

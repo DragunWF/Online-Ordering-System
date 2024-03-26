@@ -117,6 +117,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    private void fillCategoryData() {
+        
+    }
+
     public void addAccount(Customer account) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
