@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -31,6 +32,7 @@ public class CheckoutActivity extends AppCompatActivity {
     private TextView totalAmountText;
 
     private TextView confirmOrderBtn;
+    private ImageView backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,11 @@ public class CheckoutActivity extends AppCompatActivity {
         totalAmountText = findViewById(R.id.totalAmountText);
 
         confirmOrderBtn = findViewById(R.id.confirmOrderBtn);
+        backBtn = findViewById(R.id.backBtnCheckOut);
+
+        backBtn.setOnClickListener(v -> {
+            finish();
+        });
         confirmOrderBtn.setOnClickListener(v -> {
             Intent intent = new Intent(CheckoutActivity.this, ReceiptActivity.class);
             // TODO: Implement intent data passing
