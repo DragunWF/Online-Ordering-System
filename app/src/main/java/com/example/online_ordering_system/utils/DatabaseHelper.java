@@ -127,9 +127,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         sellerId));
         db.execSQL(String.format("INSERT INTO %s (%s, %s, %s) ", SHOP_TBL, OWNER_ID_FK, SHOP_NAME, SHOP_ADDRESS) +
                 String.format("VALUES (%s, '%s', '%s')", sellerId, "Avalon", "Batangas City"));
-        db.execSQL(String.format(
-                "INSERT INTO %s (%s) VALUES ('Clothes', 'Accessories', 'PC Parts', 'Gadgets', 'House Furniture')",
-                CATEGORY_TBL, CATEGORY_NAME));
 
         db.execSQL(String.format("INSERT INTO %s (%s, %s, %s, %s, %s, %s, %s) " +
                 prodQuery.productQuery(new Product[] {
