@@ -55,7 +55,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#E6DDBD">
+                android:background="#FBFAF2">
 
                 <TextView
                     android:id="@+id/customerDetailsText"
@@ -130,7 +130,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="#FBFAF2">
 
                 <TextView
                     android:id="@+id/quantityOfProduct"
@@ -189,7 +190,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="#FBFAF2">
 
                 <TextView
                     android:id="@+id/modeOfPaymentText"
