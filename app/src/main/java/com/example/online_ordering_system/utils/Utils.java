@@ -6,6 +6,8 @@ import android.widget.Toast;
 
 import com.example.online_ordering_system.data.Product;
 
+import java.util.List;
+
 public class Utils {
     public static String getString(EditText text) {
         return String.valueOf(text.getText());
@@ -29,5 +31,17 @@ public class Utils {
             query.append(row);
         }
         return query.toString();
+    }
+
+    public static Product getProductById(int id) {
+        List<Product> products = SessionData.getProductList();
+        if (products != null) {
+            for (Product product : products) {
+                if (product.getId() == id) {
+                    return product;
+                }
+            }
+        }
+        return null;
     }
 }
