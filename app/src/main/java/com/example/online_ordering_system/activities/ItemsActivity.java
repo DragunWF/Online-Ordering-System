@@ -103,6 +103,7 @@ public class ItemsActivity extends AppCompatActivity {
             if (currentQuantity > 0) {
                 Intent intent = new Intent(ItemsActivity.this, CheckoutActivity.class);
                 intent.putExtra("id", productId);
+                intent.putExtra("buyType", "single");
                 startActivity(intent);
             } else {
                 Utils.toast(ItemsActivity.this, "Quantity must at least be equal or greater to 1!");

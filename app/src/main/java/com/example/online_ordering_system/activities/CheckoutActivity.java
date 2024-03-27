@@ -2,6 +2,7 @@ package com.example.online_ordering_system.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -9,6 +10,10 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.example.online_ordering_system.R;
+import com.example.online_ordering_system.data.Customer;
+import com.example.online_ordering_system.data.Product;
+import com.example.online_ordering_system.utils.SessionData;
+import com.example.online_ordering_system.utils.Utils;
 
 public class CheckoutActivity extends AppCompatActivity {
     // Customer Details
@@ -24,7 +29,7 @@ public class CheckoutActivity extends AppCompatActivity {
 
     // Mode of Payment
     private RadioButton cashOnDeliveryBtn;
-    private RadioButton cardPaymentBtn ;
+    private RadioButton cardPaymentBtn;
 
     // Miscellaneous
     private TextView totalItemPriceText;
@@ -34,10 +39,26 @@ public class CheckoutActivity extends AppCompatActivity {
     private TextView confirmOrderBtn;
     private ImageView backBtn;
 
+    // Values
+    private Bundle bundle;
+    private double totalPrice;
+    private Product product;
+    private String buyType;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
+
+        try {
+            bundle = getIntent().getExtras();
+            assert bundle != null;
+            buyType = bundle.getString("buyType");
+            product = Utils.getProductById(bundle.getInt("id"));
+            totalPrice = bundle.getInt("quantity") * product.getPrice();
+        } catch (Exception err) {
+            Utils.toast(this, "Error trying to fetch from intent extras!");
+        }
 
         customerNameText = findViewById(R.id.nameOfCustomer);
         customerMobileNumberText = findViewById(R.id.mobileNumOfCustomer);
@@ -66,5 +87,39 @@ public class CheckoutActivity extends AppCompatActivity {
             // TODO: Implement intent data passing
             startActivity(intent);
         });
+
+        setCustomerDetails();
+        setProductDetails();
+        setMiscDetails();
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void setCustomerDetails() {
+        Customer user = SessionData.getCurrentUser();
+        customerNameText.setText("Name: " + user.getFullName());
+        customerMobileNumberText.setText("Mobile No: " + user.getMobileNumber());
+        customerEmailText.setText("Email Address: " + user.getEmail());
+        customerAddressText.setText("Address: " + user.getAddress());
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void setProductDetails() {
+        try {
+            assert product != null;
+            productNameText.setText(product.getName());
+            productQuantityText.setText("Quantity: " + bundle.getInt("quantity"));
+            productPriceText.setText(totalPrice + " PHP");
+        } catch (Exception err) {
+            Utils.toast(CheckoutActivity.this, "Something went wrong trying to display product's information!");
+        }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void setMiscDetails() {
+        double shippingFee = totalPrice * 0.05;
+        double totalAmount = totalPrice + shippingFee;
+        totalItemPriceText.setText("Total Item/s Price: " + totalPrice + " PHP");
+        shippingFeeText.setText("+ Shipping Fee: " + shippingFee + " PHP");
+        totalAmountText.setText("Total Amount: " + totalAmount + " PHP");
     }
 }
