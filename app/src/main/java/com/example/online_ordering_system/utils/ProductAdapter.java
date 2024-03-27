@@ -66,7 +66,21 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
         Product product = productList.get(position);
-        viewHolder.getProductName().setText(product.getName());
+
+        final int CHAR_LIMIT = 15;
+        String productName = product.getName();
+        if (productName.length() > CHAR_LIMIT) {
+            int endIndex = CHAR_LIMIT - 2;
+            for (int i = CHAR_LIMIT - 1; i >= 1; i--) {
+                if (productName.charAt(i) != ' ') {
+                    endIndex = i;
+                    break;
+                }
+            }
+            productName = productName.substring(0, endIndex) + "-";
+        }
+
+        viewHolder.getProductName().setText(productName);
         viewHolder.getProductPrice().setText(product.getPrice() + " PHP");
     }
 
