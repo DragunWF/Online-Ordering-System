@@ -79,18 +79,10 @@ public class CheckoutActivity extends AppCompatActivity {
         confirmOrderBtn = findViewById(R.id.confirmOrderBtn);
         backBtn = findViewById(R.id.backBtnCheckOut);
 
-        backBtn.setOnClickListener(v -> {
-            finish();
-        });
-        confirmOrderBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(CheckoutActivity.this, ReceiptActivity.class);
-            // TODO: Implement intent data passing
-            startActivity(intent);
-        });
-
         setCustomerDetails();
         setProductDetails();
         setMiscDetails();
+        setButtons();
     }
 
     @SuppressLint("SetTextI18n")
@@ -121,5 +113,20 @@ public class CheckoutActivity extends AppCompatActivity {
         totalItemPriceText.setText("Total Item/s Price: " + totalPrice + " PHP");
         shippingFeeText.setText("+ Shipping Fee: " + shippingFee + " PHP");
         totalAmountText.setText("Total Amount: " + totalAmount + " PHP");
+    }
+
+    private void setButtons() {
+        backBtn.setOnClickListener(v -> {
+            finish();
+        });
+        confirmOrderBtn.setOnClickListener(v -> {
+            if (!cashOnDeliveryBtn.isChecked() && !cardPaymentBtn.isChecked()) {
+                Utils.toast(CheckoutActivity.this, "Please select a mode of payment!");
+            } else {
+                Intent intent = new Intent(CheckoutActivity.this, ReceiptActivity.class);
+                // TODO: Implement intent data passing
+                startActivity(intent);
+            }
+        });
     }
 }
