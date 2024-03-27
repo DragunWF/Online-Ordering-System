@@ -49,6 +49,7 @@ public class ItemsActivity extends AppCompatActivity {
         setButtons();
     }
 
+    @SuppressLint("SetTextI18n")
     private void modifyQuantity(boolean isAdd) {
         String quantityStr = String.valueOf(quantityText.getText()).split(": ")[1];
         int currentQuantity = Integer.parseInt(quantityStr);

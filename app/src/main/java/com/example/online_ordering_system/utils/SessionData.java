@@ -25,6 +25,10 @@ public class SessionData {
         itemCart.add(product);
     }
 
+    public static void removeCartItem(int index) {
+        itemCart.remove(index);
+    }
+
     public static Category getCategoryById(int id) {
         for (Category category : categories) {
             if (category.getId() == id) {

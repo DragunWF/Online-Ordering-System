@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.online_ordering_system.MainActivity;
 import com.example.online_ordering_system.R;
 import com.example.online_ordering_system.utils.CartAdapter;
 import com.example.online_ordering_system.utils.SessionData;
@@ -30,7 +31,7 @@ public class CartActivity extends AppCompatActivity {
         checkOutBtn = findViewById(R.id.checkOutBtn);
 
         backBtn.setOnClickListener(v -> {
-            finish();
+            startActivity(new Intent(CartActivity.this, MainActivity.class));
         });
         checkOutBtn.setOnClickListener(v -> {
             Intent intent = new Intent(CartActivity.this, CheckoutActivity.class);
