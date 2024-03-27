@@ -6,7 +6,8 @@
 
 ## Front-End
 
-- DONE FOR THE INITIAL DESIGN, JUST FINALIZING THE OVERALL UI.
+- Update the design for Items Activity and Profile
+
 
 ## Back-End
 
