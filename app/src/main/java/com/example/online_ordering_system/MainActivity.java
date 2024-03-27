@@ -16,6 +16,7 @@ import com.example.online_ordering_system.activities.ProfileActivity;
 import com.example.online_ordering_system.data.Product;
 import com.example.online_ordering_system.utils.DatabaseHelper;
 import com.example.online_ordering_system.utils.ProductAdapter;
+import com.example.online_ordering_system.utils.SessionData;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         db = new DatabaseHelper(this);
+        SessionData.initializeProductCache(this);
 
         profileView = findViewById(R.id.viewProfile);
         productSearchView = findViewById(R.id.productSearchView);
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 productList = searchProducts(query);
-                productRecyclerView.setAdapter(new ProductAdapter(productList));
+                productRecyclerView.setAdapter(new ProductAdapter(MainActivity.this, productList));
                 return false;
             }
 
@@ -101,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         layoutManager = new GridLayoutManager(this, 2);
         productRecyclerView.setLayoutManager(layoutManager);
 
-        adapter = new ProductAdapter(productList);
+        adapter = new ProductAdapter(this, productList);
         productRecyclerView.setAdapter(adapter);
     }
 }
