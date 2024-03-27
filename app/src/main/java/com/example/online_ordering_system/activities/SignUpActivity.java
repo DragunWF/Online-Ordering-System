@@ -81,7 +81,7 @@ public class SignUpActivity extends AppCompatActivity {
                     db.addAccount(new Customer(username, password, fullName, email, mobileNumber, address, accountType));
                     startActivity(new Intent(SignUpActivity.this, MainActivity.class));
                 } catch (Exception err) {
-                    Utils.toast(this, "An unexpected error has occurred!");
+                    Utils.toast(SignUpActivity.this, "An unexpected error has occurred!");
                 }
             }
         });
