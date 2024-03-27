@@ -1,6 +1,7 @@
 package com.example.online_ordering_system;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         productRecyclerView = findViewById(R.id.productsRecycleView);
         productRecyclerView.setHasFixedSize(true);
 
-        layoutManager = new LinearLayoutManager(this);
+        layoutManager = new GridLayoutManager(this, 2);
         productRecyclerView.setLayoutManager(layoutManager);
 
         adapter = new ProductAdapter(productList);
