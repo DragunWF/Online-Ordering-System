@@ -17,7 +17,7 @@ import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     // To prevent errors from calling getItemCount(). I set this by default
-    private final List<Product> cartItems;
+    private List<Product> cartItems;
 
     /**
      * Provide a reference to the type of views that you are using
@@ -92,6 +92,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         this.cartItems = cartItems;
     }
 
+    public void setCartItems(List<Product> cartItems) {
+        this.cartItems = cartItems;
+    }
+
     // Create new views (invoked by the layout manager)
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
@@ -117,7 +121,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         });
         viewHolder.getRemoveBtn().setOnClickListener(v -> {
             SessionData.removeCartItem(position);
-            CartAdapter.this.notifyItemRemoved(position);
+            CartAdapter.this.setCartItems(SessionData.getItemCart());
         });
     }
 
