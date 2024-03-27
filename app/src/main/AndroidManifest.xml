@@ -13,6 +13,9 @@
         android:theme="@style/Theme.OnlineOrderingSystem"
         tools:targetApi="31">
         <activity
+            android:name=".UpdatePassword"
+            android:exported="false" />
+        <activity
             android:name=".EditInfo"
             android:exported="false" />
         <activity

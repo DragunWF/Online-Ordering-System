@@ -80,7 +80,7 @@
                 app:layout_constraintVertical_bias="0.605" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/editInfoBackBtn"
                 android:layout_width="42dp"
                 android:layout_height="46dp"
                 android:src="@tools:sample/avatars"
