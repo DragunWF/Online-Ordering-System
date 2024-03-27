@@ -16,6 +16,8 @@ import com.example.online_ordering_system.utils.Utils;
 
 public class ItemsActivity extends AppCompatActivity {
     private int productId;
+    private double basePrice;
+    private int currentQuantity;
 
     private TextView itemNameText;
     private TextView itemPriceText;
@@ -51,17 +53,23 @@ public class ItemsActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void modifyQuantity(boolean isAdd) {
-        String quantityStr = String.valueOf(quantityText.getText()).split(": ")[1];
-        int currentQuantity = Integer.parseInt(quantityStr);
+        currentQuantity = Integer.parseInt(extractNum(quantityText));
+        int availableStock = Integer.parseInt(extractNum(itemStockText));
+
         if (isAdd) {
             currentQuantity++;
+            if (currentQuantity > availableStock) {
+                currentQuantity = availableStock;
+            }
         } else {
             currentQuantity--;
             if (currentQuantity < 0) {
                 currentQuantity = 0;
             }
         }
+
         quantityText.setText("Quantity: " + currentQuantity);
+        itemPriceText.setText(basePrice * currentQuantity + " PHP");
     }
 
     @SuppressLint("SetTextI18n")
@@ -72,10 +80,12 @@ public class ItemsActivity extends AppCompatActivity {
             productId = bundle.getInt("id");
             Product product = Utils.getProductById(productId);
             assert product != null;
+            basePrice = product.getPrice();
 
+            quantityText.setText("Quantity: 1");
             itemNameText.setText(product.getName());
             itemDescriptionText.setText(product.getDescription());
-            itemPriceText.setText(product.getPrice() + " PHP");
+            itemPriceText.setText(basePrice + " PHP");
             itemStockText.setText("Stock: " + product.getStock());
         } catch (Exception error) {
             Utils.toast(this, "Something went wrong trying to display the item details!");
@@ -90,14 +100,27 @@ public class ItemsActivity extends AppCompatActivity {
             modifyQuantity(false);
         });
         buyBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(ItemsActivity.this, CheckoutActivity.class);
-            intent.putExtra("id", productId);
-            startActivity(intent);
+            if (currentQuantity > 0) {
+                Intent intent = new Intent(ItemsActivity.this, CheckoutActivity.class);
+                intent.putExtra("id", productId);
+                startActivity(intent);
+            } else {
+                Utils.toast(ItemsActivity.this, "Quantity must at least be equal or greater to 1!");
+            }
         });
         addToCartBtn.setOnClickListener(v -> {
-            // TODO: Implement add to cart functionality
-            SessionData.addCartItem(Utils.getProductById(productId));
-            startActivity(new Intent(ItemsActivity.this, CartActivity.class));
+            if (currentQuantity > 0) {
+                Intent intent = new Intent(ItemsActivity.this, CartActivity.class);
+                SessionData.addCartItem(Utils.getProductById(productId));
+                intent.putExtra("quantity", currentQuantity);
+                startActivity(intent);
+            } else {
+                Utils.toast(ItemsActivity.this, "Quantity to buy cannot be 0!");
+            }
         });
+    }
+
+    private String extractNum(TextView text) {
+        return String.valueOf(text.getText()).split(": ")[1];
     }
 }

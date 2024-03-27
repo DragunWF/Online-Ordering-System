@@ -17,7 +17,7 @@ import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     // To prevent errors from calling getItemCount(). I set this by default
-    private List<Product> cartItems = new ArrayList<>();
+    private final List<Product> cartItems;
 
     /**
      * Provide a reference to the type of views that you are using
@@ -26,10 +26,15 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private TextView itemName;
         private TextView itemQuantity;
+
         private ImageView plusBtn;
         private ImageView minusBtn;
         private ImageView removeBtn;
+
         private RadioButton selectBtn;
+
+        private int productStock;
+        private int productQuantity = 1;
 
         public ViewHolder(View view) {
             super(view);
@@ -56,16 +61,16 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         }
 
         public void modifyItemQuantity(boolean isAdd) {
-            int quantity = Integer.parseInt(String.valueOf(itemQuantity.getText()));
+            productQuantity = Integer.parseInt(String.valueOf(itemQuantity.getText()));
             if (isAdd) {
-                quantity++;
+                productQuantity++;
             } else {
-                quantity--;
-                if (quantity <= 0) {
-                    quantity = 0;
+                productQuantity--;
+                if (productQuantity <= 1) {
+                    productQuantity = 1;
                 }
             }
-            itemQuantity.setText(String.valueOf(quantity));
+            itemQuantity.setText(String.valueOf(productQuantity));
         }
 
         public ImageView getPlusBtn() {
