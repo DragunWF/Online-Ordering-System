@@ -7,7 +7,7 @@
     tools:context=".activities.CartActivity">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/cartBackBtn"
         android:layout_width="52dp"
         android:layout_height="41dp"
         app:layout_constraintBottom_toBottomOf="parent"

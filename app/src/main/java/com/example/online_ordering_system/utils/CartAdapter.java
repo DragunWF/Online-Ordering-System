@@ -12,10 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.online_ordering_system.R;
 import com.example.online_ordering_system.data.Product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
-    private List<Product> cartItems;
+    private List<Product> cartItems = new ArrayList<>();
 
     /**
      * Provide a reference to the type of views that you are using
