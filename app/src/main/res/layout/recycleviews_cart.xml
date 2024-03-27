@@ -9,7 +9,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="411dp"
-        android:layout_height="203dp">
+        android:layout_height="203dp"
+        android:background="#FBFAF2"
+        >
 
         <ImageView
             android:id="@+id/cartItemImg"
