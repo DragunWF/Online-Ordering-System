@@ -51,9 +51,8 @@ public class UpdatePassword extends AppCompatActivity {
                 if  (String.valueOf(newPass.getText()) == String.valueOf(repeatPass.getText()) &&
                     String.valueOf(currentPass.getText()) != String.valueOf(newPass.getText()) &&
                     String.valueOf(currentPass.getText()) != String.valueOf(repeatPass.getText())) {
-                        customer.password = String.valueOf(newPass.getText());
-                        db.updatePassword(customer);
-                    Toast.makeText(this, "PASSWORD UPDATED", Toast.LENGTH_LONG).show();
+                        db.updatePassword(customer.getPassword());
+                        Toast.makeText(this, "PASSWORD UPDATED", Toast.LENGTH_LONG).show();
                 } else if (String.valueOf(newPass.getText()) != String.valueOf(repeatPass.getText())){
                     Toast.makeText(this, "NEW PASSWORD AND REPEATED PASSWORD IS NOT THE SAME", Toast.LENGTH_LONG).show();
                 }
