@@ -39,7 +39,7 @@ After purchase, detailed receipt information is provided, including store name, 
 - Viewable product details
 - Users can login & register in the mobile app
 - Users can update their password and edit other parts of their account information
-- Product Availability
+- Users can see the availability of a product
 - Receipt details shown after the user buys products
   1. Name of the store
   2. Shipping fee
