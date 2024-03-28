@@ -69,7 +69,7 @@ public class ItemsActivity extends AppCompatActivity {
         }
 
         quantityText.setText("Quantity: " + currentQuantity);
-        itemPriceText.setText(basePrice * currentQuantity + " PHP");
+        itemPriceText.setText(Utils.round(basePrice * currentQuantity) + " PHP");
     }
 
     @SuppressLint("SetTextI18n")
