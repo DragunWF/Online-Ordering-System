@@ -19,39 +19,43 @@
 
         <ImageView
             android:id="@+id/viewProfile"
-            android:layout_width="56dp"
-            android:layout_height="49dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.045"
+            app:layout_constraintHorizontal_bias="0.044"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.036"
+            app:layout_constraintVertical_bias="0.039"
             app:srcCompat="@drawable/profile" />
 
         <Spinner
             android:id="@+id/productSpinner"
-            android:layout_width="100dp"
+            android:layout_width="140dp"
             android:layout_height="48dp"
+            android:background="@drawable/spinner"
+            android:dropDownWidth="wrap_content"
+            android:popupBackground="@drawable/spinner_container"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.935"
+            app:layout_constraintHorizontal_bias="0.926"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.035" />
+            app:layout_constraintVertical_bias="0.039" />
 
         <SearchView
             android:id="@+id/productSearchView"
-            android:layout_width="175dp"
-            android:layout_height="49dp"
+            android:layout_width="160dp"
+            android:layout_height="48dp"
             android:background="@drawable/seachlayout"
             app:circularflow_angles="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.456"
+            app:layout_constraintHorizontal_bias="0.318"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.035" />
+            app:layout_constraintVertical_bias="0.039" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/cartBtn"
