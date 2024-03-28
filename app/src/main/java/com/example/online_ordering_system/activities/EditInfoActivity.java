@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.example.online_ordering_system.R;
 import com.example.online_ordering_system.data.Customer;
@@ -16,7 +17,7 @@ public class EditInfoActivity extends AppCompatActivity {
     private EditText editMobileNumberText;
     private EditText editAddressText;
 
-    private Button backBtn;
+    private ImageView backBtn;
     private Button submitBtn;
 
     private Customer user;
