@@ -27,6 +27,7 @@ public class ItemsActivity extends AppCompatActivity {
 
     private ImageView plusBtn;
     private ImageView minusBtn;
+    private ImageView backBtn;
 
     private Button buyBtn;
     private Button addToCartBtn;
@@ -44,6 +45,8 @@ public class ItemsActivity extends AppCompatActivity {
 
         plusBtn = findViewById(R.id.plusForItem);
         minusBtn = findViewById(R.id.minusForItem);
+        backBtn = findViewById(R.id.itemBackBtn);
+
         buyBtn = findViewById(R.id.itemBuyNowBtn);
         addToCartBtn = findViewById(R.id.itemAddToCartBtn);
 
@@ -77,7 +80,7 @@ public class ItemsActivity extends AppCompatActivity {
             productId = bundle.getInt("id");
             Product product = Utils.getProductById(productId);
             assert product != null;
-            basePrice = product.getPrice();
+            basePrice = Utils.round(product.getPrice());
 
             quantityText.setText("Quantity: 1");
             itemNameText.setText(product.getName());
@@ -90,6 +93,9 @@ public class ItemsActivity extends AppCompatActivity {
     }
 
     private void setButtons() {
+        backBtn.setOnClickListener(v -> {
+            finish();
+        });
         plusBtn.setOnClickListener(v -> {
             modifyQuantity(true);
         });

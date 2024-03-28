@@ -1,5 +1,7 @@
 package com.example.online_ordering_system.data;
 
+import com.example.online_ordering_system.utils.Utils;
+
 public class ReceiptData {
     private final int transactionID;
     private String productName;
@@ -19,11 +21,11 @@ public class ReceiptData {
 
     // GETTERS AND SETTERS
     public double getTotalAmount() {
-        return totalPrice + shippingFee;
+        return Utils.round(totalPrice + shippingFee);
     }
 
     public double getTotalPrice() {
-        return totalPrice;
+        return Utils.round(totalPrice);
     }
 
     public int getTransactionID() {

@@ -124,7 +124,7 @@ public class CheckoutActivity extends AppCompatActivity {
                 productName = SessionData.getItemCart().size() + " Different Products";
                 productNameText.setText(productName);
                 productQuantityText.setText("Quantity: " + SessionData.getCartTotalQuantity());
-                productPriceText.setText(SessionData.getCartTotalAmount() + " PHP");
+                productPriceText.setText(Utils.round(SessionData.getCartTotalAmount()) + " PHP");
             }
         } catch (Exception err) {
             Utils.toast(CheckoutActivity.this, "Something went wrong trying to display product's information!");
@@ -133,9 +133,9 @@ public class CheckoutActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void setMiscDetails() {
-        shippingFee = totalPrice * 0.05;
-        totalAmount = totalPrice + shippingFee;
-        totalItemPriceText.setText("Total Item/s Price: " + totalPrice + " PHP");
+        shippingFee = Utils.round(totalPrice * 0.05);
+        totalAmount = Utils.round(totalPrice + shippingFee);
+        totalItemPriceText.setText("Total Item/s Price: " + Utils.round(totalPrice) + " PHP");
         shippingFeeText.setText("+ Shipping Fee: " + shippingFee + " PHP");
         totalAmountText.setText("Total Amount: " + totalAmount + " PHP");
     }
