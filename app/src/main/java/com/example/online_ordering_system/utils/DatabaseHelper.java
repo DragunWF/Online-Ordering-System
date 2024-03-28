@@ -302,6 +302,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return null;
     }
 
+    public void updateInfo(String email, String mobileNumber, String address) {
+        // TODO: Finish update info functionality
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        if (!email.isEmpty()) {
+
+        }
+        if (!mobileNumber.isEmpty()) {
+
+        }
+        if (!address.isEmpty()) {
+
+        }
+
+        // db.update()
+    }
+
     public void updatePassword(String password) {
         Customer customer = new Customer();
         SQLiteDatabase db = this.getWritableDatabase();
