@@ -152,7 +152,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 PRODUCT_TBL, SHOP_ID_FK, CATEGORY_ID_FK, PRODUCT_NAME, PRODUCT_DESCRIPTION, STOCK, PRICE, IMAGE_URL));
 
         cursor.close();
-        SessionData.setCategories(categories);
     }
 
     @Override
@@ -264,6 +263,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         cursor.close();
         return products;
+    }
+
+    public List<Category> getCategories() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + CATEGORY_TBL, null);
+        List<Category> categories = new ArrayList<>();
+
+        if (cursor.moveToFirst()) {
+            do {
+                categories.add(new Category(cursor.getInt(0), cursor.getString(1)));
+            } while (cursor.moveToNext());
+        }
+
+        return categories;
     }
 
     public List<Shop> getShops() {

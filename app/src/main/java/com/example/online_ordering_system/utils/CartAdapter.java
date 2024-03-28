@@ -132,7 +132,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             viewHolder.modifyItemQuantity(false);
         });
         viewHolder.getRemoveBtn().setOnClickListener(v -> {
-            SessionData.removeCartItem(position);
+            SessionData.getItemCart().remove(position);
             CartAdapter.this.setCartItems(SessionData.getItemCart());
             this.notifyDataSetChanged();
         });

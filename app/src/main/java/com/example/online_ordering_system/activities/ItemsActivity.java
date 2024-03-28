@@ -119,7 +119,7 @@ public class ItemsActivity extends AppCompatActivity {
                     Product product = Utils.getProductById(productId);
                     assert product != null;
                     product.setQuantity(currentQuantity);
-                    SessionData.addCartItem(product);
+                    SessionData.getItemCart().add(product);
                     startActivity(intent);
                 } catch (NullPointerException err) {
                     Utils.toast(ItemsActivity.this, "Something went wrong trying to process your order!");

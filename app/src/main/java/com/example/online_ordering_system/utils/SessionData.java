@@ -9,13 +9,15 @@ import com.example.online_ordering_system.data.ReceiptData;
 import com.example.online_ordering_system.data.Shop;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class SessionData {
     private static final List<Product> itemCart = new ArrayList<>();
+    private static final HashMap<Integer, String> categories = new HashMap<>();
     private static List<Product> productList;
-    private static List<Category> categories = new ArrayList<>();
     private static List<Shop> shops;
+
     private static Customer currentUser;
     private static ReceiptData receipt;
 
@@ -24,33 +26,16 @@ public class SessionData {
             DatabaseHelper db = new DatabaseHelper(context);
             productList = db.getProducts();
             shops = db.getShops();
-        }
-    }
 
-    public static void addCartItem(Product product) {
-        itemCart.add(product);
-    }
-
-    public static void removeCartItem(int index) {
-        itemCart.remove(index);
-    }
-
-    public static Category getCategoryById(int id) {
-        for (Category category : categories) {
-            if (category.getId() == id) {
-                return category;
+            List<Category> categoriesData = db.getCategories();
+            for (Category category : categoriesData) {
+                categories.put(category.getId(), category.getName());
             }
         }
-        return null;
     }
 
-    public static Category getCategoryByName(String name) {
-        for (Category category : categories) {
-            if (category.getName().equalsIgnoreCase(name)) {
-                return category;
-            }
-        }
-        return null;
+    public static String getCategoryNameById(int id) {
+        return categories.get(id);
     }
 
     public static Shop getShopById(int id) {
@@ -88,14 +73,6 @@ public class SessionData {
     }
     public static List<Product> getItemCart() {
         return itemCart;
-    }
-
-    public static List<Category> getCategories() {
-        return categories;
-    }
-
-    public static void setCategories(List<Category> categories) {
-        SessionData.categories = categories;
     }
 
     public static List<Product> getProductList() {
