@@ -55,26 +55,39 @@
                     android:layout_width="270dp"
                     android:layout_height="57dp"
                     android:text="Edit Info"
-                    android:textSize="17sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.494"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.807" />
+                    app:layout_constraintVertical_bias="0.737" />
 
                 <Button
                     android:id="@+id/updatePassBtn"
                     android:layout_width="269dp"
                     android:layout_height="58dp"
                     android:text="Update Password"
-                    android:textSize="17sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.488"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.921" />
+                    app:layout_constraintVertical_bias="0.843" />
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="270dp"
+                    android:layout_height="54dp"
+                    android:backgroundTint="#B33F40"
+                    android:text="Sign Out"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.946" />
 
                 <LinearLayout
                     android:id="@+id/linearLayout3"

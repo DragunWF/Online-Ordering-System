@@ -17,6 +17,11 @@ public class Utils {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 
+    public static double round(double value) {
+        // Rounds off the value to two decimal places
+        return (double) Math.round(value * 100) / 100;
+    }
+
     public static String productQuery(Product[] products) {
         StringBuilder query = new StringBuilder();
         query.append("VALUES ");

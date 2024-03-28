@@ -13,10 +13,10 @@ import com.example.online_ordering_system.utils.DatabaseHelper;
 import com.example.online_ordering_system.utils.SessionData;
 
 public class UpdatePasswordActivity extends AppCompatActivity {
-    EditText currentPass;
-    EditText newPass;
-    EditText repeatPass;
-    Button updatePassBtn;
+    private EditText currentPass;
+    private EditText newPass;
+    private EditText repeatPass;
+    private Button updatePassBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

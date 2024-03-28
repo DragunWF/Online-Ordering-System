@@ -5,11 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.example.online_ordering_system.activities.UpdatePasswordActivity;
 import com.example.online_ordering_system.data.Category;
 import com.example.online_ordering_system.data.Customer;
 import com.example.online_ordering_system.data.Product;
@@ -59,8 +57,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private final String CATEGORY_ID_PK = "category_id";
     private final String CATEGORY_NAME = "category_name";
     // ---------------CATEGORY FIELDS-----------------\\
-
-    Utils prodQuery = new Utils();
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, "oos.db", null, 1);
@@ -131,7 +127,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String.format("VALUES (%s, '%s', '%s')", sellerId, "Avalon", "Batangas City"));
 
         db.execSQL(String.format("INSERT INTO %s (%s, %s, %s, %s, %s, %s, %s) " +
-                prodQuery.productQuery(new Product[] {
+                Utils.productQuery(new Product[] {
                         new Product(1, 1, "Calvin Klein Trench Coat", "A coat big", 5, 170.74, ""),
                         new Product(1, 1, "Bench Hoodie", "A hoodie", 10, 189.29, ""),
                         new Product(1, 1, "Dickies Pants", "Maong pants", 15, 150.23, ""),
@@ -156,7 +152,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 PRODUCT_TBL, SHOP_ID_FK, CATEGORY_ID_FK, PRODUCT_NAME, PRODUCT_DESCRIPTION, STOCK, PRICE, IMAGE_URL));
 
         cursor.close();
-        db.close();
         SessionData.setCategories(categories);
     }
 
@@ -184,7 +179,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(ACCOUNT_TYPE, account.getAccountType());
 
         db.insert(ACCOUNT_TBL, null, cv);
-        db.close();
     }
 
     public List<Customer> getAccounts() {
@@ -207,7 +201,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         cursor.close();
-        db.close();
         return accounts;
     }
 
@@ -226,8 +219,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     cursor.getString(7)
             );
         }
-        cursor.close();
-        db.close();
         return null;
     }
 
@@ -244,7 +235,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(IMAGE_URL, product.getImageURL());
 
         db.insert(PRODUCT_TBL, null, cv);
-        db.close();
     }
 
     public List<Product> getProducts() {
@@ -273,23 +263,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         cursor.close();
-        db.close();
         return products;
     }
 
     public List<Shop> getShops() {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + SHOP_TBL, null);
         List<Shop> shops = new ArrayList<>();
 
         if (cursor.moveToFirst()) {
             do {
-
+                shops.add(new Shop(
+                        cursor.getInt(0),
+                        cursor.getInt(1),
+                        cursor.getString(2),
+                        cursor.getString(3)
+                ));
             } while (cursor.moveToNext());
         }
 
         cursor.close();
-        db.close();
         return shops;
     }
 
@@ -302,22 +295,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(SHOP_ADDRESS, shop.getAddress());
 
         db.insert(SHOP_TBL, null, cv);
-        db.close();
     }
 
     public Shop getSpecificShop(String shopName) {
         // TODO: Implement specific shop retrieval
+        // Not necessary at the moment
         return null;
     }
 
-    public void updatePassword(String oldPassword,String newPassword) {
-
+    public void updateInfo(String email, String mobileNumber, String address) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(PASSWORD, newPassword);
 
-        db.update(ACCOUNT_TBL, cv, PASSWORD + " = ?" , new String[]{oldPassword});
+        if (!email.isEmpty()) {
+            cv.put(EMAIL, email);
+        }
+        if (!mobileNumber.isEmpty()) {
+            cv.put(MOBILE_NUMBER, mobileNumber);
+        }
+        if (!address.isEmpty()) {
+            cv.put(ADDRESS, address);
+        }
 
-        db.close();
+        db.update(ACCOUNT_TBL, cv, USER_ID_PK + " = " + SessionData.getCurrentUser().getId(), null);
+    }
+
+    public void updatePassword(String password) {
+        Customer customer = new Customer();
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(PASSWORD, customer.getPassword());
+
+        db.update(ACCOUNT_TBL, cv, PASSWORD + " = " + customer.getPassword(), null);
     }
 }

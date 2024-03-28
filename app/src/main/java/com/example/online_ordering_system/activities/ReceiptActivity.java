@@ -11,7 +11,11 @@ import android.widget.TextView;
 import com.example.online_ordering_system.MainActivity;
 import com.example.online_ordering_system.R;
 import com.example.online_ordering_system.data.Customer;
+import com.example.online_ordering_system.data.ReceiptData;
 import com.example.online_ordering_system.utils.SessionData;
+import com.example.online_ordering_system.utils.Utils;
+
+import java.util.Objects;
 
 public class ReceiptActivity extends AppCompatActivity {
     // Customer Details Text Views
@@ -33,11 +37,15 @@ public class ReceiptActivity extends AppCompatActivity {
 
     // Miscellaneous
     private Button backBtn;
+    private Bundle bundle;
+    private boolean isSinglePurchase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receipt);
+
+        setClassValues();
 
         customerNameText = findViewById(R.id.receiptNameOfCustomerText);
         customerMobileNumberText = findViewById(R.id.receiptMobileNoOfCustomerText);
@@ -61,6 +69,17 @@ public class ReceiptActivity extends AppCompatActivity {
         setCustomerDetails();
         setShopDetails();
         setProductDetails();
+        SessionData.getItemCart().clear();
+    }
+
+    private void setClassValues() {
+        try {
+            bundle = getIntent().getExtras();
+            assert bundle != null;
+            isSinglePurchase = Objects.equals(bundle.get("buyType"), "single");
+        } catch (Exception err) {
+            Utils.toast(ReceiptActivity.this, "Error trying to fetch intent extra values!");
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -74,11 +93,17 @@ public class ReceiptActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void setShopDetails() {
-
+        shopNameText.setText("Name: " + SessionData.getReceipt().getShopName());
+        shopAddressText.setText("Address: " + SessionData.getReceipt().getAddress());
     }
 
     @SuppressLint("SetTextI18n")
     private void setProductDetails() {
-    
+        ReceiptData receipt = SessionData.getReceipt();
+        productNameText.setText("Product Name: " + receipt.getProductName());
+        productPriceText.setText("Price: " + receipt.getTotalPrice());
+        shippingFeeText.setText("Shipping Fee: " + receipt.getShippingFee());
+        totalPriceText.setText("Total Price: " + receipt.getTotalAmount());
+        transactionIdText.setText("Transaction ID: " + receipt.getTransactionID());
     }
 }

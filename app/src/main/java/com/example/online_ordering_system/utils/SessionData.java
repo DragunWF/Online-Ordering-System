@@ -23,7 +23,7 @@ public class SessionData {
         if (productList == null) {
             DatabaseHelper db = new DatabaseHelper(context);
             productList = db.getProducts();
-
+            shops = db.getShops();
         }
     }
 

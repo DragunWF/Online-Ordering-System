@@ -55,8 +55,8 @@
 
             <TextView
                 android:id="@+id/receiptNameOfCustomerText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="263dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="29dp"
                 android:layout_marginTop="51dp"
                 android:layout_marginEnd="251dp"
@@ -64,34 +64,39 @@
                 android:text="Name:"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/receiptMobileNoOfCustomerText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="264dp"
+                android:layout_height="20dp"
                 android:layout_marginStart="29dp"
                 android:layout_marginEnd="227dp"
                 android:layout_marginBottom="460dp"
                 android:text="Mobile no."
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/receiptNameOfCustomerText" />
 
             <TextView
                 android:id="@+id/receiptEmailOfCustomerText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="264dp"
+                android:layout_height="18dp"
                 android:layout_marginStart="29dp"
                 android:layout_marginEnd="254dp"
                 android:layout_marginBottom="441dp"
                 android:text="Email:"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/receiptMobileNoOfCustomerText" />
+                app:layout_constraintTop_toBottomOf="@+id/receiptMobileNoOfCustomerText"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/receiptAddressOfCustomerText"
@@ -103,10 +108,10 @@
                 android:text="Address:"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/receiptCustomerInfoText"
-                app:layout_constraintVertical_bias="0.989" />
+                app:layout_constraintVertical_bias="1.0" />
 
             <View
                 android:id="@+id/div1"
@@ -138,8 +143,8 @@
 
             <TextView
                 android:id="@+id/receiptShopNameText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="269dp"
+                android:layout_height="27dp"
                 android:layout_marginStart="29dp"
                 android:layout_marginTop="220dp"
                 android:layout_marginEnd="247dp"
@@ -147,8 +152,10 @@
                 android:text="Name: "
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.444" />
 
             <TextView
                 android:id="@+id/receiptShopAddressText"
@@ -194,8 +201,8 @@
 
             <TextView
                 android:id="@+id/receiptProductNameText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="263dp"
+                android:layout_height="26dp"
                 android:layout_marginStart="31dp"
                 android:layout_marginTop="344dp"
                 android:layout_marginEnd="197dp"
@@ -203,13 +210,15 @@
                 android:text="Product Name:"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/receiptProductPriceText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="259dp"
+                android:layout_height="31dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="372dp"
                 android:layout_marginEnd="254dp"
@@ -217,27 +226,29 @@
                 android:text="Price:"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.008"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.75" />
 
             <TextView
                 android:id="@+id/receiptShippingFeeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="263dp"
+                android:layout_height="24dp"
                 android:layout_marginStart="33dp"
                 android:layout_marginEnd="205dp"
                 android:text="Shipping Fee:"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.011"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.755" />
+                app:layout_constraintVertical_bias="0.75" />
 
             <TextView
                 android:id="@+id/receiptTotalPriceText"
-                android:layout_width="125dp"
-                android:layout_height="23dp"
+                android:layout_width="261dp"
+                android:layout_height="26dp"
                 android:layout_marginStart="33dp"
                 android:layout_marginTop="428dp"
                 android:layout_marginEnd="218dp"
@@ -245,15 +256,15 @@
                 android:text="Total Price:                                                   "
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.021"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/receiptTransactionIdText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="262dp"
+                android:layout_height="27dp"
                 android:layout_marginStart="33dp"
                 android:layout_marginTop="460dp"
                 android:layout_marginEnd="203dp"
@@ -261,8 +272,10 @@
                 android:text="Transation Id:"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
 
             <Button
                 android:id="@+id/receiptBackToMainBtn"
