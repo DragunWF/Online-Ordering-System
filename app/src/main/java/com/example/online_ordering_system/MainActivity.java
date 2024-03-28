@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.Spinner;
@@ -45,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
         profileView = findViewById(R.id.viewProfile);
         productSearchView = findViewById(R.id.productSearchView);
-        productSpinner = findViewById(R.id.productSpinner);
         cartBtn = findViewById(R.id.cartBtn);
 
         profileView.setOnClickListener(v -> {
@@ -69,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        setProductSpinner();
         setUpRecyclerView();
     }
 
@@ -88,12 +91,43 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Product> filterProductsByCategory(String name) {
         List<Product> result = new ArrayList<>();
-        for (Product product : productList) {
+        for (Product product : SessionData.getProductList()) {
             if (SessionData.getCategoryNameById(product.getCategoryID()).equalsIgnoreCase(name)) {
                 result.add(product);
             }
         }
         return result;
+    }
+
+    private void setProductSpinner() {
+        List<String> spinnerChoices = SessionData.getCategoryNames();
+        spinnerChoices.add(0, "Any");
+        productSpinner = findViewById(R.id.productSpinner);
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_spinner_item, SessionData.getCategoryNames()
+        );
+        spinnerAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
+        productSpinner.setAdapter(spinnerAdapter);
+
+        productSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position != 0) {
+                    String selectedCategory = (String) parent.getItemAtPosition(position);
+                    productList = filterProductsByCategory(selectedCategory);
+                    productRecyclerView.setAdapter(new ProductAdapter(MainActivity.this, productList));
+                } else {
+                    productList = SessionData.getProductList();
+                    productRecyclerView.setAdapter(new ProductAdapter(MainActivity.this, productList));
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                productList = db.getProducts();
+                productRecyclerView.setAdapter(new ProductAdapter(MainActivity.this, productList));
+            }
+        });
     }
 
     private void setUpRecyclerView() {
