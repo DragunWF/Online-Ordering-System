@@ -308,16 +308,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
 
         if (!email.isEmpty()) {
-
+            cv.put(EMAIL, email);
         }
         if (!mobileNumber.isEmpty()) {
-
+            cv.put(MOBILE_NUMBER, mobileNumber);
         }
         if (!address.isEmpty()) {
-
+            cv.put(ADDRESS, address);
         }
 
-        // db.update()
+        db.update(ACCOUNT_TBL, cv, USER_ID_PK + " = " + SessionData.getCurrentUser().getId(), null);
     }
 
     public void updatePassword(String password) {
