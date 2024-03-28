@@ -13,10 +13,10 @@
         android:theme="@style/Theme.OnlineOrderingSystem"
         tools:targetApi="31">
         <activity
-            android:name=".UpdatePassword"
+            android:name=".activities.UpdatePasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".EditInfo"
+            android:name=".activities.EditInfoActivity"
             android:exported="false" />
         <activity
             android:name=".SellerDashboard"

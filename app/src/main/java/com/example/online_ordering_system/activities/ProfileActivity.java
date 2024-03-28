@@ -6,11 +6,9 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.online_ordering_system.R;
-import com.example.online_ordering_system.UpdatePassword;
 import com.example.online_ordering_system.data.Customer;
 import com.example.online_ordering_system.utils.SessionData;
 
@@ -46,7 +44,7 @@ public class ProfileActivity extends AppCompatActivity {
         });
         updatePasswordBtn.setOnClickListener(v -> {
             // TODO: Implement update password functionality
-            Intent intent = new Intent(getApplicationContext(), UpdatePassword.class);
+            Intent intent = new Intent(getApplicationContext(), UpdatePasswordActivity.class);
             startActivity(intent);
         });
 
