@@ -18,17 +18,10 @@ public class Shop {
         return shopID;
     }
 
-    public void setShopID(int shopID) {
-        this.shopID = shopID;
-    }
-
     public int getOwnerID() {
         return ownerID;
     }
 
-    public void setOwnerID(int ownerID) {
-        this.ownerID = ownerID;
-    }
 
     public String getName() {
         return name;

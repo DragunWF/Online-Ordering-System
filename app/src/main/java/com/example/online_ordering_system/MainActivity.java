@@ -2,7 +2,6 @@ package com.example.online_ordering_system;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -32,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton cartBtn;
 
     private RecyclerView productRecyclerView;
-    private RecyclerView.Adapter adapter;
+    private RecyclerView.Adapter productRecyclerAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
     private DatabaseHelper db;
@@ -139,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
         layoutManager = new GridLayoutManager(this, 2);
         productRecyclerView.setLayoutManager(layoutManager);
 
-        adapter = new ProductAdapter(this, productList);
-        productRecyclerView.setAdapter(adapter);
+        productRecyclerAdapter = new ProductAdapter(this, productList);
+        productRecyclerView.setAdapter(productRecyclerAdapter);
     }
 }
