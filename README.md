@@ -25,17 +25,18 @@ A mobile android app made for e-commerce. **This app is still in development**.
   3. PC Parts
   4. Gadgets
   5. House Furniture
-- Item search
+- Item search functionality by product name
+- Product filtering via category
 - Item cart that will have the list of items chosen by the customer
-- Mode of Payment
+- Users can choose a mode of payment when buying products
 - Can edit the quantity of the product ordered
-- Customer details
-- Shop details
-- Product details
+- Viewable customer details
+- Viewable shop details
+- Viewable product details
 - Users can login & register in the mobile app
 - Users can update their password and edit other parts of their account information
 - Product Availability
-- Printing receipt:
+- Receipt details shown after the user buys products
   1. Name of the store
   2. Shipping fee
   3. Address
