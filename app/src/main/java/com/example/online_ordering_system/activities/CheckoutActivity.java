@@ -44,8 +44,12 @@ public class CheckoutActivity extends AppCompatActivity {
     // Values
     private Bundle bundle;
     private Product product;
-    private double totalPrice;
     private boolean isSingleProductPurchase;
+
+    // Receipt Details
+    private double shippingFee;
+    private double totalPrice;
+    private double totalAmount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,8 +129,8 @@ public class CheckoutActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void setMiscDetails() {
-        double shippingFee = totalPrice * 0.05;
-        double totalAmount = totalPrice + shippingFee;
+        shippingFee = totalPrice * 0.05;
+        totalAmount = totalPrice + shippingFee;
         totalItemPriceText.setText("Total Item/s Price: " + totalPrice + " PHP");
         shippingFeeText.setText("+ Shipping Fee: " + shippingFee + " PHP");
         totalAmountText.setText("Total Amount: " + totalAmount + " PHP");
