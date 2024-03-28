@@ -121,7 +121,8 @@ public class CheckoutActivity extends AppCompatActivity {
                 productQuantityText.setText("Quantity: " + product.getQuantity());
                 productPriceText.setText(product.getPrice() * product.getQuantity() + " PHP");
             } else {
-                productName = SessionData.getItemCart().size() + " Different Products";
+                int cartSize = SessionData.getItemCart().size();
+                productName = cartSize > 1 ? cartSize + " Different Products" : SessionData.getItemCart().get(0).getName();
                 productNameText.setText(productName);
                 productQuantityText.setText("Quantity: " + SessionData.getCartTotalQuantity());
                 productPriceText.setText(Utils.round(SessionData.getCartTotalAmount()) + " PHP");
