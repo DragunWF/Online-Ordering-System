@@ -1,61 +1,42 @@
 package com.example.online_ordering_system.data;
 
 public class ReceiptData {
-    private int transactionID;
-    private int shippingFee;
+    private final int transactionID;
+    private double shippingFee;
+    private final double totalPrice;
     private String shopName;
     private String address;
 
-    public ReceiptData(int transactionID, int shippingFee, Shop shop, Customer customer) {
-        this.shopName = shop.getName();
-        this.address = customer.getAddress();
-        this.transactionID = transactionID;
+    public ReceiptData(double shippingFee, String shopName, double totalPrice, String address) {
+        this.transactionID = (int)(Math.random() * (5000 - 1000) + 1000);
         this.shippingFee = shippingFee;
+        this.shopName = shopName;
+        this.address = address;
+        this.totalPrice = totalPrice;
     }
 
-    public ReceiptData() {
-
+    // GETTERS AND SETTERS
+    public double getTotalAmount() {
+        return totalPrice + shippingFee;
     }
 
-    @Override
-    public String toString() {
-        return "ReceiptData{" +
-                "transactionID=" + transactionID +
-                ", shippingFee=" + shippingFee +
-                ", shopName='" + shopName + '\'' +
-                ", address='" + address + '\'' +
-                '}';
+    public double getTotalPrice() {
+        return totalPrice;
     }
 
     public int getTransactionID() {
         return transactionID;
     }
 
-    public void setTransactionID(int transactionID) {
-        this.transactionID = transactionID;
-    }
-
-    public int getShippingFee() {
+    public double getShippingFee() {
         return shippingFee;
-    }
-
-    public void setShippingFee(int shippingFee) {
-        this.shippingFee = shippingFee;
     }
 
     public String getShopName() {
         return shopName;
     }
 
-    public void setShopName(String shopName) {
-        this.shopName = shopName;
-    }
-
     public String getAddress() {
         return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 }
