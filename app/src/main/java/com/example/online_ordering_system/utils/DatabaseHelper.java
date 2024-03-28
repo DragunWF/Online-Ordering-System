@@ -266,7 +266,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return null;
     }
 
-    public void updatePassword(Customer customer) {
+    public void updatePassword(String password) {
+        Customer customer = new Customer();
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(PASSWORD, customer.getPassword());
