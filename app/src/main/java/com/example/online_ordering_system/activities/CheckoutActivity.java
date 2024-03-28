@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.online_ordering_system.R;
 import com.example.online_ordering_system.data.Customer;
 import com.example.online_ordering_system.data.Product;
+import com.example.online_ordering_system.data.ReceiptData;
 import com.example.online_ordering_system.utils.SessionData;
 import com.example.online_ordering_system.utils.Utils;
 
@@ -47,6 +48,7 @@ public class CheckoutActivity extends AppCompatActivity {
     private boolean isSingleProductPurchase;
 
     // Receipt Details
+    private String productName;
     private double shippingFee;
     private double totalPrice;
     private double totalAmount;
@@ -114,11 +116,13 @@ public class CheckoutActivity extends AppCompatActivity {
         try {
             if (isSingleProductPurchase) {
                 assert product != null;
-                productNameText.setText(product.getName());
+                productName = product.getName();
+                productNameText.setText(productName);
                 productQuantityText.setText("Quantity: " + product.getQuantity());
                 productPriceText.setText(product.getPrice() * product.getQuantity() + " PHP");
             } else {
-                productNameText.setText(SessionData.getItemCart().size() + " Different Products");
+                productName = SessionData.getItemCart().size() + " Different Products";
+                productNameText.setText(productName);
                 productQuantityText.setText("Quantity: " + SessionData.getCartTotalQuantity());
                 productPriceText.setText(SessionData.getCartTotalAmount() + " PHP");
             }
@@ -144,9 +148,19 @@ public class CheckoutActivity extends AppCompatActivity {
             if (!cashOnDeliveryBtn.isChecked() && !cardPaymentBtn.isChecked()) {
                 Utils.toast(CheckoutActivity.this, "Please select a mode of payment!");
             } else {
-                Intent intent = new Intent(CheckoutActivity.this, ReceiptActivity.class);
-                // TODO: Implement intent data passing
-                startActivity(intent);
+                try {
+                    Intent intent = new Intent(CheckoutActivity.this, ReceiptActivity.class);
+                    SessionData.setReceipt(
+                            new ReceiptData(productName, shippingFee,
+                                    Objects.requireNonNull(SessionData.getShopById(1)).getName(),
+                                    totalPrice, SessionData.getCurrentUser().getAddress()
+                            )
+                    );
+                    intent.putExtra("buyType", isSingleProductPurchase ? "single" : "cart");
+                    startActivity(intent);
+                } catch (Exception err) {
+                    Utils.toast(CheckoutActivity.this, "An error occurred while trying to process your purchase!");
+                }
             }
         });
     }

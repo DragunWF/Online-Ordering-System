@@ -58,8 +58,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private final String CATEGORY_NAME = "category_name";
     // ---------------CATEGORY FIELDS-----------------\\
 
-    Utils prodQuery = new Utils();
-
     public DatabaseHelper(@Nullable Context context) {
         super(context, "oos.db", null, 1);
     }
@@ -129,7 +127,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String.format("VALUES (%s, '%s', '%s')", sellerId, "Avalon", "Batangas City"));
 
         db.execSQL(String.format("INSERT INTO %s (%s, %s, %s, %s, %s, %s, %s) " +
-                prodQuery.productQuery(new Product[] {
+                Utils.productQuery(new Product[] {
                         new Product(1, 1, "Calvin Klein Trench Coat", "A coat big", 5, 170.74, ""),
                         new Product(1, 1, "Bench Hoodie", "A hoodie", 10, 189.29, ""),
                         new Product(1, 1, "Dickies Pants", "Maong pants", 15, 150.23, ""),
@@ -270,12 +268,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public List<Shop> getShops() {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + SHOP_TBL, null);
         List<Shop> shops = new ArrayList<>();
 
         if (cursor.moveToFirst()) {
             do {
-
+                shops.add(new Shop(
+                        cursor.getInt(0),
+                        cursor.getInt(1),
+                        cursor.getString(2),
+                        cursor.getString(3)
+                ));
             } while (cursor.moveToNext());
         }
 
