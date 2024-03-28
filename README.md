@@ -42,6 +42,10 @@ A mobile android app made for e-commerce. **This app is still in development**.
   4. Transaction ID
 - SQLite3 Database
 
+### SQLite3 Database Model
+
+![Image of Entity Relationship Diagram](images/OOS-DB-Diagram.JPG)
+
 ## Images of the App
 
 `Section to be added`
