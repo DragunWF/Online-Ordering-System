@@ -15,6 +15,7 @@ import java.util.List;
 public class SessionData {
     private static final List<Product> itemCart = new ArrayList<>();
     private static final HashMap<Integer, String> categories = new HashMap<>();
+    private static final List<String> categoryNames = new ArrayList<>(); // Primarily for spinner adapter in MainActivity
     private static List<Product> productList;
     private static List<Shop> shops;
 
@@ -30,6 +31,7 @@ public class SessionData {
             List<Category> categoriesData = db.getCategories();
             for (Category category : categoriesData) {
                 categories.put(category.getId(), category.getName());
+                categoryNames.add(category.getName());
             }
         }
     }
@@ -73,6 +75,10 @@ public class SessionData {
     }
     public static List<Product> getItemCart() {
         return itemCart;
+    }
+
+    public static List<String> getCategoryNames() {
+        return categoryNames;
     }
 
     public static List<Product> getProductList() {

@@ -89,7 +89,9 @@ public class MainActivity extends AppCompatActivity {
     private List<Product> filterProductsByCategory(String name) {
         List<Product> result = new ArrayList<>();
         for (Product product : productList) {
-            // TODO: Implement product filtering by category
+            if (SessionData.getCategoryNameById(product.getCategoryID()).equalsIgnoreCase(name)) {
+                result.add(product);
+            }
         }
         return result;
     }
