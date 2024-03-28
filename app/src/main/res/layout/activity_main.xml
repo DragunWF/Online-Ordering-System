@@ -59,6 +59,7 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:contentDescription="car"
+            android:elevation="20dp"
             android:src="@drawable/cart"
             android:tint="@color/black"
             app:backgroundTint="#E6DDBD"

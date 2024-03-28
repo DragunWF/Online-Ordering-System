@@ -81,7 +81,7 @@
                     android:layout_height="54dp"
                     android:backgroundTint="#B33F40"
                     android:text="Sign Out"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -105,6 +105,7 @@
                         android:id="@+id/profileUsername"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/grotesco_bold"
                         android:gravity="center"
                         android:text="Username"
                         android:textSize="20sp" />
@@ -113,6 +114,7 @@
                         android:id="@+id/profileFullName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/grotesco_bold"
                         android:gravity="center"
                         android:text="FullName"
                         android:textSize="20sp" />
@@ -121,6 +123,7 @@
                         android:id="@+id/profileEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/grotesco_bold"
                         android:gravity="center"
                         android:text="Email"
                         android:textSize="20sp" />
@@ -129,6 +132,7 @@
                         android:id="@+id/profileMobileNum"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/grotesco_bold"
                         android:gravity="center"
                         android:text="Mobile no."
                         android:textSize="20sp" />
@@ -137,6 +141,7 @@
                         android:id="@+id/profileAddress"
                         android:layout_width="match_parent"
                         android:layout_height="42dp"
+                        android:fontFamily="@font/grotesco_bold"
                         android:gravity="center"
                         android:text="Address"
                         android:textSize="20sp" />

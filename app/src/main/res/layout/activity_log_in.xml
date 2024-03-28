@@ -90,6 +90,7 @@
                     android:id="@+id/loginUsernameText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/grotesco_reg"
                     android:text="Username:"
                     android:textSize="18sp" />
 
@@ -105,6 +106,7 @@
                     android:id="@+id/loginPasswordText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/grotesco_reg"
                     android:text="Password:"
                     android:textSize="17sp" />
 
@@ -113,6 +115,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:ems="10"
+                    android:fontFamily="@font/grotesco_reg"
                     android:hint="Enter your password"
                     android:inputType="textPassword" />
 

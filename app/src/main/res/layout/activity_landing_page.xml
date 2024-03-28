@@ -35,6 +35,7 @@
         android:id="@+id/signUpBtn"
         android:layout_width="320dp"
         android:layout_height="50dp"
+        android:backgroundTint="@color/red"
         android:text="CREATE NEW ACCCOUNT"
         app:cornerRadius="100dp"
         app:layout_constraintBottom_toBottomOf="parent"

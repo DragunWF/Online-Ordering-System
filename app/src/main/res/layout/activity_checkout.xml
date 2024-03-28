@@ -27,7 +27,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.291"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.035" />
@@ -61,7 +61,7 @@
                     android:id="@+id/customerDetailsText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Customer's Detail:"
+                    android:text="Customer Details:"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -167,7 +167,7 @@
                     android:id="@+id/priceOfProduct"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="$000.00"
+                    android:text="PHP 000.00"
                     android:textSize="17sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -224,13 +224,13 @@
                         android:id="@+id/cashOnDeliveryBtn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="(COD) Cash on Delivery" />
+                        android:text="Cash on Delivery" />
 
                     <RadioButton
                         android:id="@+id/cardPaymentBtn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Debit / Credit Card" />
+                        android:text="Debit or Credit Card" />
                 </RadioGroup>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -242,9 +242,9 @@
 
             <TextView
                 android:id="@+id/totalAmountText"
-                android:layout_width="207dp"
-                android:layout_height="21dp"
-                android:text="Total Amount: $000.00"
+                android:layout_width="274dp"
+                android:layout_height="26dp"
+                android:text="Total Amount: PHP 000.00"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -258,7 +258,7 @@
                 android:id="@+id/shippingFeeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+ Shipping Fee: $0"
+                android:text="Shipping Fee: PHP 0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.051"
@@ -270,7 +270,7 @@
                 android:id="@+id/totalItemsPriceText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total Item/s Price: $0  "
+                android:text="Total Items Price: PHP 0  "
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.058"

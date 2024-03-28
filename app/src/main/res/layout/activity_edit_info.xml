@@ -27,7 +27,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="247dp"
                 android:layout_height="43dp"
-                android:fontFamily="@font/nunito_sans"
+                android:fontFamily="@font/grotesco_bold"
                 android:text="EDIT INFORMATION"
                 android:textSize="27sp"
                 app:layout_constraintBottom_toBottomOf="parent"
