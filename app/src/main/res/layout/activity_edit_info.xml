@@ -83,7 +83,6 @@
                 android:id="@+id/editInfoBackBtn"
                 android:layout_width="42dp"
                 android:layout_height="46dp"
-                android:src="@tools:sample/avatars"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.051"
