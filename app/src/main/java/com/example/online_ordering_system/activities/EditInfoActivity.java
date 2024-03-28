@@ -41,6 +41,8 @@ public class EditInfoActivity extends AppCompatActivity {
                 toast("You are using the same mobile number!");
             } else if (newAddress.equals(user.getAddress())) {
                 toast("You are using the same address!");
+            } else if (newEmail.isEmpty() && newMobileNumber.isEmpty() && newAddress.isEmpty()) {
+                toast("All of the text fields are empty! Please fill at least one in...");
             } else {
                 // TODO: Implement update in the database!
             }
