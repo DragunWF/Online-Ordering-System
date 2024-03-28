@@ -3,7 +3,7 @@ package com.example.online_ordering_system.data;
 public class Customer {
     private int id;
     private String username;
-    private String password;
+    public String password;
     private String fullName;
     private String email;
     private String mobileNumber;

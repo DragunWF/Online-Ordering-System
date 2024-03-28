@@ -265,4 +265,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // TODO: Implement specific shop retrieval
         return null;
     }
+
+    public void updatePassword(Customer customer) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(PASSWORD, customer.getPassword());
+
+        db.update(ACCOUNT_TBL, cv, PASSWORD + " = " + customer.getPassword(), null);
+    }
 }

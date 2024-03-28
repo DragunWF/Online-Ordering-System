@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.online_ordering_system.data.Customer;
+import com.example.online_ordering_system.utils.DatabaseHelper;
 
 public class UpdatePassword extends AppCompatActivity {
     EditText currentPass;
@@ -16,6 +20,8 @@ public class UpdatePassword extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_password);
+
+        DatabaseHelper db = new DatabaseHelper(UpdatePassword.this);
 
         currentPass = findViewById(R.id.currentPass);
         newPass = findViewById(R.id.newPass);
@@ -41,10 +47,16 @@ public class UpdatePassword extends AppCompatActivity {
         });
 
         updatePassBtn.setOnClickListener(v -> {
-            String.valueOf(currentPass.getText());
-            if (String.valueOf(newPass.getText()) == String.valueOf(repeatPass.getText())) {
-
-            }
+            Customer customer = new Customer();
+                if  (String.valueOf(newPass.getText()) == String.valueOf(repeatPass.getText()) &&
+                    String.valueOf(currentPass.getText()) != String.valueOf(newPass.getText()) &&
+                    String.valueOf(currentPass.getText()) != String.valueOf(repeatPass.getText())) {
+                        customer.password = String.valueOf(newPass.getText());
+                        db.updatePassword(customer);
+                    Toast.makeText(this, "PASSWORD UPDATED", Toast.LENGTH_LONG).show();
+                } else if (String.valueOf(newPass.getText()) != String.valueOf(repeatPass.getText())){
+                    Toast.makeText(this, "NEW PASSWORD AND REPEATED PASSWORD IS NOT THE SAME", Toast.LENGTH_LONG).show();
+                }
         });
     }
 }
