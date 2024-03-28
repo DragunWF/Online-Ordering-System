@@ -3,12 +3,14 @@ package com.example.online_ordering_system.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.online_ordering_system.R;
+import com.example.online_ordering_system.UpdatePassword;
 import com.example.online_ordering_system.data.Customer;
 import com.example.online_ordering_system.utils.SessionData;
 
@@ -44,6 +46,8 @@ public class ProfileActivity extends AppCompatActivity {
         });
         updatePasswordBtn.setOnClickListener(v -> {
             // TODO: Implement update password functionality
+            Intent intent = new Intent(getApplicationContext(), UpdatePassword.class);
+            startActivity(intent);
         });
 
         setProfileDetails();
