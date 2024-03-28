@@ -23,7 +23,7 @@ public class UpdatePasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_password);
 
-        DatabaseHelper db = new DatabaseHelper(UpdatePasswordActivity.this);
+        DatabaseHelper db = new DatabaseHelper(this);
 
         currentPass = findViewById(R.id.currentPass);
         newPass = findViewById(R.id.newPass);
