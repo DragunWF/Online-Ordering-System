@@ -3,10 +3,12 @@ package com.example.online_ordering_system.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.online_ordering_system.MainActivity;
 import com.example.online_ordering_system.R;
 import com.example.online_ordering_system.data.Customer;
 import com.example.online_ordering_system.utils.SessionData;
@@ -53,7 +55,7 @@ public class ReceiptActivity extends AppCompatActivity {
 
         backBtn = findViewById(R.id.receiptBackToMainBtn);
         backBtn.setOnClickListener(v -> {
-            finish();
+            startActivity(new Intent(ReceiptActivity.this, MainActivity.class));
         });
 
         setCustomerDetails();
