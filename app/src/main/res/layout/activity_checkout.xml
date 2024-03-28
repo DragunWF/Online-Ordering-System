@@ -242,17 +242,17 @@
 
             <TextView
                 android:id="@+id/totalAmountText"
-                android:layout_width="150dp"
-                android:layout_height="20dp"
-                android:text="Total Amount: $0"
+                android:layout_width="207dp"
+                android:layout_height="21dp"
+                android:text="Total Amount: $000.00"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.061"
+                app:layout_constraintHorizontal_bias="0.078"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.39" />
+                app:layout_constraintVertical_bias="0.393" />
 
             <TextView
                 android:id="@+id/shippingFeeText"

@@ -79,26 +79,26 @@
             android:layout_height="36dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.709"
+            app:layout_constraintHorizontal_bias="0.747"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.562"
+            app:layout_constraintVertical_bias="0.556"
             app:srcCompat="@drawable/minus" />
 
         <TextView
             android:id="@+id/numOfItemCart"
-            android:layout_width="39dp"
-            android:layout_height="39dp"
-            android:text="0"
+            android:layout_width="53dp"
+            android:layout_height="40dp"
+            android:text="00"
             android:textAlignment="center"
             android:textSize="35sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.604"
+            app:layout_constraintHorizontal_bias="0.628"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.548" />
+            app:layout_constraintVertical_bias="0.546" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
