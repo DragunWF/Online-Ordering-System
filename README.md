@@ -22,16 +22,18 @@ A mobile android app made for e-commerce. **This app is still in development**.
 - 5 different choices of products, with 4-5 Variety (Items) on each choice for the user to buy
   1. Clothes
   2. Accessories
-  3. Pc Parts
+  3. PC Parts
   4. Gadgets
   5. House Furniture
 - Item search
 - Item cart that will have the list of items chosen by the customer
 - Mode of Payment
 - Can edit the quantity of the product ordered
-- Customer Details
-- Shop Details
+- Customer details
+- Shop details
+- Product details
 - Users can login & register in the mobile app
+- Users can update their password and edit other parts of their account information
 - Product Availability
 - Printing receipt:
   1. Name of the store
