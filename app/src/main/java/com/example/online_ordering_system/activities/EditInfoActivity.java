@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.example.online_ordering_system.R;
 import com.example.online_ordering_system.data.Customer;
+import com.example.online_ordering_system.utils.DatabaseHelper;
 import com.example.online_ordering_system.utils.SessionData;
 import com.example.online_ordering_system.utils.Utils;
 
@@ -51,12 +52,22 @@ public class EditInfoActivity extends AppCompatActivity {
             } else if (newEmail.isEmpty() && newMobileNumber.isEmpty() && newAddress.isEmpty()) {
                 toast("All of the text fields are empty! Please fill at least one in...");
             } else {
-                // TODO: Implement update in the database!
+                new DatabaseHelper(EditInfoActivity.this).updateInfo(
+                        newEmail, newMobileNumber, newAddress
+                );
+                toast("Your information has been updated!");
+                resetFields();
             }
         });
     }
 
     private void toast(String message) {
         Utils.toast(this, message);
+    }
+
+    private void resetFields() {
+        editEmailText.setText("");
+        editMobileNumberText.setText("");
+        editAddressText.setText("");
     }
 }
