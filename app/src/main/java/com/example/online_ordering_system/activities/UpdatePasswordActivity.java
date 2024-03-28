@@ -10,12 +10,13 @@ import android.widget.Toast;
 import com.example.online_ordering_system.R;
 import com.example.online_ordering_system.data.Customer;
 import com.example.online_ordering_system.utils.DatabaseHelper;
+import com.example.online_ordering_system.utils.SessionData;
 
 public class UpdatePasswordActivity extends AppCompatActivity {
-    private EditText currentPass;
-    private EditText newPass;
-    private EditText repeatPass;
-    private Button updatePassBtn;
+    EditText currentPass;
+    EditText newPass;
+    EditText repeatPass;
+    Button updatePassBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,33 +30,28 @@ public class UpdatePasswordActivity extends AppCompatActivity {
         repeatPass = findViewById(R.id.repeatPass);
         updatePassBtn = findViewById(R.id.updatePasswordBtn);
 
-        currentPass.setOnFocusChangeListener((v, hasFocus) -> {
-            if(hasFocus) {
-                currentPass.setText("");
-            }
+        currentPass.setOnClickListener( v -> {
+
         });
 
-        newPass.setOnFocusChangeListener((v, hasFocus) -> {
-            if(hasFocus) {
-                newPass.setText("");
-            }
+        newPass.setOnClickListener( v -> {
+
         });
 
-        repeatPass.setOnFocusChangeListener((v, hasFocus) -> {
-            if(hasFocus) {
-                repeatPass.setText("");
-            }
+        repeatPass.setOnClickListener(v -> {
+
         });
 
         updatePassBtn.setOnClickListener(v -> {
-            Customer customer = new Customer();
-                if  (String.valueOf(newPass.getText()) == String.valueOf(repeatPass.getText()) &&
-                    String.valueOf(currentPass.getText()) != String.valueOf(newPass.getText()) &&
-                    String.valueOf(currentPass.getText()) != String.valueOf(repeatPass.getText())) {
-                        db.updatePassword(customer.getPassword());
+                Customer sData = SessionData.getCurrentUser();
+                if  (String.valueOf(newPass.getText()).equals(String.valueOf(repeatPass.getText())) &&
+                        String.valueOf(currentPass.getText()).equals(sData.getPassword())) {
+                        db.updatePassword(String.valueOf(currentPass.getText()), String.valueOf(newPass.getText()));
                         Toast.makeText(this, "PASSWORD UPDATED", Toast.LENGTH_LONG).show();
-                } else if (String.valueOf(newPass.getText()) != String.valueOf(repeatPass.getText())){
+                } else if (!String.valueOf(newPass.getText()).equals(String.valueOf(repeatPass.getText()))){
                     Toast.makeText(this, "NEW PASSWORD AND REPEATED PASSWORD IS NOT THE SAME", Toast.LENGTH_LONG).show();
+                } else if (!String.valueOf(currentPass.getText()).equals(sData.getPassword())) {
+                    Toast.makeText(this, "YOUR CURRENT PASSWORD IS INVALID", Toast.LENGTH_LONG).show();
                 }
         });
     }
