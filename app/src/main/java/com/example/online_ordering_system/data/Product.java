@@ -12,7 +12,7 @@ public class Product {
     private double price;
     private String imageURL;
 
-    private int quantity; // Not part of the database. Strictly a session type data.
+    private int quantity = 1; // Not part of the database. Strictly a session type data.
 
     public Product(int id, int shopID, int categoryID, String name, String description, int stock, double price, String imageURL) {
         this.id = id;

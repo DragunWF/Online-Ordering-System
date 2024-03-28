@@ -56,11 +56,8 @@ public class ItemsActivity extends AppCompatActivity {
         currentQuantity = Integer.parseInt(extractNum(quantityText));
         int availableStock = Integer.parseInt(extractNum(itemStockText));
 
-        if (isAdd) {
+        if (isAdd && currentQuantity < availableStock) {
             currentQuantity++;
-            if (currentQuantity > availableStock) {
-                currentQuantity = availableStock;
-            }
         } else {
             currentQuantity--;
             if (currentQuantity < 0) {
@@ -111,10 +108,16 @@ public class ItemsActivity extends AppCompatActivity {
         });
         addToCartBtn.setOnClickListener(v -> {
             if (currentQuantity > 0) {
-                Intent intent = new Intent(ItemsActivity.this, CartActivity.class);
-                SessionData.addCartItem(Utils.getProductById(productId));
-                intent.putExtra("quantity", currentQuantity);
-                startActivity(intent);
+                try {
+                    Intent intent = new Intent(ItemsActivity.this, CartActivity.class);
+                    Product product = Utils.getProductById(productId);
+                    assert product != null;
+                    product.setQuantity(currentQuantity);
+                    SessionData.addCartItem(product);
+                    startActivity(intent);
+                } catch (NullPointerException err) {
+                    Utils.toast(ItemsActivity.this, "Something went wrong trying to process your order!");
+                }
             } else {
                 Utils.toast(ItemsActivity.this, "Quantity to buy cannot be 0!");
             }

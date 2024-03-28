@@ -1,5 +1,6 @@
 package com.example.online_ordering_system.utils;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +34,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
         private RadioButton selectBtn;
 
-        private int productStock;
+        private int productStock = 1;
         private int productQuantity = 1;
 
         public ViewHolder(View view) {
@@ -52,6 +53,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             return itemName;
         }
 
+        public TextView getItemQuantity() {
+            return itemQuantity;
+        }
+
+        public void setProductStock(int productStock) {
+            this.productStock = productStock;
+        }
+
         public RadioButton getSelectBtn() {
             return selectBtn;
         }
@@ -62,7 +71,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
         public void modifyItemQuantity(boolean isAdd) {
             productQuantity = Integer.parseInt(String.valueOf(itemQuantity.getText()));
-            if (isAdd) {
+            if (isAdd && productQuantity < productStock) {
                 productQuantity++;
             } else {
                 productQuantity--;
@@ -106,12 +115,15 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     }
 
     // Replace the contents of a view (invoked by the layout manager)
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
         Product product = cartItems.get(position);
         viewHolder.getItemName().setText(product.getName());
+        viewHolder.getItemQuantity().setText(String.valueOf(product.getQuantity()));
+        viewHolder.setProductStock(product.getStock());
 
         viewHolder.getPlusBtn().setOnClickListener(v -> {
             viewHolder.modifyItemQuantity(true);
@@ -122,6 +134,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         viewHolder.getRemoveBtn().setOnClickListener(v -> {
             SessionData.removeCartItem(position);
             CartAdapter.this.setCartItems(SessionData.getItemCart());
+            this.notifyDataSetChanged();
         });
     }
 

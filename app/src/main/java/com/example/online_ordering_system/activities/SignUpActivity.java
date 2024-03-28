@@ -48,9 +48,7 @@ public class SignUpActivity extends AppCompatActivity {
         buyerBtn = findViewById(R.id.buyerRadioBtn);
         sellerBtn = findViewById(R.id.sellerRadioBtn);
 
-        backBtn.setOnClickListener(v -> {
-            finish();
-        });
+        backBtn.setOnClickListener(v -> finish());
 
         signUpSubmitBtn.setOnClickListener(v -> {
             // TODO: Set up Account Registration
