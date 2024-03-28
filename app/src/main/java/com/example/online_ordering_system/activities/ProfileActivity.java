@@ -40,12 +40,10 @@ public class ProfileActivity extends AppCompatActivity {
             finish();
         });
         editProfileBtn.setOnClickListener(v -> {
-            // TODO: Implement edit profile functionality
+            startActivity(new Intent(ProfileActivity.this, EditInfoActivity.class));
         });
         updatePasswordBtn.setOnClickListener(v -> {
-            // TODO: Implement update password functionality
-            Intent intent = new Intent(getApplicationContext(), UpdatePasswordActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(ProfileActivity.this, UpdatePasswordActivity.class));
         });
 
         setProfileDetails();
