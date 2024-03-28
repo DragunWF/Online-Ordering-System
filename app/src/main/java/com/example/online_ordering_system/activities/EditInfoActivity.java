@@ -15,7 +15,10 @@ public class EditInfoActivity extends AppCompatActivity {
     private EditText editEmailText;
     private EditText editMobileNumberText;
     private EditText editAddressText;
+
+    private Button backBtn;
     private Button submitBtn;
+
     private Customer user;
 
     @Override
@@ -28,8 +31,11 @@ public class EditInfoActivity extends AppCompatActivity {
         editEmailText = findViewById(R.id.editEmail);
         editMobileNumberText = findViewById(R.id.editMobileNum);
         editAddressText = findViewById(R.id.editAddress);
+
+        backBtn = findViewById(R.id.editInfoBackBtn);
         submitBtn = findViewById(R.id.editInfoBtn);
 
+        backBtn.setOnClickListener(v -> finish());
         submitBtn.setOnClickListener(v -> {
             String newEmail = Utils.getString(editEmailText);
             String newMobileNumber = Utils.getString(editMobileNumberText);
