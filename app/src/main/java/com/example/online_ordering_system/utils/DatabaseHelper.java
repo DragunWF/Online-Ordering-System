@@ -299,11 +299,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Shop getSpecificShop(String shopName) {
         // TODO: Implement specific shop retrieval
+        // Not necessary at the moment
         return null;
     }
 
     public void updateInfo(String email, String mobileNumber, String address) {
-        // TODO: Finish update info functionality
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
