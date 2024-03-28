@@ -320,12 +320,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.update(ACCOUNT_TBL, cv, USER_ID_PK + " = " + SessionData.getCurrentUser().getId(), null);
     }
 
-    public void updatePassword(String password) {
-        Customer customer = new Customer();
+    public void updatePassword(String currentPassword, String newPassword) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(PASSWORD, customer.getPassword());
+        cv.put(PASSWORD, newPassword);
 
-        db.update(ACCOUNT_TBL, cv, PASSWORD + " = " + customer.getPassword(), null);
+        db.update(ACCOUNT_TBL, cv, PASSWORD + " = ?", new String[]{currentPassword});
+
+        db.close();
     }
 }
