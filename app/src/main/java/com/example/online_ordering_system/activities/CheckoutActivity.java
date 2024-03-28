@@ -15,6 +15,8 @@ import com.example.online_ordering_system.data.Product;
 import com.example.online_ordering_system.utils.SessionData;
 import com.example.online_ordering_system.utils.Utils;
 
+import java.util.Objects;
+
 public class CheckoutActivity extends AppCompatActivity {
     // Customer Details
     private TextView customerNameText;
@@ -41,24 +43,16 @@ public class CheckoutActivity extends AppCompatActivity {
 
     // Values
     private Bundle bundle;
-    private double totalPrice;
     private Product product;
-    private String buyType;
+    private double totalPrice;
+    private boolean isSingleProductPurchase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
 
-        try {
-            bundle = getIntent().getExtras();
-            assert bundle != null;
-            buyType = bundle.getString("buyType");
-            product = Utils.getProductById(bundle.getInt("id"));
-            totalPrice = bundle.getInt("quantity") * product.getPrice();
-        } catch (Exception err) {
-            Utils.toast(this, "Error trying to fetch from intent extras!");
-        }
+        setClassValues();
 
         customerNameText = findViewById(R.id.nameOfCustomer);
         customerMobileNumberText = findViewById(R.id.mobileNumOfCustomer);
@@ -85,6 +79,23 @@ public class CheckoutActivity extends AppCompatActivity {
         setButtons();
     }
 
+    private void setClassValues() {
+        try {
+            bundle = getIntent().getExtras();
+            assert bundle != null;
+            isSingleProductPurchase = Objects.equals(bundle.getString("buyType"), "single");
+            if (isSingleProductPurchase) {
+                product = Utils.getProductById(bundle.getInt("id"));
+                assert product != null;
+                totalPrice = product.getPrice() * product.getQuantity();
+            } else {
+                totalPrice = SessionData.getCartTotalAmount();
+            }
+        } catch (Exception err) {
+            Utils.toast(this, "Error trying to fetch from intent extras!");
+        }
+    }
+
     @SuppressLint("SetTextI18n")
     private void setCustomerDetails() {
         Customer user = SessionData.getCurrentUser();
@@ -97,10 +108,16 @@ public class CheckoutActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     private void setProductDetails() {
         try {
-            assert product != null;
-            productNameText.setText(product.getName());
-            productQuantityText.setText("Quantity: " + bundle.getInt("quantity"));
-            productPriceText.setText(totalPrice + " PHP");
+            if (isSingleProductPurchase) {
+                assert product != null;
+                productNameText.setText(product.getName());
+                productQuantityText.setText("Quantity: " + product.getQuantity());
+                productPriceText.setText(product.getPrice() * product.getQuantity() + " PHP");
+            } else {
+                productNameText.setText(SessionData.getItemCart().size() + " Different Products");
+                productQuantityText.setText("Quantity: " + SessionData.getCartTotalQuantity());
+                productPriceText.setText(SessionData.getCartTotalAmount() + " PHP");
+            }
         } catch (Exception err) {
             Utils.toast(CheckoutActivity.this, "Something went wrong trying to display product's information!");
         }

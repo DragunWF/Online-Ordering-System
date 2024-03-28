@@ -47,6 +47,22 @@ public class SessionData {
         return null;
     }
 
+    public static double getCartTotalAmount() {
+        double total = 0;
+        for (Product product : itemCart) {
+            total += product.getPrice() * product.getQuantity();
+        }
+        return total;
+    }
+
+    public static int getCartTotalQuantity() {
+        int total = 0;
+        for (Product product : itemCart) {
+            total += product.getQuantity();
+        }
+        return total;
+    }
+
     // GETTERS AND SETTERS
     public static Customer getCurrentUser() {
         return currentUser;

@@ -37,7 +37,7 @@ public class CartActivity extends AppCompatActivity {
         checkOutBtn.setOnClickListener(v -> {
             if (SessionData.getItemCart().size() > 0) {
                 Intent intent = new Intent(CartActivity.this, CheckoutActivity.class);
-                // TODO: Implement checkout functionality
+                intent.putExtra("buyType", "cart");
                 startActivity(intent);
             } else {
                 Utils.toast(CartActivity.this, "Your cart is empty!");
