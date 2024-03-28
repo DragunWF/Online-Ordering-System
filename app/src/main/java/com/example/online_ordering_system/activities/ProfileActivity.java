@@ -21,6 +21,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private Button editProfileBtn;
     private Button updatePasswordBtn;
+    private Button signOutBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         editProfileBtn = findViewById(R.id.editProfile);
         updatePasswordBtn = findViewById(R.id.updatePassBtn);
+        signOutBtn = findViewById(R.id.signOutBtn);
 
         findViewById(R.id.backImageViewProfile).setOnClickListener(v -> {
             finish();
@@ -44,6 +46,10 @@ public class ProfileActivity extends AppCompatActivity {
         });
         updatePasswordBtn.setOnClickListener(v -> {
             startActivity(new Intent(ProfileActivity.this, UpdatePasswordActivity.class));
+        });
+        signOutBtn.setOnClickListener(v -> {
+            SessionData.signOut();
+            startActivity(new Intent(ProfileActivity.this, LandingPageActivity.class));
         });
 
         setProfileDetails();

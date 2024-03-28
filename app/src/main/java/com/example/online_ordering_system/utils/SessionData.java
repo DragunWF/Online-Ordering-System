@@ -65,6 +65,10 @@ public class SessionData {
         return total;
     }
 
+    public static void signOut() {
+        currentUser = null;
+    }
+
     // GETTERS AND SETTERS
     public static Customer getCurrentUser() {
         return currentUser;
