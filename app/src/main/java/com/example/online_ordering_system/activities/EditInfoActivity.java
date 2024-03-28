@@ -1,10 +1,12 @@
-package com.example.online_ordering_system;
+package com.example.online_ordering_system.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class EditInfo extends AppCompatActivity {
+import com.example.online_ordering_system.R;
+
+public class EditInfoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

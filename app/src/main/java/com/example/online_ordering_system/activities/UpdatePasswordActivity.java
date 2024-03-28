@@ -1,4 +1,4 @@
-package com.example.online_ordering_system;
+package com.example.online_ordering_system.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,10 +7,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.online_ordering_system.R;
 import com.example.online_ordering_system.data.Customer;
 import com.example.online_ordering_system.utils.DatabaseHelper;
 
-public class UpdatePassword extends AppCompatActivity {
+public class UpdatePasswordActivity extends AppCompatActivity {
     EditText currentPass;
     EditText newPass;
     EditText repeatPass;
@@ -21,7 +22,7 @@ public class UpdatePassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_password);
 
-        DatabaseHelper db = new DatabaseHelper(UpdatePassword.this);
+        DatabaseHelper db = new DatabaseHelper(UpdatePasswordActivity.this);
 
         currentPass = findViewById(R.id.currentPass);
         newPass = findViewById(R.id.newPass);

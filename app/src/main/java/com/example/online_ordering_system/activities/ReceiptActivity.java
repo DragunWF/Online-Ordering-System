@@ -2,11 +2,14 @@ package com.example.online_ordering_system.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.online_ordering_system.R;
+import com.example.online_ordering_system.data.Customer;
+import com.example.online_ordering_system.utils.SessionData;
 
 public class ReceiptActivity extends AppCompatActivity {
     // Customer Details Text Views
@@ -53,10 +56,27 @@ public class ReceiptActivity extends AppCompatActivity {
             finish();
         });
 
-        setDetails();
+        setCustomerDetails();
+        setShopDetails();
+        setProductDetails();
     }
 
-    private void setDetails() {
+    @SuppressLint("SetTextI18n")
+    private void setCustomerDetails() {
+        Customer user = SessionData.getCurrentUser();
+        customerNameText.setText("Name: " + user.getFullName());
+        customerMobileNumberText.setText("Mobile No: " + user.getMobileNumber());
+        customerEmailText.setText("Email: " + user.getEmail());
+        customerAddressText.setText("Address: " + user.getAddress());
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void setShopDetails() {
+
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void setProductDetails() {
     
     }
 }
