@@ -5,6 +5,8 @@ import android.content.Context;
 import com.example.online_ordering_system.data.Category;
 import com.example.online_ordering_system.data.Customer;
 import com.example.online_ordering_system.data.Product;
+import com.example.online_ordering_system.data.ReceiptData;
+import com.example.online_ordering_system.data.Shop;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,11 +15,15 @@ public class SessionData {
     private static final List<Product> itemCart = new ArrayList<>();
     private static List<Product> productList;
     private static List<Category> categories = new ArrayList<>();
+    private static List<Shop> shops;
     private static Customer currentUser;
+    private static ReceiptData receipt;
 
     public static void initializeProductCache(Context context) {
         if (productList == null) {
-            productList = new DatabaseHelper(context).getProducts();
+            DatabaseHelper db = new DatabaseHelper(context);
+            productList = db.getProducts();
+
         }
     }
 
@@ -42,6 +48,15 @@ public class SessionData {
         for (Category category : categories) {
             if (category.getName().equalsIgnoreCase(name)) {
                 return category;
+            }
+        }
+        return null;
+    }
+
+    public static Shop getShopById(int id) {
+        for (Shop shop : shops) {
+            if (shop.getShopID() == id) {
+                return shop;
             }
         }
         return null;
@@ -85,5 +100,13 @@ public class SessionData {
 
     public static List<Product> getProductList() {
         return productList;
+    }
+
+    public static ReceiptData getReceipt() {
+        return receipt;
+    }
+
+    public static void setReceipt(ReceiptData receipt) {
+        SessionData.receipt = receipt;
     }
 }

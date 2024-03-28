@@ -206,6 +206,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return accounts;
     }
 
+    public Customer getAccountById(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + ACCOUNT_TBL + " WHERE " + USER_ID_PK + " = " + id, null);
+        if (cursor.moveToFirst()) {
+            return new Customer(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5),
+                    cursor.getString(6),
+                    cursor.getString(7)
+            );
+        }
+        return null;
+    }
+
     public void addProduct(Product product) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -248,6 +266,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         cursor.close();
         return products;
+    }
+
+    public List<Shop> getShops() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("", null);
+        List<Shop> shops = new ArrayList<>();
+
+        if (cursor.moveToFirst()) {
+            do {
+
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return shops;
     }
 
     public void addShop(Shop shop) {
