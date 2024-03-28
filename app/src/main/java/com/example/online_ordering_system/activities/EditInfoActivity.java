@@ -55,7 +55,7 @@ public class EditInfoActivity extends AppCompatActivity {
                 new DatabaseHelper(EditInfoActivity.this).updateInfo(
                         newEmail, newMobileNumber, newAddress
                 );
-                toast("Your information has been updated!");
+                toast("Your account information has been updated!");
                 resetFields();
             }
         });
