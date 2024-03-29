@@ -6,9 +6,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/icon_reg"
+        android:icon="@drawable/icon"
         android:label="O.O.S"
-        android:roundIcon="@mipmap/icon_round"
+        android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineOrderingSystem"
         tools:targetApi="31">
