@@ -69,7 +69,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             return removeBtn;
         }
 
-        public void modifyItemQuantity(boolean isAdd) {
+        public int modifyItemQuantity(boolean isAdd) {
             productQuantity = Integer.parseInt(String.valueOf(itemQuantity.getText()));
             if (isAdd && productQuantity < productStock) {
                 productQuantity++;
@@ -80,6 +80,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
                 }
             }
             itemQuantity.setText(String.valueOf(productQuantity));
+            return productQuantity;
         }
 
         public ImageView getPlusBtn() {
@@ -126,10 +127,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         viewHolder.setProductStock(product.getStock());
 
         viewHolder.getPlusBtn().setOnClickListener(v -> {
-            viewHolder.modifyItemQuantity(true);
+            SessionData.getItemCart().get(position).setQuantity(viewHolder.modifyItemQuantity(true));
         });
         viewHolder.getMinusBtn().setOnClickListener(v -> {
-            viewHolder.modifyItemQuantity(false);
+            SessionData.getItemCart().get(position).setQuantity(viewHolder.modifyItemQuantity(false));
         });
         viewHolder.getRemoveBtn().setOnClickListener(v -> {
             SessionData.getItemCart().remove(position);
