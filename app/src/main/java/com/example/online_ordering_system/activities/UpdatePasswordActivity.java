@@ -11,6 +11,7 @@ import com.example.online_ordering_system.R;
 import com.example.online_ordering_system.data.Customer;
 import com.example.online_ordering_system.utils.DatabaseHelper;
 import com.example.online_ordering_system.utils.SessionData;
+import com.example.online_ordering_system.utils.Utils;
 
 public class UpdatePasswordActivity extends AppCompatActivity {
     private EditText currentPass;
@@ -35,12 +36,16 @@ public class UpdatePasswordActivity extends AppCompatActivity {
                 if  (String.valueOf(newPass.getText()).equals(String.valueOf(repeatPass.getText())) &&
                         String.valueOf(currentPass.getText()).equals(sData.getPassword())) {
                         db.updatePassword(String.valueOf(currentPass.getText()), String.valueOf(newPass.getText()));
-                        Toast.makeText(this, "PASSWORD UPDATED", Toast.LENGTH_LONG).show();
+                        toast("PASSWORD UPDATED");
                 } else if (!String.valueOf(newPass.getText()).equals(String.valueOf(repeatPass.getText()))){
-                    Toast.makeText(this, "NEW PASSWORD AND REPEATED PASSWORD IS NOT THE SAME", Toast.LENGTH_LONG).show();
+                    toast("NEW PASSWORD AND REPEATED PASSWORD IS NOT THE SAME");
                 } else if (!String.valueOf(currentPass.getText()).equals(sData.getPassword())) {
-                    Toast.makeText(this, "YOUR CURRENT PASSWORD IS INVALID", Toast.LENGTH_LONG).show();
+                    toast("YOUR CURRENT PASSWORD IS INVALID");
                 }
         });
+    }
+
+    private void toast(String message) {
+        Utils.toast(this, message);
     }
 }
