@@ -77,7 +77,7 @@ public class SignUpActivity extends AppCompatActivity {
                     DatabaseHelper db = new DatabaseHelper(SignUpActivity.this);
                     accountType = buyerBtn.isActivated() ? "buyer" : "seller";
                     db.addAccount(new Customer(username, password, fullName, email, mobileNumber, address, accountType));
-                    startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+                    startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
                 } catch (Exception err) {
                     Utils.toast(SignUpActivity.this, "An unexpected error has occurred!");
                 }

@@ -99,11 +99,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setProductSpinner() {
-        List<String> spinnerChoices = SessionData.getCategoryNames();
+        List<String> spinnerChoices = new ArrayList<>(SessionData.getCategoryNames());
         spinnerChoices.add(0, "Any");
         productSpinner = findViewById(R.id.productSpinner);
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_spinner_item, SessionData.getCategoryNames()
+                this, android.R.layout.simple_spinner_item, spinnerChoices
         );
         spinnerAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
         productSpinner.setAdapter(spinnerAdapter);
