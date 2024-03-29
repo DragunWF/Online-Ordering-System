@@ -32,15 +32,18 @@ public class CartActivity extends AppCompatActivity {
         checkOutBtn = findViewById(R.id.checkOutBtn);
 
         backBtn.setOnClickListener(v -> {
+            SessionData.getSelectedItems().clear();
             startActivity(new Intent(CartActivity.this, MainActivity.class));
         });
         checkOutBtn.setOnClickListener(v -> {
-            if (SessionData.getItemCart().size() > 0) {
+            if (SessionData.getItemCart().size() == 0) {
+                Utils.toast(CartActivity.this, "Your cart is empty!");
+            } else if (SessionData.getSelectedItems().size() == 0) {
+                Utils.toast(CartActivity.this, "You have to select at least one item from your cart to purchase!");
+            } else {
                 Intent intent = new Intent(CartActivity.this, CheckoutActivity.class);
                 intent.putExtra("buyType", "cart");
                 startActivity(intent);
-            } else {
-                Utils.toast(CartActivity.this, "Your cart is empty!");
             }
         });
 

@@ -14,11 +14,12 @@ import java.util.List;
 
 public class SessionData {
     private static final List<Product> itemCart = new ArrayList<>();
+    private static final List<Integer> selectedItems = new ArrayList<>(); // stores the indices
     private static final HashMap<Integer, String> categories = new HashMap<>();
     private static final List<String> categoryNames = new ArrayList<>(); // Primarily for spinner adapter in MainActivity
+
     private static List<Product> productList;
     private static List<Shop> shops;
-
     private static Customer currentUser;
     private static ReceiptData receipt;
 
@@ -51,7 +52,8 @@ public class SessionData {
 
     public static double getCartTotalAmount() {
         double total = 0;
-        for (Product product : itemCart) {
+        for (int index : selectedItems) {
+            Product product = itemCart.get(index);
             total += product.getPrice() * product.getQuantity();
         }
         return total;
@@ -59,8 +61,8 @@ public class SessionData {
 
     public static int getCartTotalQuantity() {
         int total = 0;
-        for (Product product : itemCart) {
-            total += product.getQuantity();
+        for (int index : selectedItems) {
+            total += itemCart.get(index).getQuantity();
         }
         return total;
     }
@@ -79,6 +81,10 @@ public class SessionData {
     }
     public static List<Product> getItemCart() {
         return itemCart;
+    }
+
+    public static List<Integer> getSelectedItems() {
+        return selectedItems;
     }
 
     public static List<String> getCategoryNames() {

@@ -63,6 +63,7 @@ public class ReceiptActivity extends AppCompatActivity {
 
         backBtn = findViewById(R.id.receiptBackToMainBtn);
         backBtn.setOnClickListener(v -> {
+            SessionData.getSelectedItems().clear();
             startActivity(new Intent(ReceiptActivity.this, MainActivity.class));
         });
 

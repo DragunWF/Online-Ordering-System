@@ -126,6 +126,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         viewHolder.getItemQuantity().setText(String.valueOf(product.getQuantity()));
         viewHolder.setProductStock(product.getStock());
 
+        viewHolder.getSelectBtn().setOnClickListener(v -> {
+            SessionData.getSelectedItems().add(position);
+        });
         viewHolder.getPlusBtn().setOnClickListener(v -> {
             SessionData.getItemCart().get(position).setQuantity(viewHolder.modifyItemQuantity(true));
         });
