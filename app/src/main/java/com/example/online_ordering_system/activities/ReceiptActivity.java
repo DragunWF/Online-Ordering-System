@@ -102,10 +102,27 @@ public class ReceiptActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     private void setProductDetails() {
         ReceiptData receipt = SessionData.getReceipt();
-        productNameText.setText("Product Name: " + receipt.getProductName());
+        productNameText.setText("Product Name: " + shortenProductName(receipt.getProductName()));
         productPriceText.setText("Price: " + receipt.getTotalPrice());
         shippingFeeText.setText("Shipping Fee: " + receipt.getShippingFee());
         totalPriceText.setText("Total Price: " + receipt.getTotalAmount());
         transactionIdText.setText("Transaction ID: " + receipt.getTransactionID());
+    }
+
+    private String shortenProductName(String name) {
+        final int CHAR_LIMIT = 21;
+        int numOfCharacters = 0;
+        StringBuilder shortenedName = new StringBuilder();
+        String[] words = name.split(" ");
+        for (String word : words) {
+            numOfCharacters += word.length() + 1;
+            if (numOfCharacters < CHAR_LIMIT) {
+                shortenedName.append(word);
+            } else {
+                break;
+            }
+            shortenedName.append(" ");
+        }
+        return shortenedName.toString();
     }
 }
