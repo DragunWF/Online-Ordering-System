@@ -63,14 +63,15 @@ public class ReceiptActivity extends AppCompatActivity {
 
         backBtn = findViewById(R.id.receiptBackToMainBtn);
         backBtn.setOnClickListener(v -> {
-            SessionData.getSelectedItems().clear();
+            if (!isSinglePurchase) {
+                SessionData.renewCart();
+            }
             startActivity(new Intent(ReceiptActivity.this, MainActivity.class));
         });
 
         setCustomerDetails();
         setShopDetails();
         setProductDetails();
-        SessionData.getItemCart().clear();
     }
 
     private void setClassValues() {

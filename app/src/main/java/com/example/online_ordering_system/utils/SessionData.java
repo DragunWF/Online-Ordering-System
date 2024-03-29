@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class SessionData {
-    private static final List<Product> itemCart = new ArrayList<>();
+    private static List<Product> itemCart = new ArrayList<>();
     private static final List<Integer> selectedItems = new ArrayList<>(); // stores the indices
     private static final HashMap<Integer, String> categories = new HashMap<>();
     private static final List<String> categoryNames = new ArrayList<>(); // Primarily for spinner adapter in MainActivity
@@ -65,6 +65,17 @@ public class SessionData {
             total += itemCart.get(index).getQuantity();
         }
         return total;
+    }
+
+    public static void renewCart() {
+        List<Product> newCart = new ArrayList<>();
+        for (int i = 0, n = itemCart.size(); i < n; i++) {
+            if (!selectedItems.contains(i)) {
+                newCart.add(itemCart.get(i));
+            }
+        }
+        itemCart = newCart;
+        selectedItems.clear();
     }
 
     public static void signOut() {
