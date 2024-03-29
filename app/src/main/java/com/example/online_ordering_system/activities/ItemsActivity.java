@@ -14,10 +14,12 @@ import com.example.online_ordering_system.data.Product;
 import com.example.online_ordering_system.utils.SessionData;
 import com.example.online_ordering_system.utils.Utils;
 
+import java.util.Objects;
+
 public class ItemsActivity extends AppCompatActivity {
     private int productId;
     private double basePrice;
-    private int currentQuantity;
+    private int currentQuantity = 1;
 
     private TextView itemNameText;
     private TextView itemPriceText;
