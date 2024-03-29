@@ -82,7 +82,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         // contents of the view with that element
         Product product = productList.get(position);
 
-        final int CHAR_LIMIT = 15;
+        final int CHAR_LIMIT = 13;
         String productName = product.getName();
         if (productName.length() > CHAR_LIMIT) {
             int endIndex = CHAR_LIMIT - 2;
