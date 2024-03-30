@@ -13,12 +13,13 @@
         android:fontFamily="@font/grotesco_bold"
         android:text="My Receipt"
         android:textAllCaps="false"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/receiptCard"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.036" />
+        app:layout_constraintVertical_bias="0.645" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/receiptCard"

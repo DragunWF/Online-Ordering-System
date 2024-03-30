@@ -30,18 +30,19 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.035" />
+        app:layout_constraintVertical_bias="0.032" />
 
     <LinearLayout
-        android:layout_width="397dp"
-        android:layout_height="649dp"
+        android:layout_width="391dp"
+        android:layout_height="744dp"
         android:layout_margin="2dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkOutText"
-        app:layout_constraintVertical_bias="0.727">
+        app:layout_constraintVertical_bias="0.333">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/customerDetailsCard"
@@ -238,7 +239,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="300dp">
 
             <TextView
                 android:id="@+id/totalAmountText"
@@ -249,34 +250,36 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.078"
+                app:layout_constraintHorizontal_bias="0.111"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.393" />
+                app:layout_constraintVertical_bias="0.408" />
 
             <TextView
                 android:id="@+id/shippingFeeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="135dp"
+                android:layout_height="21dp"
                 android:text="Shipping Fee: PHP 0"
+                android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.051"
+                app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.156" />
+                app:layout_constraintVertical_bias="0.243" />
 
             <TextView
                 android:id="@+id/totalItemsPriceText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Total Items Price: PHP 0  "
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.058"
+                app:layout_constraintHorizontal_bias="0.059"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.027" />
+                app:layout_constraintVertical_bias="0.133" />
 
             <Button
                 android:id="@+id/confirmOrderBtn"
@@ -285,10 +288,10 @@
                 android:text="CONFIRM ORDER"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.511"
+                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.762" />
+                app:layout_constraintVertical_bias="0.694" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>

@@ -7,14 +7,14 @@
     tools:context=".activities.LoginActivity">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="350dp"
-        android:layout_height="600dp"
+        android:layout_width="364dp"
+        android:layout_height="844dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:backgroundTint="#FBFAF2"
+        android:outlineSpotShadowColor="@color/black"
         app:cardCornerRadius="30dp"
         app:cardElevation="30dp"
-        android:outlineSpotShadowColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -23,28 +23,29 @@
         app:layout_constraintVertical_bias="0.405">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="350dp"
-            android:layout_height="600dp"
+            android:layout_width="348dp"
+            android:layout_height="852dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp">
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="122dp"
-                android:layout_height="120dp"
+                android:layout_width="169dp"
+                android:layout_height="160dp"
                 android:layout_marginStart="114dp"
                 android:layout_marginEnd="114dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.489"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.127"
+                app:layout_constraintVertical_bias="0.151"
                 app:srcCompat="@drawable/log_in" />
 
             <ImageView
                 android:id="@+id/backBtn"
-                android:layout_width="55dp"
-                android:layout_height="45dp"
+                android:layout_width="62dp"
+                android:layout_height="55dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="286dp"
                 android:background="#FBFAF2"
@@ -72,12 +73,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.8" />
+                app:layout_constraintVertical_bias="0.718" />
 
             <LinearLayout
                 android:id="@+id/linearLayout2"
-                android:layout_width="307dp"
-                android:layout_height="172dp"
+                android:layout_width="316dp"
+                android:layout_height="181dp"
                 android:layout_marginStart="22dp"
                 android:layout_marginEnd="21dp"
                 android:orientation="vertical"

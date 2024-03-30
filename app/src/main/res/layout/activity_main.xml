@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
@@ -16,6 +17,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
+
+        <SearchView
+            android:id="@+id/productSearchView"
+            android:layout_width="152dp"
+            android:layout_height="48dp"
+            android:background="@drawable/seachlayout"
+            app:circularflow_angles="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.362"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.039" />
 
         <ImageView
             android:id="@+id/viewProfile"
@@ -31,7 +45,7 @@
 
         <Spinner
             android:id="@+id/productSpinner"
-            android:layout_width="140dp"
+            android:layout_width="124dp"
             android:layout_height="48dp"
             android:background="@drawable/spinner"
             android:dropDownWidth="wrap_content"
@@ -39,23 +53,23 @@
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.926"
+            app:layout_constraintHorizontal_bias="0.944"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.039" />
 
-        <SearchView
-            android:id="@+id/productSearchView"
-            android:layout_width="160dp"
-            android:layout_height="48dp"
-            android:background="@drawable/seachlayout"
-            app:circularflow_angles="5dp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/productsRecycleView"
+            android:layout_width="407dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="115dp"
+            android:layout_marginRight="7dp"
+            app:barrierMargin="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.318"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.039" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/cartBtn"
@@ -69,23 +83,11 @@
             app:backgroundTint="#E6DDBD"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.943"
+            app:layout_constraintHorizontal_bias="0.923"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.976"
+            app:layout_constraintVertical_bias="0.97"
             app:rippleColor="#0E0E0E" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/productsRecycleView"
-            android:layout_width="407dp"
-            android:layout_height="645dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginEnd="1dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/productSearchView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
