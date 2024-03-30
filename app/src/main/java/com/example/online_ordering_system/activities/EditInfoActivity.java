@@ -2,6 +2,7 @@ package com.example.online_ordering_system.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -57,6 +58,7 @@ public class EditInfoActivity extends AppCompatActivity {
                 );
                 toast("Your account information has been updated!");
                 resetFields();
+                startActivity(new Intent(EditInfoActivity.this, ProfileActivity.class));
             }
         });
     }

@@ -1,6 +1,7 @@
 package com.example.online_ordering_system.utils;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.online_ordering_system.R;
 import com.example.online_ordering_system.data.Product;
 
@@ -19,6 +21,7 @@ import java.util.List;
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     // To prevent errors from calling getItemCount(). I set this by default
     private List<Product> cartItems;
+    private Context context;
 
     /**
      * Provide a reference to the type of views that you are using
@@ -31,6 +34,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         private ImageView plusBtn;
         private ImageView minusBtn;
         private ImageView removeBtn;
+        //private ImageView productImage;
 
         private RadioButton selectBtn;
 
@@ -42,7 +46,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
             itemName = view.findViewById(R.id.itemNameCart);
             itemQuantity = view.findViewById(R.id.numOfItemCart);
-
+            //productImage = view.findViewById(R.id.cartItemImg);
             plusBtn = view.findViewById(R.id.plusCartBtn);
             minusBtn = view.findViewById(R.id.minusCartBtn);
             removeBtn = view.findViewById(R.id.removeBtnFromCart);
@@ -140,6 +144,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             CartAdapter.this.setCartItems(SessionData.getItemCart());
             this.notifyDataSetChanged();
         });
+
+        //Glide.with(context).load(cartItems.get(position)).into(viewHolder.productImage);
     }
 
     // Return the size of your dataset (invoked by the layout manager)

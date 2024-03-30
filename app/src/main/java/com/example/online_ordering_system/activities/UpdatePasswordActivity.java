@@ -2,6 +2,7 @@ package com.example.online_ordering_system.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,6 +38,7 @@ public class UpdatePasswordActivity extends AppCompatActivity {
                         String.valueOf(currentPass.getText()).equals(sData.getPassword())) {
                     db.updatePassword(String.valueOf(currentPass.getText()), String.valueOf(newPass.getText()));
                     toast("PASSWORD UPDATED");
+                    startActivity(new Intent(UpdatePasswordActivity.this, ProfileActivity.class));
                 } else if (!String.valueOf(newPass.getText()).equals(String.valueOf(repeatPass.getText()))){
                     toast("NEW PASSWORD AND REPEATED PASSWORD IS NOT THE SAME");
                 } else if (!String.valueOf(currentPass.getText()).equals(sData.getPassword())) {
