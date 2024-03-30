@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.online_ordering_system.R;
 import com.example.online_ordering_system.data.Customer;
 import com.example.online_ordering_system.data.Product;
+import com.example.online_ordering_system.data.Shop;
 import com.example.online_ordering_system.data.ReceiptData;
 import com.example.online_ordering_system.utils.SessionData;
 import com.example.online_ordering_system.utils.Utils;
@@ -152,10 +153,10 @@ public class CheckoutActivity extends AppCompatActivity {
             } else {
                 try {
                     Intent intent = new Intent(CheckoutActivity.this, ReceiptActivity.class);
+                    Shop shop = SessionData.getShopById(1);
                     SessionData.setReceipt(
                             new ReceiptData(productName, shippingFee,
-                                    Objects.requireNonNull(SessionData.getShopById(1)).getName(),
-                                    totalPrice, SessionData.getCurrentUser().getAddress()
+                                    shop.getName(), totalPrice, shop.getAddress()
                             )
                     );
                     intent.putExtra("buyType", isSingleProductPurchase ? "single" : "cart");
