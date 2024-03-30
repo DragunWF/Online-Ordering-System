@@ -39,6 +39,7 @@ public class EditInfoActivity extends AppCompatActivity {
         submitBtn = findViewById(R.id.editInfoBtn);
 
         backBtn.setOnClickListener(v -> finish());
+
         submitBtn.setOnClickListener(v -> {
             String newEmail = Utils.getString(editEmailText);
             String newMobileNumber = Utils.getString(editMobileNumberText);
@@ -57,8 +58,8 @@ public class EditInfoActivity extends AppCompatActivity {
                         newEmail, newMobileNumber, newAddress
                 );
                 toast("Your account information has been updated!");
+                updateProfileDetails(newEmail, newMobileNumber, newAddress);
                 resetFields();
-                startActivity(new Intent(EditInfoActivity.this, ProfileActivity.class));
             }
         });
     }
@@ -71,5 +72,17 @@ public class EditInfoActivity extends AppCompatActivity {
         editEmailText.setText("");
         editMobileNumberText.setText("");
         editAddressText.setText("");
+    }
+
+    public void updateProfileDetails(String email, String mobile, String address) {
+        Intent intent = new Intent(EditInfoActivity.this, ProfileActivity.class);
+        Customer userUpdate = SessionData.getCurrentUser();
+        userUpdate.setEmail(email);
+        userUpdate.setMobileNumber(mobile);
+        userUpdate.setAddress(address);
+        userUpdate.getEmail();
+        userUpdate.getMobileNumber();
+        userUpdate.getAddress();
+        startActivity(intent);
     }
 }
