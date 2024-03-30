@@ -30,12 +30,12 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.958" />
+        app:layout_constraintVertical_bias="0.887" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="368dp"
-        android:layout_height="547dp"
+        android:layout_width="372dp"
+        android:layout_height="645dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

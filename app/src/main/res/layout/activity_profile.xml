@@ -7,8 +7,8 @@
     tools:context=".activities.ProfileActivity">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="359dp"
-        android:layout_height="670dp"
+        android:layout_width="360dp"
+        android:layout_height="793dp"
         app:cardCornerRadius="30dp"
         app:cardElevation="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -28,14 +28,13 @@
 
                 <ImageView
                     android:id="@+id/profileImg"
-                    android:layout_width="190dp"
-                    android:layout_height="151dp"
+                    android:layout_width="199dp"
+                    android:layout_height="160dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.144"
+                    app:layout_constraintVertical_bias="0.163"
                     app:srcCompat="@drawable/profile" />
 
                 <ImageView
@@ -44,10 +43,10 @@
                     android:layout_height="48dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.107"
+                    app:layout_constraintHorizontal_bias="0.084"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.043"
+                    app:layout_constraintVertical_bias="0.039"
                     app:srcCompat="?attr/actionModeCloseDrawable" />
 
                 <Button
@@ -91,13 +90,12 @@
 
                 <LinearLayout
                     android:id="@+id/linearLayout3"
-                    android:layout_width="360dp"
-                    android:layout_height="194dp"
-                    android:gravity="center"
+                    android:layout_width="250dp"
+                    android:layout_height="200dp"
+                    android:foregroundGravity="center"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -106,7 +104,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/grotesco_bold"
-                        android:gravity="center"
                         android:text="Username"
                         android:textSize="20sp" />
 
@@ -115,7 +112,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/grotesco_bold"
-                        android:gravity="center"
+
                         android:text="FullName"
                         android:textSize="20sp" />
 
@@ -124,7 +121,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/grotesco_bold"
-                        android:gravity="center"
+
                         android:text="Email"
                         android:textSize="20sp" />
 
@@ -133,16 +130,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/grotesco_bold"
-                        android:gravity="center"
+
                         android:text="Mobile no."
                         android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/profileAddress"
                         android:layout_width="match_parent"
-                        android:layout_height="42dp"
+                        android:layout_height="60dp"
                         android:fontFamily="@font/grotesco_bold"
-                        android:gravity="center"
+
                         android:text="Address"
                         android:textSize="20sp" />
                 </LinearLayout>
