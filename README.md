@@ -49,7 +49,7 @@ After purchase, detailed receipt information is provided, including store name, 
 
 ### O.O.S LOGIC FLOWCHART
 
-![Image of Entity Relationship Diagram] (misc/Online-Order-System (O.O.S) Flowchart.png)
+![Image of Entity Relationship Diagram](images/Online-Order-System-Flowchart.png)
 
 ### SQLite3 Entity Relationship Model
 
