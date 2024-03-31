@@ -47,29 +47,25 @@ After purchase, detailed receipt information is provided, including store name, 
   4. Transaction ID
 - SQLite3 Database
 
-### O.O.S LOGIC FLOWCHART
-
-![Image of Entity Relationship Diagram](images/Online-Order-System-Flowchart.png)
-
 ### SQLite3 Entity Relationship Model
 
 ![Image of Entity Relationship Diagram](images/OOS-DB-Diagram.JPG)
+
+### O.O.S LOGIC FLOWCHART
+
+<img src="images/Online-Order-System-Flowchart.png" alt="App Flowchart Image" width="700">
 
 ---
 
 ## Images of the App
 
-### Landing Page
+### Landing, Login, and Registration Page
 
-<img src="images/LandingPage.png" alt="Landing Page Image" width="225"/>
-
-### Login Page
-
-<img src="images/LoginPage.png" alt="Login Page Image" width="225"/>
-
-### Registration Page
-
-<img src="images/SignUpPage.png" alt="Sign Up Page Image" width="225"/>
+<p float="left">
+  <img src="images/LandingPage.png" alt="Landing Page Image" width="225"/>
+  <img src="images/LoginPage.png" alt="Login Page Image" width="225"/>
+  <img src="images/SignUpPage.png" alt="Sign Up Page Image" width="225"/>
+</p>
 
 ### Product Page
 
@@ -79,30 +75,24 @@ After purchase, detailed receipt information is provided, including store name, 
   <img src="images/ProductPageWithSearch.png" alt="Product Page With Search Functionality Image" width="225"/>
 </p>
 
-### Individual Item/Product Page
+### Individual Item and Item Cart Page
 
-<img src="images/ItemPage.png" alt="Item Page Image" width="225"/>
+<p float="left">
+  <img src="images/ItemPage.png" alt="Item Page Image" width="225"/>
+  <img src="images/ItemCartPage.png" alt="Item Cart Page Image" width="225"/>
+</p>
 
-### Item Cart Page
+### Checkout and Receipt Page
 
-<img src="images/ItemCartPage.png" alt="Item Cart Page Image" width="225"/>
+<p float="left">
+  <img src="images/CheckoutPage.png" alt="Checkout Page Image" width="225"/>
+  <img src="images/ReceiptPage.png" alt="Receipt Page Image" width="225"/>
+</p>
 
-### Checkout Page
+### Profile, Edit Profile, and Edit Password Page
 
-<img src="images/CheckoutPage.png" alt="Checkout Page Image" width="225"/>
-
-### Receipt Page
-
-<img src="images/ReceiptPage.png" alt="Receipt Page Image" width="225"/>
-
-### Profile Page
-
-<img src="images/ProfilePage.png" alt="Profile Page Image" width="225"/>
-
-### Edit Profile Information Page
-
-<img src="images/EditInfoPage.png" alt="Edit Profile Information Page Image" width="225"/>
-
-### Edit Account Password Page
-
-<img src="images/UpdatePasswordPage.png" alt="Update Account Password Image" width="225"/>
+<p float="left">
+  <img src="images/ProfilePage.png" alt="Profile Page Image" width="225"/>
+  <img src="images/EditInfoPage.png" alt="Edit Profile Information Page Image" width="225"/>
+  <img src="images/UpdatePasswordPage.png" alt="Update Account Password Image" width="225"/>
+</p>
