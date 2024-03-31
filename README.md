@@ -96,3 +96,7 @@ After purchase, detailed receipt information is provided, including store name, 
 ## O.O.S Logic Flow Chart
 
 <img src="images/OOS-Flowchart.png" alt="App Flowchart Image" width="700">
+
+## Disclaimer
+
+_This is not actually online but it is more of a simulated experience._
