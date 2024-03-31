@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
     private DatabaseHelper db;
     private List<Product> productList;
-    private List<Integer> testing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
