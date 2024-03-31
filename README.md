@@ -73,9 +73,11 @@ After purchase, detailed receipt information is provided, including store name, 
 
 ### Product Page
 
-<img src="images/ProductsPage.png" alt="Product Page Image" width="225"/>
-<img src="images/ProductPageWithCategory.png" alt="Product Page With Category Filtering Image" width="225"/>
-<img src="images/ProductPageWithSearch.png" alt="Product Page With Search Functionality Image" width="225"/>
+<p float="left">
+  <img src="images/ProductsPage.png" alt="Product Page Image" width="225"/>
+  <img src="images/ProductPageWithCategory.png" alt="Product Page With Category Filtering Image" width="225"/>
+  <img src="images/ProductPageWithSearch.png" alt="Product Page With Search Functionality Image" width="225"/>
+</p>
 
 ### Individual Item/Product Page
 
