@@ -51,10 +51,6 @@ After purchase, detailed receipt information is provided, including store name, 
 
 ![Image of Entity Relationship Diagram](images/OOS-DB-Diagram.JPG)
 
-### O.O.S LOGIC FLOWCHART
-
-<img src="images/Online-Order-System-Flowchart.png" alt="App Flowchart Image" width="700">
-
 ---
 
 ## Images of the App
@@ -96,3 +92,7 @@ After purchase, detailed receipt information is provided, including store name, 
   <img src="images/EditInfoPage.png" alt="Edit Profile Information Page Image" width="225"/>
   <img src="images/UpdatePasswordPage.png" alt="Update Account Password Image" width="225"/>
 </p>
+
+## O.O.S Logic Flow Chart
+
+<img src="images/Online-Order-System-Flowchart.png" alt="App Flowchart Image" width="700">
