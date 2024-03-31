@@ -51,6 +51,50 @@ After purchase, detailed receipt information is provided, including store name, 
 
 ![Image of Entity Relationship Diagram](images/OOS-DB-Diagram.JPG)
 
+---
+
 ## Images of the App
 
-`Section to be added`
+### Landing Page
+
+![Image of Landing Page](images/LandingPage.png)
+
+### Login Page
+
+![Image of Login Page](images/LoginPage.png)
+
+### Registration Page
+
+![Image of Registration Page](images/SignUpPage.png)
+
+### Product Page
+
+![Image of Product Page](images/ProductPage.png)
+
+### Individual Item/Product Page
+
+![Image of Individual Item Page](images/ItemPage.png)
+
+### Item Cart Page
+
+![Image of Item Cart Page](images/ItemCartPage.png)
+
+### Checkout Page
+
+![Image of Checkout Page](images/CheckoutPage.png)
+
+### Receipt Page
+
+![Image of Receipt Page](images/ReceiptPage.png)
+
+### Profile Page
+
+![Image of Profile Page](images/ProfilePage.png)
+
+### Edit Profile Information Page
+
+![Image of Edit Profile Information Page](images/EditInfoPage.png)
+
+### Edit User Password Page
+
+![Image of Edit User Password Page](images/UpdatePasswordPage.png)
