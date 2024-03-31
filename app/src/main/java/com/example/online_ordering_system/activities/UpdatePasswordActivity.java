@@ -33,18 +33,24 @@ public class UpdatePasswordActivity extends AppCompatActivity {
         updatePassBtn = findViewById(R.id.updatePasswordBtn);
 
         updatePassBtn.setOnClickListener(v -> {
-                Customer sData = SessionData.getCurrentUser();
+
                 if  (String.valueOf(newPass.getText()).equals(String.valueOf(repeatPass.getText())) &&
-                        String.valueOf(currentPass.getText()).equals(sData.getPassword())) {
+                        String.valueOf(currentPass.getText()).equals(SessionData.getCurrentUser().getPassword())) {
                     db.updatePassword(String.valueOf(currentPass.getText()), String.valueOf(newPass.getText()));
+                    updateCurrentPassword(Utils.getString(newPass));
                     toast("PASSWORD UPDATED");
                     startActivity(new Intent(UpdatePasswordActivity.this, ProfileActivity.class));
                 } else if (!String.valueOf(newPass.getText()).equals(String.valueOf(repeatPass.getText()))){
                     toast("NEW PASSWORD AND REPEATED PASSWORD IS NOT THE SAME");
-                } else if (!String.valueOf(currentPass.getText()).equals(sData.getPassword())) {
+                } else if (!String.valueOf(currentPass.getText()).equals(SessionData.getCurrentUser().getPassword())) {
                     toast("YOUR CURRENT PASSWORD IS INVALID");
                 }
         });
+    }
+
+    private void updateCurrentPassword(String password) {
+        SessionData.getCurrentUser().setPassword(password);
+        SessionData.getCurrentUser().getPassword();
     }
 
     private void toast(String message) {
