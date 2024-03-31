@@ -47,6 +47,10 @@ After purchase, detailed receipt information is provided, including store name, 
   4. Transaction ID
 - SQLite3 Database
 
+### O.O.S LOGIC FLOWCHART
+
+![Image of Entity Relationship Diagram] (misc/Online-Order-System (O.O.S) Flowchart.png)
+
 ### SQLite3 Entity Relationship Model
 
 ![Image of Entity Relationship Diagram](images/OOS-DB-Diagram.JPG)
