@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.online_ordering_system.R;
@@ -18,7 +19,9 @@ public class UpdatePasswordActivity extends AppCompatActivity {
     private EditText currentPass;
     private EditText newPass;
     private EditText repeatPass;
+
     private Button updatePassBtn;
+    private ImageView backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +33,12 @@ public class UpdatePasswordActivity extends AppCompatActivity {
         currentPass = findViewById(R.id.currentPass);
         newPass = findViewById(R.id.newPass);
         repeatPass = findViewById(R.id.repeatPass);
+
         updatePassBtn = findViewById(R.id.updatePasswordBtn);
+        backBtn = findViewById(R.id.updatePassBackBtn);
 
+        backBtn.setOnClickListener(v -> finish());
         updatePassBtn.setOnClickListener(v -> {
-
                 if  (String.valueOf(newPass.getText()).equals(String.valueOf(repeatPass.getText())) &&
                         String.valueOf(currentPass.getText()).equals(SessionData.getCurrentUser().getPassword())) {
                     db.updatePassword(String.valueOf(currentPass.getText()), String.valueOf(newPass.getText()));
