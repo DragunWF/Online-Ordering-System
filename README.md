@@ -61,44 +61,46 @@ After purchase, detailed receipt information is provided, including store name, 
 
 ### Landing Page
 
-![Image of Landing Page](images/LandingPage.png)
+<img src="images/LandingPage.png" alt="Landing Page Image" width="225"/>
 
 ### Login Page
 
-![Image of Login Page](images/LoginPage.png)
+<img src="images/LoginPage.png" alt="Login Page Image" width="225"/>
 
 ### Registration Page
 
-![Image of Registration Page](images/SignUpPage.png)
+<img src="images/SignUpPage.png" alt="Sign Up Page Image" width="225"/>
 
 ### Product Page
 
-![Image of Product Page](images/ProductPage.png)
+<img src="images/ProductsPage.png" alt="Product Page Image" width="225"/>
+<img src="images/ProductPageWithCategory.png" alt="Product Page With Category Filtering Image" width="225"/>
+<img src="images/ProductPageWithSearch.png" alt="Product Page With Search Functionality Image" width="225"/>
 
 ### Individual Item/Product Page
 
-![Image of Individual Item Page](images/ItemPage.png)
+<img src="images/ItemPage.png" alt="Item Page Image" width="225"/>
 
 ### Item Cart Page
 
-![Image of Item Cart Page](images/ItemCartPage.png)
+<img src="images/ItemCartPage.png" alt="Item Cart Page Image" width="225"/>
 
 ### Checkout Page
 
-![Image of Checkout Page](images/CheckoutPage.png)
+<img src="images/CheckoutPage.png" alt="Checkout Page Image" width="225"/>
 
 ### Receipt Page
 
-![Image of Receipt Page](images/ReceiptPage.png)
+<img src="images/ReceiptPage.png" alt="Receipt Page Image" width="225"/>
 
 ### Profile Page
 
-![Image of Profile Page](images/ProfilePage.png)
+<img src="images/ProfilePage.png" alt="Profile Page Image" width="225"/>
 
 ### Edit Profile Information Page
 
-![Image of Edit Profile Information Page](images/EditInfoPage.png)
+<img src="images/EditInfoPage.png" alt="Edit Profile Information Page Image" width="225"/>
 
-### Edit User Password Page
+### Edit Account Password Page
 
-![Image of Edit User Password Page](images/UpdatePasswordPage.png)
+<img src="images/UpdatePasswordPage.png" alt="Update Account Password Image" width="225"/>
