@@ -10,7 +10,7 @@ After purchase, detailed receipt information is provided, including store name, 
 
 ### Developers
 
-- [DragunWF](https://github.com/DragunWF) - **Leader, Back-End Developer**
+- [DragunWF](https://github.com/DragunWF) - **Back-End Developer, Leader**
 - [JasDevPH](https://github.com/JasDevPH) - **Front-End Developer, UI/UX Designer**
 - [n-gidan](https://github.com/n-ginan) - **Back-End Developer, Assistant**
 
